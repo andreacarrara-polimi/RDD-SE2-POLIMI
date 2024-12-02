@@ -1,5 +1,10 @@
 \documentclass[a4paper, oneside]{book}
 
+\usepackage{hyperref}
+\usepackage{biblatex}
+
+\bibliography{bibliography}
+
 \title{
     Students\&Companies \\
     \Huge Requirements Analysis \\
@@ -26,7 +31,7 @@ In this context, Students\&Companies comes to help by matching university studen
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|p{10.5 cm}|}
     \hline
-    \textbf{ID} & \textbf{ Description} \\ \hline \hline
+    \textbf{ID} & \textbf{Description} \\ \hline \hline
     G1 & S\&C helps match university students and internships based on students' skills and internships' terms. \\ \hline
     G2 & S\&C allows students to search for internships and companies to search for students. \\ \hline
     G3 & S\&C recommends internships to students and students to companies. \\ \hline
@@ -41,8 +46,14 @@ In this context, Students\&Companies comes to help by matching university studen
 \section{Scope}
 \subsection{World Phenomena}
 \subsection{Shared Phenomena}
-\section{Definitions, Acronyms and Abbreviations}
+\section{Glossary}
+\begin{itemize}
+    \item[\textbf{S\&C}] Students\&Companies
+\end{itemize}
+
 \section{Reference Documents}
+The document is structured according to the project assignment and the IEEE 29148:2018 \cite{ieee2018} standard for requirements engineering.
+
 \section{Document Structure}
 
 \chapter{Overall Description}
@@ -62,6 +73,6 @@ In this context, Students\&Companies comes to help by matching university studen
 
 \chapter{Workload}
 
-% Bibliography
+\printbibliography
 
 \end{document}
