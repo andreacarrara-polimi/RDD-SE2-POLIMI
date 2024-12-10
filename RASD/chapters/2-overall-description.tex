@@ -17,9 +17,10 @@ Ben Pinter, a first-year Master's student in computer science, is eager to gain 
 To streamline his search and avoid the inefficiency of navigating multiple websites and job boards, Ben registers on the S\&CP, hoping to find opportunities aligned with his academic background and career goals.
 Accessing the platform via a browser, he selects the "Register as a Student" option and completes his profile by providing essential details, including his name, surname and email.
 He also has the option to upload add information such as his CV and personal preferences.
-These preferences may include availability, expected salary or benefits and certifications, whether technical or linguistic.
+These preferences may include availability, expected salary and benefits.
 
-Lastly, a university can register on the S\&CP by clicking "Register as a University." When a student like Ben registers, he can link his profile to his university. This connection enables the university to monitor Ben's internships effectively.
+Lastly, TechVille University, where Ben is enrolled, recognizes the importance of staying involved in students’ professional development to ensure they gain valuable experience and meet academic standards.
+To facilitate this, TechVille University registers on the S\&CP by selecting "Register as a University" and providing its details. By linking Ben’s profile to the university through his institutional email, the platform allows TechVille University to automatically monitor Ben’s internships, ensuring alignment with educational goals and providing support throughout his professional journey.
 
 \subsubsection{Scenario 2: Internship Posting and Candidate Matching}
 AlgoSphere wants to publish an internship position in AI. It clicks the corresponding button and describe the opportunity by outlining its tasks, application domains, project scopes and offered terms such as salary and benefits.
@@ -58,23 +59,77 @@ In the same way, companies can evaluate the platform's ability to provide suitab
 \subsection{Class Diagram}
 \subsection{State Diagrams}
 \section{Product Functions}
+The following is a summary of the main functions of Students\&Companies, providing a concise abstraction and generalization of its goals and scenarios.
+This serves as an intermediate step bridging goals, scenarios and use cases.
+
+\textbf{\textcolor{polimiblue}{Function 1: Registering as a Company}}
+
+A company registers by providing its name, email and field of operation.
+
+\textbf{\textcolor{polimiblue}{Function 2: Registering as a Student}}
+
+Students register by submitting their name, surname and institutional email.
+They can upload a CV and set preferences.
+
+\textbf{\textcolor{polimiblue}{Function 3: Registering as a University}}
+
+Universities register by submitting their name and email.
+Students with the same institutional email domain are automatically linked, allowing seamless monitoring.
+
+\textbf{\textcolor{polimiblue}{Function 4: Posting an Internship}}
+
+Companies can publish internship opportunities by specifying their tasks, application domains, project scopes and terms.
+
+\textbf{\textcolor{polimiblue}{Function 5: Searching for Internships}}
+
+Students use the search bar to find internships by keywords. 
+
+\textbf{\textcolor{polimiblue}{Function 6: Recommendations}}
+
+Students are recommended to companies based on skills and preferences. In turn, students are recommended tailored opportunities from suitable companies.
+
+\textbf{\textcolor{polimiblue}{Function 7: Applying for an Internship}}
+
+Students apply for internships and notifications are sent to the corresponding company.
+
+\textbf{\textcolor{polimiblue}{Function 8: Application Management}}
+
+Companies receive notifications for new applications and can review candidates’ profiles.
+
+\textbf{\textcolor{polimiblue}{Function 9: Selection Process}}
+
+Companies assess candidates through questionnaires and scheduled interviews, available in both virtual and in-person.
+They then finalize the outcome, with notifications keeping both parties informed at every stage.
+
+\textbf{\textcolor{polimiblue}{Function 10: Internship Monitoring}}
+
+Students, companies and universities are updated of the status of an internship through notifications.
+The platform also enables students to submit complaints through comments.
+
+\textbf{\textcolor{polimiblue}{Function 11: Feedback Submission}}
+
+Students and companies provide feedback on matchmaking to refine the statistical analysis on which recommendations are based.
+
+\textbf{\textcolor{polimiblue}{Function 12: Logout}}
+
+Users can end their session and must log in again to reaccess the platform.
+
 \section{User Characteristics}
 Students\&Companies has three types of users: university students, companies and universities.
 Below is a brief explanation of their main characteristics and identities.
 
 \subsubsection{University Students}
-A university student can register on the system by providing a valid institutional email address and a password in their personal data.
-They can also link their profile to their university, upload a CV and specify personal preferences for internships, including availability and desired benefits.
+University students are the users seeking internships.
+A student can register by providing a valid institutional email address and a password in their personal data.
+They can also upload a CV and specify personal preferences, including availability and benefits.
 
 \subsubsection{Companies}
-On S\&C, "Company" mainly refers to the human resources department acting on behalf of the organization.
-The HR representative uses the platform to post internship opportunities and search for suitable candidates.
+Companies are the users offering internships and they are typically represented by the human resources department acting on behalf of the organization.
 Registration requires providing the company name, a valid email address and its field of expertise.
 
 \subsubsection{Universities}
-On S\&C, a "University" typically represents the career services department acting on behalf of the institution.
-The career services representative uses the platform to oversee students' activities, including internship progress.
-Registration requires the university's formal name and a valid institutional email address.
+Universities are the users monitoring their students and they are typically represented by the career services department acting on behalf of the institution.
+Registration requires the university's name and a valid institutional email address.
 
 \section{Assumptions and Constraints}
 The table below outlines the domain assumptions of Students\&Companies:
