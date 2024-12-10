@@ -1,0 +1,181 @@
+Universities focus on academic subjects and emphasize theoretical knowledge, often leaving students without sufficient practical experience.
+Internships fill this gap by helping students refine their skills, understand leadership dynamics, gain insights into workplace culture and build professional networks.
+However, finding internships can be challenging due to limited knowledge of relevant companies and matching the right student with the right opportunity is even harder for both students and companies, given the difficulty in assessing competencies.
+In this context, Students\&Companies comes to help by connecting university students with internships offered by companies.
+
+\section{Purpose}
+Students\&Companies is designed to connect university students seeking internships with companies offering them.
+The platform enables students to proactively search through a wide range of internship opportunities, filtering based on skills and interests.
+It also provides personalized recommendations using advanced mechanisms, from keyword matching to statistical analysis.
+
+Students can enhance their profiles by adding CVs and specifying job preferences, ensuring their applications are tailored and relevant.
+Companies, in turn, can post detailed job descriptions, outlining project details, required skills and terms of the internship, such as compensation or mentorship opportunities, to attract the right candidates.
+
+Beyond matching, S\&C streamlines the entire selection process.
+Companies can manage interviews, use structured questionnaires to evaluate candidates and finalize decisions directly through the platform. 
+
+S\&C also supports internships after placement.
+Both students and companies can track progress, exchange comments through feedback tools and address concerns via complaint mechanisms, promoting transparency and accountability.
+Universities can actively oversee students' internships, ensuring quality experiences and adequate support.
+
+Lastly, to feed the statistical analysis applied during recommendations, S\&C collects diverse information about internships through forms. This includes feedback and suggestions from both students and companies, enhancing the platform's ability to refine and personalize its recommendation system.
+
+\subsection{Goals}
+By analyzing the previous description of the product and by clustering its features, the following goals emerge:
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|p{12.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    G1 & S\&C helps match university students and internships based on students' profiles and internships' descriptions. \\ \hline
+    G2 & S\&C allows students to search for internships and companies to search for students. \\ \hline
+    G3 & S\&C recommends internships to students and students to companies. \\ \hline
+    G4 & S\&C establishes a contact between matched students and companies. \\ \hline
+    G5 & S\&C provides support for the selection process. \\ \hline
+    G7 & S\&C lets students, companies and universities monitor the matchmaking process, the selection process and the internship's progress. \\ \hline
+    G6 & S\&C collects data to improve recommendations. \\ \hline
+\caption{Goals}
+\end{longtable}
+
+\section{Scope}
+To clearly understand the scope of Students\&Companies, it is helpful to characterize its context using the world and the machine model \cite{jackson1995}.
+The system is divided in two: the machine, representing the software to be developed, and the world, encompassing the portion of reality it influences.
+This approach allows for a formal definition of the world and shared phenomena, facilitating a better analysis of the product's domain.
+
+\subsection{World Phenomena}
+The machine does not observe the following world phenomena:
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{longtable}{|c|p{10.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    WP1 & A US wants to do an IN. \\ \hline
+    WP2 & A CO wants to offer an IN. \\ \hline
+    WP3 & A US writes his CV. \\ \hline
+    WP4 & A US does an interview at a CO. \\ \hline
+    WP5 & A US does an IN at a CO. \\ \hline
+\caption{World phenomena}
+\end{longtable}
+
+\subsection{Shared Phenomena}
+The following are phenomena involving both the real world and the machine, categorized by their controller and observer:
+
+\subsubsection{Controller: World - Observer : Machine}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{longtable}{|c|p{10.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    SP1 & A US registers on the S\&CP. \\ \hline
+    SP2 & A US deletes his profile.\\ \hline
+    SP3 & A US logs in the S\&CP. \\ \hline
+    SP4 & A US logs out. \\ \hline
+    SP5 & A US adds his CV. \\ \hline
+    SP6 & A US updates his CV. \\ \hline
+    SP7 & A US adds preferences on INs. \\ \hline
+    SP8 & A US updates preferences on INs. \\ \hline
+    SP9 & A US proactively searches for an IN. \\ \hline
+    SP10 & A US views a recommended IN. \\ \hline
+    SP11 & A US fills out a form on recommendations. \\ \hline
+    SP12 & A US applies to an IN. \\ \hline
+    SP13 & A US withdraws an application. \\ \hline
+    SP14 & A US views the status of a selection process. \\ \hline
+    SP15 & A US fills out a questionnaire for a selection process. \\ \hline
+    SP16 & A US views the status of an IN. \\ \hline
+    SP17 & A US comments an IN. \\ \hline
+    SP18 & A US views a comment. \\ \hline
+
+    SP19 & A CO registers on the S\&CP. \\ \hline
+    SP20 & A CO deletes its profile. \\ \hline
+    SP21 & A CO logs in the S\&CP. \\ \hline
+    SP22 & A CO logs out. \\ \hline
+    SP23 & A CO offers an IN. \\ \hline
+    SP24 & A CO removes an IN. \\ \hline
+    SP25 & A CO adds the description of an IN. \\ \hline
+    SP26 & A CO updates the description of an IN. \\ \hline
+    SP27 & A CO views a recommended US. \\ \hline
+    SP28 & A CO fills out a form on recommendations. \\ \hline
+    SP29 & A CO updates the status of a selection process. \\ \hline
+    SP30 & A CO adds a questionnaire for a selection process. \\ \hline
+    SP31 & A CO updates the status of an IN. \\ \hline
+    SP32 & A CO comments an IN. \\ \hline
+    SP33 & A CO views a comment. \\ \hline
+    
+    SP34 & A UN registers on the S\&CP. \\ \hline
+    SP35 & A UN deletes its profile. \\ \hline
+    SP36 & A UN logs in the S\&CP. \\ \hline
+    SP37 & A UN logs out. \\ \hline
+    SP38 & A UN views the status of an IN. \\ \hline
+    SP39 & A UN comments an IN. \\ \hline
+    SP40 & A UN views a comment. \\ \hline
+\caption{Shared phenomena controlled by the world and observed by the machine}
+\end{longtable}
+
+
+
+\subsubsection{Controller: Machine - Observer : World}
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|p{10.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    SP1 & S\&CP notifies a US of a recommended IN. \\ \hline
+    SP2 & S\&CP notifies a CO of a recommended US. \\ \hline
+    SP3 & S\&CP notifies a US of an established contact with a CO. \\ \hline
+    SP4 & S\&CP notifies a CO of an established contact with a US. \\ \hline
+    SP5 & S\&CP notifies a US of an update on a selection process. \\ \hline
+    SP6 & S\&CP notifies a CO of an update on a selection process. \\ \hline
+    SP7 & S\&CP notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
+    SP8 & S\&CP notifies a CO if a US filled out a questionnaire for a selection process. \\ \hline
+    SP9 & S\&CP notifies a US of an update on the status of an IN. \\ \hline
+    SP10 & S\&CP notifies a CO of an update on the status of an IN. \\ \hline
+    SP11 & S\&CP notifies a UN of an update on the status of an IN. \\ \hline
+    SP11 & S\&CP notifies a US of a comment on an IN. \\ \hline
+    SP11 & S\&CP notifies a CO of a comment on an IN. \\ \hline
+    SP11 & S\&CP notifies a UN of a comment on an IN. \\ \hline
+\caption{Shared phenomena controlled by the machine and observed by the world}
+\end{longtable}
+
+\section{Glossary}
+Below are listed definitions, acronyms and abbreviations used throughout the document:
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|p{10.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    S\&C & Students\&Companies \\ \hline
+    S\&CP & Students\&Companies Platform \\ \hline
+    US & University student \\ \hline
+    IN & Internship \\ \hline
+    CO & Company \\ \hline
+    UN & University \\ \hline
+    CV & Curriculum vitae \\ \hline
+\caption{Glossary}
+\end{longtable}
+
+\section{Reference Documents}
+The document is structured according to the IEEE 29148:2018 standard for requirements engineering \cite{ieee2018} and the project assignment by Professor Di Nitto \cite{project2024}.
+
+\section{Document Structure}
+The purpose of the document is to analyze the requirements and describe the specification of Students\&Companies.
+It is intended for developers tasked with implementation, but it also serves as a mutual agreement between customers and contractors.
+Its structure follows a top-down approach, starting with a high-level overview of the problem and requirements and progressing to more detailed descriptions.
+The document is divided into five chapters, each with a distinct scope and objective, as outlined below.
+
+\subsubsection{Introduction}
+The first chapter starts by contextualizing the problem, introducing the product and defining its goals.
+It also provides a detailed list of global and shared phenomena and concludes with a glossary essential for understanding the subsequent chapters.
+
+\subsubsection{Overall Description}
+The second chapter offers a thorough examination of the problem, exploring the domain in greater detail through various scenarios and the use of class and state diagrams.
+It also addresses product and user characteristics, along with assumptions and constraints.
+
+\subsubsection{Specific Requirements}
+The third chapter focuses on a detailed analysis of the specific requirements, providing comprehensive insights into external interface requirements, functional requirements and performance requirements.
+
+\subsubsection{Formal Analysis}
+The fourth chapter utilizes Alloy for formal analysis, aiming to validate the accuracy of the model outlined in the previous sections.
+It emphasizes presenting the results of the checks performed and the relevant assertions.
+
+\subsubsection{Effort Spent}
+Chapter five quantifies the contributions of the two authors in writing this document.

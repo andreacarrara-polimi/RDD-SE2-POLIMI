@@ -1,117 +1,76 @@
-\documentclass[a4paper, oneside]{book}
+\documentclass{template/class}
 
-\usepackage{hyperref}
+\usepackage[T1]{fontenc}
 \usepackage{parskip}
-\usepackage{biblatex}
 
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{3.3ex}{2ex}
+\titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
+\titlespacing{\subsubsection}{0pt}{3.3ex}{1ex}
+\usepackage{fancyhdr}
+\fancyhf{}
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=black,
+    anchorcolor=black,
+    citecolor=black,
+    filecolor=black,
+    menucolor=black,
+    runcolor=black,
+    urlcolor=black
+]{hyperref}
+
+\usepackage{biblatex}
 \bibliography{bibliography}
 
-\title{
-    Students\&Companies \\
-    \Huge Requirements Analysis \\
-    and Specification Document
-}
-\author{Andrea Carrara and Federica Currò Dossi}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{transparent}
+\usepackage{eso-pic}
+
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{longtable}
+
+\usepackage{amsthm}
+\usepackage{fix-cm}
+\usepackage{algorithm}
+
+\input{template/config}
 
 \begin{document}
 
-\maketitle
+\frontmatter
+
+\puttitle{
+	title=Students\&Companies,
+    subtitle=Requirements Analysis\\and Specification Document,
+	authors=Andrea Carrara\\e Federica Currò Dossi,
+	date=22nd of December 2024
+}
 
 \tableofcontents
 
+\mainmatter
+\setcounter{page}{1}
+
 \chapter{Introduction}
-Universities teach academic subjects and emphasize theoretical knowledge.
-On the other hand, internships offer a crucial dimension thus often lacking in students, that of practical experience.
-They help students refine their skills, understand leadership dynamics, gain insights into workplace culture and build professional networks.
-However, finding internships is hard, due to limited knowledge of relevant companies, and finding the right fit is even harder, both for students and companies, due to difficulties in assessing competencies.
-In this context, Students\&Companies comes to help by matching university students and internships advertised by companies.
-
-\section{Purpose}
-\subsection{Goals}
-By breaking down the previous description of the product and by clustering its functionalities, the following goals are defined:
-
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|c|p{10.5 cm}|}
-    \hline
-    \textbf{ID} & \textbf{Description} \\ \hline \hline
-    G1 & S\&C helps match university students and internships based on students' skills and internships' terms. \\ \hline
-    G2 & S\&C allows students to search for internships and companies to search for students. \\ \hline
-    G3 & S\&C recommends internships to students and students to companies. \\ \hline
-    G4 & S\&C establishes a contact between matched students and companies. \\ \hline
-    G5 & S\&C provides support for the selection process. \\ \hline
-    G6 & S\&C collects data to improve recommendations. \\ \hline
-    G7 & S\&C helps universities, students and companies monitor the matchmaking process, the selection process and the internship's status. \\ \hline
-\end{tabular}
-\caption{Goals.}
-\end{table}
-
-\section{Scope}
-To clearly understand the scope of Students\&Companies, it is useful characterize its context referencing The World and the Machine model. The system is divided in half: the machine is the software to be developed and the world is the portion of reality it affects. This way, world and shared phenomena are formally defined to better analyze the domain of the product.
-
-\subsection{World Phenomena}
-World phenomena that the machine does not observe follow:
-
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|c|p{10.5 cm}|}
-    \hline
-    \textbf{ID} & \textbf{Description} \\ \hline \hline
-    WP1 & A US wants to do an IN. \\ \hline
-    WP2 & A CO wants to advertise an IN. \\ \hline
-    WP3 & A US has a CV. \\ \hline
-    WP4 & A CO interviews a US. \\ \hline
-    WP5 & A US does an IN at a CO. \\ \hline
-\end{tabular}
-\caption{World phenomena.}
-\end{table}
-
-\subsection{Shared Phenomena}
-\section{Glossary}
-Below are listed definitions, acronyms and abbreviations used throughout the document:
-
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|c|p{10.5 cm}|}
-    \hline
-    \textbf{ID} & \textbf{Description} \\ \hline \hline
-    S\&C & Students\&Companies \\ \hline
-    US & University student \\ \hline
-    CO & Company \\ \hline
-    IN & Internship \\ \hline
-\end{tabular}
-\caption{Glossary.}
-\end{table}
-
-\section{Reference Documents}
-The document is structured according to the project assignment \cite{project2024} by Professor Di Nitto and the IEEE 29148:2018 \cite{ieee2018} standard for requirements engineering.
-
-\section{Document Structure}
-The purpose of the document is to analyze the requirements and describe the specification of Students\&Companies.
-It is intended for developers tasked with implementing the product and acts as a mutual agreement between customers and contractors.
-The document is structured in five sections, each with their own scope and objective, as outlined below.
-
-\textbf{Introduction} The first section starts by contextualizing the problem and introducing the product.
-Then, it lays down its goals and a comprehensive list of both global and shared phenomena.
-Lastly, the section includes a glossary essential to understand the following ones.
+\input{chapters/1-introduction}
 
 \chapter{Overall Description}
-\section{Product Perspective}
-\section{Product Functions}
-\section{User Characteristics}
-\section{Assumptions, Dependencies and Constraints}
+\input{chapters/2-overall-description}
 
 \chapter{Specific Requirements}
-\section{External Interface Requirements}
-\section{Functional Requirements}
-\section{Performance Requirements}
-\subsection{Design Constraints}
-\subsection{Software System Attributes}
-
 \chapter{Formal Analysis}
-
-\chapter{Workload}
+\chapter{Effort Spent}
 
 \printbibliography
+
+\listoffigures
+
+\listoftables
+
+\cleardoublepage
 
 \end{document}

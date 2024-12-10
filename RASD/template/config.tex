@@ -1,0 +1,44 @@
+\newcommand\numfontsize{\@setfontsize\Huge{200}{60}}
+
+\newcommand{\hsp}{\hspace{0pt}}
+
+\makeatletter
+\renewcommand*\cleardoublepage{
+    \clearpage
+    \if@twoside
+        \ifodd\c@page\else\null
+            \AddToShipoutPicture*\backgroundbl
+            \thispagestyle{empty}
+            \newpage
+            \if@twocolumn
+                \hbox{}
+                \newpage
+            \fi
+        \fi
+    \fi
+}
+\makeatother
+
+\definecolor{polimiblue}{cmyk}{.4,.1,0,.4}
+
+\titleformat{\chapter}[hang]{\fontsize{50}{20}\selectfont\bfseries\filright}{
+    \textcolor{polimiblue}
+    \thechapter\hsp\hspace{2mm}\textcolor{polimiblue}{|   }
+    \hsp
+}{0pt}{\huge\bfseries\textcolor{polimiblue}}
+
+\titleformat{\section}
+{\color{polimiblue}\normalfont\Large\bfseries}
+{\color{polimiblue}\thesection.}{1em}{}
+
+\titleformat{\subsection}
+{\color{polimiblue}\normalfont\large\bfseries}
+{\color{polimiblue}\thesubsection.}{1em}{}
+
+\titleformat{\subsubsection}
+{\color{polimiblue}\normalfont\large\bfseries}
+{\color{polimiblue}\thesubsubsection.}{1em}{}
+
+\captionsetup[table]{labelfont={color=polimiblue}}
+\captionsetup[figure]{labelfont={color=polimiblue}}
+\captionsetup[algorithm]{labelfont={color=polimiblue}}
