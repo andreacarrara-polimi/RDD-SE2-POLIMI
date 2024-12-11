@@ -18,13 +18,36 @@ This includes providing users with tools to manage their personal data, such as 
 Secure handling is particularly important for documents like CVs, which may contain highly sensitive personal information.
 
 \subsection{Hardware limitations}
-Users are required to access the S\&CP via devices equipped with stable internet connections and modern web browsers, mainly Chrome, Safari or Edge.
+Users are required to access the S\&CP via devices equipped with stable internet connections and modern web browsers, mainly Chrome, Safari and Edge.
 While desktops and laptops provide the optimal user experience for document uploads and extensive browsing, the platform must ensure functionality on mobile devices.
 Additionally, the platform must account for varying device capabilities, including lower bandwidth environments, by employing lightweight designs and caching where appropriate.
 
 \section{Software System Attributes}
+This section describes the essential software qualities that the Students\&Companies platform must maintain to deliver a reliable, secure and interactive experience, capable of supporting its users effectively while accommodating future growth and enhancements.
+
 \subsection{Reliability}
+The system must be fault tolerant, capable of preventing error propagation and ensuring continuous usability.
+Mechanisms such as database replication, automated failover and regular backups must be in place to maintain reliability.
+Critical tasks like applications, postings and updates must remain operational even during system failures, with immediate recovery protocols.
+
 \subsection{Availability}
+The S\&CP must achieve a minimum availability rate of 99.9\%, limiting downtime to approximately 8.76 hours per year.
+Maintenance should be minimized and scheduled during low-traffic periods, such as nighttime, to prevent disruptions.
+Special care must be taken to ensure platform availability during peak usage periods, such as application deadlines or high-profile internship postings.
+
 \subsection{Security}
+The platform must implement robust access control, ensuring authentication to verify user identities and authorization to confirm permissions for specific actions.
+All communication must be encrypted using protocols like HTTPS with TLS 1.3 or higher to prevent data breaches.
+The database must employ measures to defend against vulnerabilities such as SQL injection attacks and all user credentials and personal data must be securely stored using encryption techniques.
+Regular security audits, penetration testing and monitoring systems will ensure the platform's resilience against cyber threats.
+
 \subsection{Maintainability}
+The S\&CP must be designed using scalable and reusable models, allowing the addition of new features or improvements with minimal effort.
+Modular architecture is essential to enable independent updates to components without impacting the entire system.
+Maintenance windows must be scheduled during off-peak hours, typically at night, to ensure uninterrupted access during high-traffic periods.
+Detailed documentation and automated testing must support maintenance and future development.
+
 \subsection{Portability}
+The platform must be accessible from all major web browsers, including Chrome, Safari and Edge, on both desktop and mobile devices.
+The design must be responsive, ensuring usability across various screen sizes and resolutions.
+While there are no specific server-side requirements, the system should support infrastructure migrations if necessary, such as moving to cloud-based solutions for enhanced scalability and flexibility.
