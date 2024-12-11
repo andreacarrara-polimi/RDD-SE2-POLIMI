@@ -8,6 +8,25 @@
 \subsection{Requirements}
 \subsection{Mapping on goals}
 \section{Performance Requirements}
+To ensure an efficient and interactive experience, the Students\&Companies platform must meet stringent performance requirements that address scalability, data management and responsiveness under varying loads.
+
+\subsubsection{Number of Concurrent Users}
+Students\&Companies is expected to handle a significant user base, as it will cater to multiple universities.
+To ensure a seamless experience, the platform must support at least 20\% of active users simultaneously, which could mean up to 50,000 users at peak times.
+This guarantees stability and reliability during critical periods, such as application deadlines and recruitment drives.
+
+\subsubsection{Data Storage}
+The system must maintain records of both student profiles and company offerings.
+Historical data such as past internships, feedback scores and selection outcomes should be preserved for analytics and future reference.
+In general, no data should be deleted without explicit consent, ensuring transparency and trust.
+
+\subsubsection{Response Time}
+Core operations like user authentication, profile updates and search queries should execute within two seconds under normal conditions.
+During high-load scenarios, response times may increase but must remain reasonable.
+
+Additionally, the platform's matching algorithm should generate internship recommendations within three seconds, ensuring an friendly experience for users and avoiding their frustration and disengagement.
+Feedback mechanisms must operate swiftly, delivering results to stakeholders within 10 seconds after computation.
+
 \section{Design Constraints}
 This section outlines the constraints that define the operational boundaries and compliance requirements of the Students\&Companies platform.
 
