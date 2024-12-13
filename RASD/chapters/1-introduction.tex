@@ -1,7 +1,7 @@
 Universities focus on academic subjects and emphasize theoretical knowledge, often leaving students without sufficient practical experience.
 Internships fill this gap by helping students refine their skills, understand leadership dynamics, gain insights into workplace culture and build professional networks.
 However, finding internships can be challenging due to limited knowledge of relevant companies and matching the right student with the right opportunity is even harder for both students and companies, given the difficulty in assessing competencies.
-In this context, Students\&Companies comes to help by connecting university students with internships offered by companies.
+In this context, Students\&Companies comes to help by connecting university students with companies offering internships.
 
 \section{Purpose}
 Students\&Companies is designed to connect university students seeking internships with companies offering them.
@@ -16,9 +16,9 @@ Companies can manage interviews, use structured questionnaires to evaluate candi
 
 S\&C also supports internships after placement.
 Both students and companies can track progress, exchange comments through feedback tools and address concerns via complaint mechanisms, promoting transparency and accountability.
-Universities can actively oversee students' internships, ensuring quality experiences and adequate support.
+Universities can also actively oversee students' internships, ensuring quality experiences and adequate support.
 
-Lastly, to feed the statistical analysis applied during recommendations, S\&C collects diverse information about internships through forms. This includes feedback and suggestions from both students and companies, enhancing the platform's ability to refine and personalize its recommendation system.
+Lastly, to feed the statistical analysis applied during recommendations, S\&C collects feedback about internships through forms from both students and companies, enhancing the platform's ability to refine and personalize its recommendation system.
 
 \subsection{Goals}
 By analyzing the previous description of the product and by clustering its features, the following goals emerge:
@@ -33,7 +33,7 @@ By analyzing the previous description of the product and by clustering its featu
     G4 & S\&C establishes a contact between matched students and companies. \\ \hline
     G5 & S\&C provides support for the selection process. \\ \hline
     G7 & S\&C lets students, companies and universities monitor the matchmaking process, the selection process and the internship's progress. \\ \hline
-    G6 & S\&C collects data to improve recommendations. \\ \hline
+    G6 & S\&C collects feedback to improve recommendations. \\ \hline
 \caption{Goals}
 \end{longtable}
 
@@ -58,7 +58,7 @@ The machine does not observe the following world phenomena:
 \end{longtable}
 
 \subsection{Shared Phenomena}
-The following are phenomena involving both the real world and the machine, categorized by their controller and observer:
+The following are phenomena involving both the world and the machine, categorized by their controller and observer:
 
 \subsubsection{Controller: World - Observer : Machine}
 \renewcommand{\arraystretch}{1.5}
@@ -66,72 +66,81 @@ The following are phenomena involving both the real world and the machine, categ
 \begin{longtable}{|c|p{10.5cm}|}
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
-    SP1 & A US registers on the S\&CP. \\ \hline
+    SP1 & A US registers on S\&C. \\ \hline
     SP2 & A US deletes his profile.\\ \hline
-    SP3 & A US logs in the S\&CP. \\ \hline
+    SP3 & A US logs in S\&C. \\ \hline
     SP4 & A US logs out. \\ \hline
     SP5 & A US adds his CV. \\ \hline
     SP6 & A US updates his CV. \\ \hline
     SP7 & A US adds preferences on INs. \\ \hline
     SP8 & A US updates preferences on INs. \\ \hline
     SP9 & A US proactively searches for an IN. \\ \hline
-    SP10 & A US views a recommended IN. \\ \hline
-    SP11 & A US fills out a form on recommendations. \\ \hline
-    SP12 & A US applies to an IN. \\ \hline
-    SP13 & A US withdraws an application. \\ \hline
-    SP14 & A US views the status of a selection process. \\ \hline
-    SP15 & A US fills out a questionnaire for a selection process. \\ \hline
-    SP16 & A US views the status of an IN. \\ \hline
-    SP17 & A US comments an IN. \\ \hline
-    SP18 & A US views a comment. \\ \hline
+    SP10 & A US applies to an IN. \\ \hline
+    SP11 & A US withdraws an application. \\ \hline
+    SP12 & A US views a recommended IN. \\ \hline
+    SP13 & A US accepts a recommended IN. \\ \hline
+    SP14 & A US fills out a feedback form. \\ \hline
+    SP15 & A US views the status of a selection process. \\ \hline
+    SP16 & A US updates the status of a selection process. \\ \hline
+    SP17 & A US fills out a questionnaire for a selection process. \\ \hline
+    SP18 & A US views the outcome of a selection process. \\ \hline
+    SP19 & A US views the status of an IN. \\ \hline
+    SP20 & A US updates the status of an IN. \\ \hline
+    SP21 & A US comments an IN. \\ \hline
+    SP22 & A US views a comment. \\ \hline
 
-    SP19 & A CO registers on the S\&CP. \\ \hline
-    SP20 & A CO deletes its profile. \\ \hline
-    SP21 & A CO logs in the S\&CP. \\ \hline
-    SP22 & A CO logs out. \\ \hline
-    SP23 & A CO offers an IN. \\ \hline
-    SP24 & A CO removes an IN. \\ \hline
-    SP25 & A CO adds the description of an IN. \\ \hline
-    SP26 & A CO updates the description of an IN. \\ \hline
-    SP27 & A CO views a recommended US. \\ \hline
-    SP28 & A CO fills out a form on recommendations. \\ \hline
-    SP29 & A CO updates the status of a selection process. \\ \hline
-    SP30 & A CO adds a questionnaire for a selection process. \\ \hline
-    SP31 & A CO updates the status of an IN. \\ \hline
-    SP32 & A CO comments an IN. \\ \hline
-    SP33 & A CO views a comment. \\ \hline
+    SP23 & A CO registers on S\&C. \\ \hline
+    SP24 & A CO deletes its profile. \\ \hline
+    SP25 & A CO updates its profile. \\ \hline
+    SP26 & A CO logs in S\&C. \\ \hline
+    SP27 & A CO logs out. \\ \hline
+    SP28 & A CO offers an IN. \\ \hline
+    SP29 & A CO removes an IN. \\ \hline
+    SP30 & A CO adds the description of an IN. \\ \hline
+    SP31 & A CO updates the description of an IN. \\ \hline
+    SP32 & A CO views a recommended US. \\ \hline
+    SP33 & A CO accepts a recommended US. \\ \hline
+    SP34 & A CO fills out a feedback form. \\ \hline
+    SP35 & A CO views the status of a selection process. \\ \hline
+    SP36 & A CO updates the status of a selection process. \\ \hline
+    SP37 & A CO adds a questionnaire for a selection process. \\ \hline
+    SP38 & A CO views a questionnaire for a selection process. \\ \hline
+    SP39 & A CO updates the outcome of a selection process. \\ \hline
+    SP40 & A CO views the status of an IN. \\ \hline
+    SP41 & A CO updates the status of an IN. \\ \hline
+    SP42 & A CO comments an IN. \\ \hline
+    SP43 & A CO views a comment. \\ \hline
     
-    SP34 & A UN registers on the S\&CP. \\ \hline
-    SP35 & A UN deletes its profile. \\ \hline
-    SP36 & A UN logs in the S\&CP. \\ \hline
-    SP37 & A UN logs out. \\ \hline
-    SP38 & A UN views the status of an IN. \\ \hline
-    SP39 & A UN comments an IN. \\ \hline
-    SP40 & A UN views a comment. \\ \hline
+    SP44 & A UN registers on S\&C. \\ \hline
+    SP45 & A UN deletes its profile. \\ \hline
+    SP46 & A UN logs in S\&C. \\ \hline
+    SP47 & A UN logs out. \\ \hline
+    SP48 & A UN views the status of an IN. \\ \hline
+    SP49 & A UN updates the status of an IN. \\ \hline
+    SP50 & A UN comments an IN. \\ \hline
+    SP51 & A UN views a comment. \\ \hline
 \caption{Shared phenomena controlled by the world and observed by the machine}
 \end{longtable}
-
-
 
 \subsubsection{Controller: Machine - Observer : World}
 \renewcommand{\arraystretch}{1.5}
 \begin{longtable}{|c|p{10.5cm}|}
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
-    SP1 & S\&CP notifies a US of a recommended IN. \\ \hline
-    SP2 & S\&CP notifies a CO of a recommended US. \\ \hline
-    SP3 & S\&CP notifies a US of an established contact with a CO. \\ \hline
-    SP4 & S\&CP notifies a CO of an established contact with a US. \\ \hline
-    SP5 & S\&CP notifies a US of an update on a selection process. \\ \hline
-    SP6 & S\&CP notifies a CO of an update on a selection process. \\ \hline
-    SP7 & S\&CP notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
-    SP8 & S\&CP notifies a CO if a US filled out a questionnaire for a selection process. \\ \hline
-    SP9 & S\&CP notifies a US of an update on the status of an IN. \\ \hline
-    SP10 & S\&CP notifies a CO of an update on the status of an IN. \\ \hline
-    SP11 & S\&CP notifies a UN of an update on the status of an IN. \\ \hline
-    SP11 & S\&CP notifies a US of a comment on an IN. \\ \hline
-    SP11 & S\&CP notifies a CO of a comment on an IN. \\ \hline
-    SP11 & S\&CP notifies a UN of a comment on an IN. \\ \hline
+    SP52 & S\&C notifies a US of a recommended IN. \\ \hline
+    SP53 & S\&C notifies a CO of a recommended US. \\ \hline
+    SP55 & S\&C notifies a US of an established contact with a CO. \\ \hline
+    SP55 & S\&C notifies a CO of an established contact with a US. \\ \hline
+    SP56 & S\&C notifies a US of an update on a selection process. \\ \hline
+    SP57 & S\&C notifies a CO of an update on a selection process. \\ \hline
+    SP58 & S\&C notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
+    SP59 & S\&C notifies a CO if a US filled out a questionnaire for a selection process. \\ \hline
+    SP60 & S\&C notifies a US of an update on the status of an IN. \\ \hline
+    SP61 & S\&C notifies a CO of an update on the status of an IN. \\ \hline
+    SP62 & S\&C notifies a UN of an update on the status of an IN. \\ \hline
+    SP63 & S\&C notifies a US of a comment on an IN. \\ \hline
+    SP64 & S\&C notifies a CO of a comment on an IN. \\ \hline
+    SP65 & S\&C notifies a UN of a comment on an IN. \\ \hline
 \caption{Shared phenomena controlled by the machine and observed by the world}
 \end{longtable}
 
@@ -143,7 +152,6 @@ Below are listed definitions, acronyms and abbreviations used throughout the doc
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
     S\&C & Students\&Companies \\ \hline
-    S\&CP & Students\&Companies Platform \\ \hline
     US & University student \\ \hline
     IN & Internship \\ \hline
     CO & Company \\ \hline

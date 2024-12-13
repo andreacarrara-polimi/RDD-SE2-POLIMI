@@ -61,7 +61,7 @@
     		\color{polimiblue}\singlespacing\huge\bfseries\title\par
     		\vspace{1.5cm}
     		\color{polimiblue}\bfseries\large\textsc\subtitle\par
-    		\vspace{1.5 cm}
+    		\vspace{1.5cm}
     		\color{black}\bfseries\authors
         \end{minipage}
 		\vfill
@@ -92,6 +92,6 @@
     \renewcommand{\headrulewidth}{0pt}
     \addcontentsline{toc}{chapter}{#1}
     \fancyhead[LO,RE]{\bfseries\textcolor{polimiblue}{|   } #1}
-    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[LE,RO]\thepage
     \vspace{-1cm}
 }
