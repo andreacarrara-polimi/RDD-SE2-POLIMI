@@ -828,7 +828,184 @@ Sequence diagram here
 \end{center}
 
 \subsection{Requirements}
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|p{10.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    R1 & S\&C allows USs to sign up. \\ \hline
+    R2 & S\&C allows USs to delete their profile.\\ \hline
+    R3 & S\&C allow USs to log in. \\ \hline
+    R4 & S\&C allows USs to log out. \\ \hline
+    R5 & S\&C allows USs to add their CV. \\ \hline
+    R6 & S\&C allows USs to update their CV. \\ \hline
+    R7 & S\&C allows USs to add preferences on INs. \\ \hline
+    R8 & S\&C allows USs to update preferences on INs. \\ \hline
+    R9 & S\&C allows USs to search for an IN. \\ \hline
+    R10 & S\&C allows USs to view an IN. \\ \hline
+    R11 & S\&C allows USs to view a CO. \\ \hline
+    R12 & S\&C allows USs to apply to an IN. \\ \hline
+    R13 & S\&C allows USs to withdraw an application. \\ \hline
+    R14 & S\&C allows USs to view a recommended IN. \\ \hline
+    R15 & S\&C allows USs to accept a recommended IN. \\ \hline
+    R16 & S\&C allows USs to decline a recommended IN. \\ \hline
+    R17 & S\&C allows USs to fill out a feedback form. \\ \hline
+    R18 & S\&C allows USs to view the status of a selection process. \\ \hline
+    R19 & S\&C allows USs to update the status of a selection process. \\ \hline
+    R20 & S\&C allows USs to view a questionnaire for a selection process. \\ \hline
+    R21 & S\&C allows USs to fill out a questionnaire for a selection process. \\ \hline
+    R22 & S\&C allows USs to accept a scheduled interview for a selection process. \\ \hline
+    R23 & S\&C allows USs to decline a scheduled interview for a selection process. \\ \hline
+    R24 & S\&C allows USs to view the outcome of a selection process. \\ \hline
+    R25 & S\&C allows USs to view the status of an IN. \\ \hline
+    R26 & S\&C allows USs to update the status of an IN. \\ \hline
+    R27 & S\&C allows USs to comment an IN. \\ \hline
+    R28 & S\&C allows USs to view a comment. \\ \hline
+
+    R29 & S\&C allows COs to sign up. \\ \hline
+    R30 & S\&C allows COs to delete their profile. \\ \hline
+    R31 & S\&C allows COs to log in. \\ \hline
+    R32 & S\&C allows COs to log out. \\ \hline
+    R33 & S\&C allows COs to update their profile. \\ \hline
+    R34 & S\&C allows COs to offer an IN. \\ \hline
+    R35 & S\&C allows COs to remove an IN. \\ \hline
+    R36 & S\&C allows COs to add the description of an IN. \\ \hline
+    R37 & S\&C allows COs to update the description of an IN. \\ \hline
+    R38 & S\&C allows COs to view a recommended US. \\ \hline
+    R39 & S\&C allows COs to accept a recommended US. \\ \hline
+    R40 & S\&C allows COs to decline a recommended US. \\ \hline
+    R41 & S\&C allows COs to fill out a feedback form. \\ \hline
+    R42 & S\&C allows COs to view the status of a selection process. \\ \hline
+    R43 & S\&C allows COs to update the status of a selection process. \\ \hline
+    R44 & S\&C allows COs to add a questionnaire for a selection process. \\ \hline
+    R45 & S\&C allows COs to view a questionnaire for a selection process. \\ \hline
+    R46 & S\&C allows COs to schedule an interview for a selection process. \\ \hline
+    R47 & S\&C allows COs to update the outcome of a selection process. \\ \hline
+    R48 & S\&C allows COs to view the status of an IN. \\ \hline
+    R49 & S\&C allows COs to update the status of an IN. \\ \hline
+    R50 & S\&C allows COs to comment an IN. \\ \hline
+    R51 & S\&C allows COs to view a comment. \\ \hline
+    
+    R52 & S\&C allows UNs to sign up on. \\ \hline
+    R53 & S\&C allows UNs to delete their profile. \\ \hline
+    R54 & S\&C allows UNs to log in. \\ \hline
+    R55 & S\&C allows UNs to log out. \\ \hline
+    R56 & S\&C allows UNs to view a US. \\ \hline
+    R57 & S\&C allows UNs to view an IN. \\ \hline
+    R58 & S\&C allows UNs to view a CO. \\ \hline
+    R59 & S\&C allows UNs to view the status of an IN. \\ \hline
+    R60 & S\&C allows UNs to update the status of an IN. \\ \hline
+    R61 & S\&C allows UNs to comment an IN. \\ \hline
+    R62 & S\&C allows UNs to view a comment. \\ \hline
+    
+    R63 & S\&C notifies a US of a recommended IN. \\ \hline
+    R64 & S\&C notifies a CO of a recommended US. \\ \hline
+    R65 & S\&C notifies a US of a match with a CO. \\ \hline
+    R66 & S\&C notifies a CO of a match with a US. \\ \hline
+    R67 & S\&C notifies a US of an update on a selection process. \\ \hline
+    R68 & S\&C notifies a CO of an update on a selection process. \\ \hline
+    R69 & S\&C notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
+    R70 & S\&C notifies a CO if a US fills out a questionnaire for a selection process. \\ \hline
+    R71 & S\&C notifies a US if a CO schedules an interview for a selection process. \\ \hline
+    R72 & S\&C notifies a CO if a US accepts a scheduled interview for a selection process. \\ \hline
+    R73 & S\&C notifies a CO if a US declines a scheduled interview for a selection process. \\ \hline
+    R74 & S\&C notifies a US of an update on the status of an IN. \\ \hline
+    R75 & S\&C notifies a CO of an update on the status of an IN. \\ \hline
+    R76 & S\&C notifies a UN of an update on the status of an IN. \\ \hline
+    R77 & S\&C notifies a US of a comment on an IN. \\ \hline
+    R78 & S\&C notifies a CO of a comment on an IN. \\ \hline
+    R79 & S\&C notifies a UN of a comment on an IN. \\ \hline
+\caption{Requirements}
+\end{longtable}
+
 \subsection{Mapping on Goals}
+The following table presents the traceability matrix, demonstrating the alignment between Specific requirements and corresponding goals to ensure coverage and accountability.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|c|c|c|c|c|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{Requirement} & \textbf{G1} & \textbf{G2} & \textbf{G3} & \textbf{G4} & \textbf{G5} & \textbf{G6} & \textbf{G7} \\ \hline
+    R1 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R2 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R3 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R4 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R5 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R6 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R7 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R8 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R9 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R10 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R11 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R12 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R13 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R14 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R15 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R16 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R17 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R18 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R19 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R20 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R21 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R22 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R23 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R24 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R25 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R26 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R27 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R28 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R29 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R30 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R31 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R32 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R33 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R34 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R35 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R36 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R37 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R38 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R39 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R40 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R41 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R42 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R43 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R44 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R45 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R46 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R47 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R48 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R49 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R50 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R51 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R52 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R53 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R54 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R55 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R56 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R57 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R58 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R59 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R60 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R61 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R62 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R63 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R64 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R65 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R66 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R67 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R68 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R69 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R70 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R71 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R72 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R73 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R74 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R75 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R76 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R77 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R78 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R79 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+\caption{Traceability matrix}
+\end{longtable}
+
 \section{Performance Requirements}
 To ensure an efficient and interactive experience, the Students\&Companies platform must meet stringent performance requirements that address scalability, data management and responsiveness under varying loads.
 

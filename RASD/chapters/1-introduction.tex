@@ -28,12 +28,12 @@ By analyzing the previous description of the product and by clustering its featu
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
     G1 & S\&C helps match university students and internships based on students' profiles and internships' descriptions. \\ \hline
-    G2 & S\&C allows students to search for internships and companies to search for students. \\ \hline
+    G2 & S\&C allows students to search for internships. \\ \hline
     G3 & S\&C recommends internships to students and students to companies. \\ \hline
     G4 & S\&C establishes a contact between matched students and companies. \\ \hline
     G5 & S\&C provides support for the selection process. \\ \hline
-    G7 & S\&C lets students, companies and universities monitor the matchmaking process, the selection process and the internship's progress. \\ \hline
-    G6 & S\&C collects feedback to improve recommendations. \\ \hline
+    G6 & S\&C allows students, companies and universities monitor the matchmaking process, the selection process and the internship's progress. \\ \hline
+    G7 & S\&C collects feedback to improve recommendations. \\ \hline
 \caption{Goals}
 \end{longtable}
 
@@ -62,11 +62,10 @@ The following are phenomena involving both the world and the machine, categorize
 
 \subsubsection{Controller: World - Observer : Machine}
 \renewcommand{\arraystretch}{1.5}
-
 \begin{longtable}{|c|p{10.5cm}|}
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
-    SP1 & A US registers on S\&C. \\ \hline
+    SP1 & A US signs up on S\&C. \\ \hline
     SP2 & A US deletes his profile.\\ \hline
     SP3 & A US logs in S\&C. \\ \hline
     SP4 & A US logs out. \\ \hline
@@ -74,51 +73,62 @@ The following are phenomena involving both the world and the machine, categorize
     SP6 & A US updates his CV. \\ \hline
     SP7 & A US adds preferences on INs. \\ \hline
     SP8 & A US updates preferences on INs. \\ \hline
-    SP9 & A US proactively searches for an IN. \\ \hline
-    SP10 & A US applies to an IN. \\ \hline
-    SP11 & A US withdraws an application. \\ \hline
-    SP12 & A US views a recommended IN. \\ \hline
-    SP13 & A US accepts a recommended IN. \\ \hline
-    SP14 & A US fills out a feedback form. \\ \hline
-    SP15 & A US views the status of a selection process. \\ \hline
-    SP16 & A US updates the status of a selection process. \\ \hline
-    SP17 & A US fills out a questionnaire for a selection process. \\ \hline
-    SP18 & A US views the outcome of a selection process. \\ \hline
-    SP19 & A US views the status of an IN. \\ \hline
-    SP20 & A US updates the status of an IN. \\ \hline
-    SP21 & A US comments an IN. \\ \hline
-    SP22 & A US views a comment. \\ \hline
+    SP9 & A US searches for an IN. \\ \hline
+    SP10 & A US views an IN. \\ \hline
+    SP11 & A US views a CO. \\ \hline
+    SP12 & A US applies to an IN. \\ \hline
+    SP13 & A US withdraws an application. \\ \hline
+    SP14 & A US views a recommended IN. \\ \hline
+    SP15 & A US accepts a recommended IN. \\ \hline
+    SP16 & A US declines a recommended IN. \\ \hline
+    SP17 & A US fills out a feedback form. \\ \hline
+    SP18 & A US views the status of a selection process. \\ \hline
+    SP19 & A US updates the status of a selection process. \\ \hline
+    SP20 & A US views a questionnaire for a selection process. \\ \hline
+    SP21 & A US fills out a questionnaire for a selection process. \\ \hline
+    SP22 & A US accepts a scheduled interview for a selection process. \\ \hline
+    SP23 & A US declines a scheduled interview for a selection process. \\ \hline
+    SP24 & A US views the outcome of a selection process. \\ \hline
+    SP25 & A US views the status of an IN. \\ \hline
+    SP26 & A US updates the status of an IN. \\ \hline
+    SP27 & A US comments an IN. \\ \hline
+    SP28 & A US views a comment. \\ \hline
 
-    SP23 & A CO registers on S\&C. \\ \hline
-    SP24 & A CO deletes its profile. \\ \hline
-    SP25 & A CO updates its profile. \\ \hline
-    SP26 & A CO logs in S\&C. \\ \hline
-    SP27 & A CO logs out. \\ \hline
-    SP28 & A CO offers an IN. \\ \hline
-    SP29 & A CO removes an IN. \\ \hline
-    SP30 & A CO adds the description of an IN. \\ \hline
-    SP31 & A CO updates the description of an IN. \\ \hline
-    SP32 & A CO views a recommended US. \\ \hline
-    SP33 & A CO accepts a recommended US. \\ \hline
-    SP34 & A CO fills out a feedback form. \\ \hline
-    SP35 & A CO views the status of a selection process. \\ \hline
-    SP36 & A CO updates the status of a selection process. \\ \hline
-    SP37 & A CO adds a questionnaire for a selection process. \\ \hline
-    SP38 & A CO views a questionnaire for a selection process. \\ \hline
-    SP39 & A CO updates the outcome of a selection process. \\ \hline
-    SP40 & A CO views the status of an IN. \\ \hline
-    SP41 & A CO updates the status of an IN. \\ \hline
-    SP42 & A CO comments an IN. \\ \hline
-    SP43 & A CO views a comment. \\ \hline
+    SP29 & A CO signs up on S\&C. \\ \hline
+    SP30 & A CO deletes its profile. \\ \hline
+    SP31 & A CO logs in S\&C. \\ \hline
+    SP32 & A CO logs out. \\ \hline
+    SP33 & A CO updates its profile. \\ \hline
+    SP34 & A CO offers an IN. \\ \hline
+    SP35 & A CO removes an IN. \\ \hline
+    SP36 & A CO adds the description of an IN. \\ \hline
+    SP37 & A CO updates the description of an IN. \\ \hline
+    SP38 & A CO views a recommended US. \\ \hline
+    SP39 & A CO accepts a recommended US. \\ \hline
+    SP40 & A CO declines a recommended US. \\ \hline
+    SP41 & A CO fills out a feedback form. \\ \hline
+    SP42 & A CO views the status of a selection process. \\ \hline
+    SP43 & A CO updates the status of a selection process. \\ \hline
+    SP44 & A CO adds a questionnaire for a selection process. \\ \hline
+    SP45 & A CO views a questionnaire for a selection process. \\ \hline
+    SP46 & A CO schedules an interview for a selection process. \\ \hline
+    SP47 & A CO updates the outcome of a selection process. \\ \hline
+    SP48 & A CO views the status of an IN. \\ \hline
+    SP49 & A CO updates the status of an IN. \\ \hline
+    SP50 & A CO comments an IN. \\ \hline
+    SP51 & A CO views a comment. \\ \hline
     
-    SP44 & A UN registers on S\&C. \\ \hline
-    SP45 & A UN deletes its profile. \\ \hline
-    SP46 & A UN logs in S\&C. \\ \hline
-    SP47 & A UN logs out. \\ \hline
-    SP48 & A UN views the status of an IN. \\ \hline
-    SP49 & A UN updates the status of an IN. \\ \hline
-    SP50 & A UN comments an IN. \\ \hline
-    SP51 & A UN views a comment. \\ \hline
+    SP52 & A UN signs up on S\&C. \\ \hline
+    SP53 & A UN deletes its profile. \\ \hline
+    SP54 & A UN logs in S\&C. \\ \hline
+    SP55 & A UN logs out. \\ \hline
+    SP56 & A UN views a US. \\ \hline
+    SP57 & A UN views an IN. \\ \hline
+    SP58 & A UN views a CO. \\ \hline
+    SP59 & A UN views the status of an IN. \\ \hline
+    SP60 & A UN updates the status of an IN. \\ \hline
+    SP61 & A UN comments an IN. \\ \hline
+    SP62 & A UN views a comment. \\ \hline
 \caption{Shared phenomena controlled by the world and observed by the machine}
 \end{longtable}
 
@@ -127,20 +137,23 @@ The following are phenomena involving both the world and the machine, categorize
 \begin{longtable}{|c|p{10.5cm}|}
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
-    SP52 & S\&C notifies a US of a recommended IN. \\ \hline
-    SP53 & S\&C notifies a CO of a recommended US. \\ \hline
-    SP55 & S\&C notifies a US of an established contact with a CO. \\ \hline
-    SP55 & S\&C notifies a CO of an established contact with a US. \\ \hline
-    SP56 & S\&C notifies a US of an update on a selection process. \\ \hline
-    SP57 & S\&C notifies a CO of an update on a selection process. \\ \hline
-    SP58 & S\&C notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
-    SP59 & S\&C notifies a CO if a US filled out a questionnaire for a selection process. \\ \hline
-    SP60 & S\&C notifies a US of an update on the status of an IN. \\ \hline
-    SP61 & S\&C notifies a CO of an update on the status of an IN. \\ \hline
-    SP62 & S\&C notifies a UN of an update on the status of an IN. \\ \hline
-    SP63 & S\&C notifies a US of a comment on an IN. \\ \hline
-    SP64 & S\&C notifies a CO of a comment on an IN. \\ \hline
-    SP65 & S\&C notifies a UN of a comment on an IN. \\ \hline
+    SP63 & S\&C notifies a US of a recommended IN. \\ \hline
+    SP64 & S\&C notifies a CO of a recommended US. \\ \hline
+    SP65 & S\&C notifies a US of a match with a CO. \\ \hline
+    SP66 & S\&C notifies a CO of a match with a US. \\ \hline
+    SP67 & S\&C notifies a US of an update on a selection process. \\ \hline
+    SP68 & S\&C notifies a CO of an update on a selection process. \\ \hline
+    SP69 & S\&C notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
+    SP70 & S\&C notifies a CO if a US fills out a questionnaire for a selection process. \\ \hline
+    SP71 & S\&C notifies a US if a CO schedules an interview for a selection process. \\ \hline
+    SP72 & S\&C notifies a CO if a US accepts a scheduled interview for a selection process. \\ \hline
+    SP73 & S\&C notifies a CO if a US declines a scheduled interview for a selection process. \\ \hline
+    SP74 & S\&C notifies a US of an update on the status of an IN. \\ \hline
+    SP75 & S\&C notifies a CO of an update on the status of an IN. \\ \hline
+    SP76 & S\&C notifies a UN of an update on the status of an IN. \\ \hline
+    SP77 & S\&C notifies a US of a comment on an IN. \\ \hline
+    SP78 & S\&C notifies a CO of a comment on an IN. \\ \hline
+    SP79 & S\&C notifies a UN of a comment on an IN. \\ \hline
 \caption{Shared phenomena controlled by the machine and observed by the world}
 \end{longtable}
 
