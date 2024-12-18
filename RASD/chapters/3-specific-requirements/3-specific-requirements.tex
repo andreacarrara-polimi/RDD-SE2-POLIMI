@@ -1,0 +1,282 @@
+This chapter focuses on a detailed analysis of the specific requirements, offering comprehensive insights into external interface requirements, functional requirements and performance requirements, together with design constraints.
+
+\section{External Interface Requirements}
+The external interface requirements define how the Students\&Companies platform interacts with its users and external systems to deliver its core functionalities.
+The following interfaces are designed to prioritize accessibility, accommodating a diverse range of user needs while maintaining robust system performance.
+
+\subsection{User Interfaces}
+S\&C will feature a modern, accessible and responsive web interface designed to meet the needs of students, companies and universities.
+A mobile-friendly version will ensure accessibility across devices, boosting user engagement.
+
+\subsubsection{Wireframe}
+To illustrate the platform’s design, an exemplary wireframe follows to offer a simplified visual representation of the key interface from the point of view of a university student.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=16cm]{images/wireframe.png}
+    \caption{Wireframe}
+\end{figure}
+
+\subsection{Hardware Interfaces}
+The platform is designed to be hardware-agnostic, supporting all standard internet-enabled devices, including desktops, laptops, smartphones and tablets.
+While S\&C ensures compatibility with smaller devices, such as smartphones, features requiring detailed input, for example uploading documents or adding questionnaires, are better suited to a desktop or laptop environment for optimal user experience.
+
+\subsection{Communication Interfaces}
+The platform will rely on the HTTPS protocol to ensure secure data transmission, protecting user information during interactions.
+SMTP will handle email notifications, ensuring timely delivery of updates.
+Additionally, the system will integrate with WebSocket to enable live notifications.
+
+\section{Functional Requirements}
+This section lists the detailed functional requirements of Students\&Companies, mapped directly to the overarching goals for clarity and traceability.
+Additionally, use cases are provided to illustrate specific scenarios, ensuring the requirements are grounded in real-world user needs.
+
+\subsection{Requirements}
+The table below presents detailed functional requirements.
+
+\newcounter{r}
+\setcounter{r}{1}
+\newcommand{\rc}{\ther\stepcounter{r}}
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|p{10.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    R\rc & S\&C allows USs to sign up. \\ \hline
+    R\rc & S\&C allows USs to delete their profile.\\ \hline
+    R\rc & S\&C allows USs to log in. \\ \hline
+    R\rc & S\&C allows USs to log out. \\ \hline
+    R\rc & S\&C allows USs to add their CV. \\ \hline
+    R\rc & S\&C allows USs to update their CV. \\ \hline
+    R\rc & S\&C allows USs to add preferences on INs. \\ \hline
+    R\rc & S\&C allows USs to update preferences on INs. \\ \hline
+    R\rc & S\&C allows USs to search for an IN. \\ \hline
+    R\rc & S\&C allows USs to view an IN. \\ \hline
+    R\rc & S\&C allows USs to view a CO. \\ \hline
+    R\rc & S\&C allows USs to apply for an IN. \\ \hline
+    R\rc & S\&C allows USs to withdraw an application. \\ \hline
+    R\rc & S\&C allows USs to view a recommended IN. \\ \hline
+    R\rc & S\&C allows USs to accept a recommended IN. \\ \hline
+    R\rc & S\&C allows USs to decline a recommended IN. \\ \hline
+    R\rc & S\&C allows USs to fill out a feedback form. \\ \hline
+    R\rc & S\&C allows USs to view the status of a selection process. \\ \hline
+    R\rc & S\&C allows USs to update the status of a selection process. \\ \hline
+    R\rc & S\&C allows USs to view a questionnaire for a selection process. \\ \hline
+    R\rc & S\&C allows USs to fill out a questionnaire for a selection process. \\ \hline
+    R\rc & S\&C allows USs to accept a scheduled interview for a selection process. \\ \hline
+    R\rc & S\&C allows USs to decline a scheduled interview for a selection process. \\ \hline
+    R\rc & S\&C allows USs to view the outcome of a selection process. \\ \hline
+    R\rc & S\&C allows USs to view the status of an IN. \\ \hline
+    R\rc & S\&C allows USs to update the status of an IN. \\ \hline
+    R\rc & S\&C allows USs to comment an IN. \\ \hline
+    R\rc & S\&C allows USs to view a comment. \\ \hline
+
+    R\rc & S\&C allows COs to sign up. \\ \hline
+    R\rc & S\&C allows COs to delete their profile. \\ \hline
+    R\rc & S\&C allows COs to log in. \\ \hline
+    R\rc & S\&C allows COs to log out. \\ \hline
+    R\rc & S\&C allows COs to update their profile. \\ \hline
+    R\rc & S\&C allows COs to post an IN. \\ \hline
+    R\rc & S\&C allows COs to remove an IN. \\ \hline
+    R\rc & S\&C allows COs to add the description of an IN. \\ \hline
+    R\rc & S\&C allows COs to update the description of an IN. \\ \hline
+    R\rc & S\&C allows COs to view a recommended US. \\ \hline
+    R\rc & S\&C allows COs to accept a recommended US. \\ \hline
+    R\rc & S\&C allows COs to decline a recommended US. \\ \hline
+    R\rc & S\&C allows COs to fill out a feedback form. \\ \hline
+    R\rc & S\&C allows COs to view the status of a selection process. \\ \hline
+    R\rc & S\&C allows COs to update the status of a selection process. \\ \hline
+    R\rc & S\&C allows COs to add a questionnaire for a selection process. \\ \hline
+    R\rc & S\&C allows COs to view a questionnaire for a selection process. \\ \hline
+    R\rc & S\&C allows COs to schedule an interview for a selection process. \\ \hline
+    R\rc & S\&C allows COs to update the outcome of a selection process. \\ \hline
+    R\rc & S\&C allows COs to view the status of an IN. \\ \hline
+    R\rc & S\&C allows COs to update the status of an IN. \\ \hline
+    R\rc & S\&C allows COs to comment an IN. \\ \hline
+    R\rc & S\&C allows COs to view a comment. \\ \hline
+    
+    R\rc & S\&C allows UNs to sign up. \\ \hline
+    R\rc & S\&C allows UNs to delete their profile. \\ \hline
+    R\rc & S\&C allows UNs to log in. \\ \hline
+    R\rc & S\&C allows UNs to log out. \\ \hline
+    R\rc & S\&C allows UNs to view a US. \\ \hline
+    R\rc & S\&C allows UNs to view an IN. \\ \hline
+    R\rc & S\&C allows UNs to view a CO. \\ \hline
+    R\rc & S\&C allows UNs to view the status of an IN. \\ \hline
+    R\rc & S\&C allows UNs to update the status of an IN. \\ \hline
+    R\rc & S\&C allows UNs to comment an IN. \\ \hline
+    R\rc & S\&C allows UNs to view a comment. \\ \hline
+    
+    R\rc & S\&C notifies a US of a recommended IN. \\ \hline
+    R\rc & S\&C notifies a CO of a recommended US. \\ \hline
+    R\rc & S\&C notifies a US of a match with a CO. \\ \hline
+    R\rc & S\&C notifies a CO of a match with a US. \\ \hline
+    R\rc & S\&C notifies a US of an update on the status of a selection process. \\ \hline
+    R\rc & S\&C notifies a CO of an update on the status of a selection process. \\ \hline
+    R\rc & S\&C notifies a UN of an update on the status of a selection process. \\ \hline
+    R\rc & S\&C notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
+    R\rc & S\&C notifies a CO if a US fills out a questionnaire for a selection process. \\ \hline
+    R\rc & S\&C notifies a US if a CO schedules an interview for a selection process. \\ \hline
+    R\rc & S\&C notifies a CO if a US accepts a scheduled interview for a selection process. \\ \hline
+    R\rc & S\&C notifies a CO if a US declines a scheduled interview for a selection process. \\ \hline
+    R\rc & S\&C notifies a US of the outcome of a selection process. \\ \hline
+    R\rc & S\&C notifies a US of an update on the status of an IN. \\ \hline
+    R\rc & S\&C notifies a CO of an update on the status of an IN. \\ \hline
+    R\rc & S\&C notifies a UN of an update on the status of an IN. \\ \hline
+    R\rc & S\&C notifies a US of a comment on an IN. \\ \hline
+    R\rc & S\&C notifies a CO of a comment on an IN. \\ \hline
+    R\rc & S\&C notifies a UN of a comment on an IN. \\ \hline
+\caption{Requirements}
+\end{longtable}
+
+\subsubsection{Mapping on Goals}
+The following table presents the traceability matrix, demonstrating the alignment between specific requirements and corresponding goals to ensure coverage and accountability.
+
+\newcounter{m}
+\setcounter{m}{1}
+\newcommand{\mc}{\them\stepcounter{m}}
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|c|c|c|c|c|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{Requirement} & \textbf{G1} & \textbf{G2} & \textbf{G3} & \textbf{G4} & \textbf{G5} & \textbf{G6} & \textbf{G7} \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+\caption{Traceability matrix}
+\end{longtable}
+
+\subsection{Use Cases}
+\input{chapters/3-specific-requirements/3.2.3-use-cases}
+
+\section{Performance Requirements}
+To ensure an efficient and interactive experience, Students\&Companies must meet stringent performance requirements that address scalability, data management and responsiveness under varying loads.
+
+\subsubsection{Concurrent Users}
+The platform is expected to handle a significant user base, as it will cater to multiple universities.
+To ensure a seamless experience, S\&C must support at least 20\% of active users simultaneously, which could mean up to 50,000 users at peak times.
+This guarantees stability and reliability during critical periods, such as application deadlines.
+
+\subsubsection{Data Storage}
+The platform must maintain records of both student profiles and company offerings.
+Historical data such as past internships, feedback scores and selection outcomes should be preserved for analytics and future reference.
+In general, no data should be deleted without explicit consent, ensuring transparency and trust.
+
+\subsubsection{Response Time}
+Core operations like user authentication, profile updates and search queries should execute within two seconds under normal conditions.
+During high-load scenarios, response times may increase but must remain reasonable.
+
+Furthermore, the platform's matching algorithm should generate internship recommendations within three seconds, ensuring an enjoyable experience for users and avoiding their disengagement.
+Feedback mechanisms must also operate swiftly, delivering results to stakeholders within 10 seconds after computation.
+
+\section{Design Constraints}
+This section outlines the compliance requirements and the constraints that define the operational boundaries of Students\&Companies.
+
+\subsection{Standard Compliance}
+Before using S\&C, all users must explicitly accept the platform's privacy policy.
+The platform must comply fully with GDPR regulations, ensuring transparency in how data is collected, stored and processed.
+This includes providing users with tools to manage their personal data, such as viewing, editing or deleting their information.
+Secure handling is particularly important for documents like CVs, which may contain highly sensitive personal information.
+
+\subsection{Hardware Limitations}
+Users are required to access the platform via devices equipped with stable internet connections and modern web browsers, namely Chrome, Safari and Edge.
+While desktops provide the best user experience for uploading documents and adding questionnaires, the platform must also ensure functionality on mobile devices.
+Additionally, the platform must account for varying device capabilities, including lower bandwidth environments, by employing lightweight designs and caching where appropriate.
+
+\section{Software System Attributes}
+This section describes the essential software qualities that the Students\&Companies platform must maintain to deliver a reliable, secure and interactive experience, capable of supporting its users effectively while accommodating future growth and enhancements.
+
+\subsection{Reliability}
+The platform must be fault tolerant, capable of preventing error propagation and ensuring continuous usability.
+Mechanisms such as database replication, automated failover and regular backups must be in place to maintain reliability.
+Critical tasks like applications, postings and updates must remain operational even during system failures, with immediate recovery protocols.
+
+\subsection{Availability}
+S\&C must achieve a minimum availability rate of 99.9\%, limiting downtime to approximately 8.76 hours per year.
+Maintenance should be minimized and scheduled during low-traffic periods, such as nighttime, to prevent disruptions.
+Special care must be taken to ensure platform availability during peak usage periods, such as application deadlines or high-profile internship postings.
+
+\subsection{Security}
+The platform must implement robust access control, ensuring authentication to verify user identities and authorization to confirm permissions for specific actions.
+All communication must be encrypted using protocols like HTTPS and TLS 1.3 or higher to prevent data breaches.
+The database must employ measures to defend against vulnerabilities and all user credentials and personal data must be securely stored using encryption techniques.
+Regular security audits, penetration testing and monitoring systems will ensure the platform's resilience against cyber threats.
+
+\subsection{Maintainability}
+S\&C must be designed using scalable and reusable models, allowing the addition of new features or improvements with minimal effort.
+A modular architecture is essential to enable independent updates to components without impacting the entire system.
+Maintenance windows must be scheduled during off-peak hours, typically at night, to ensure uninterrupted access during high-traffic periods.
+Detailed documentation and automated testing must support maintenance and future development.
+
+\subsection{Portability}
+S\&C must be accessible from all major web browsers, on both desktop and mobile devices.
+The design must be responsive, ensuring usability across various screen sizes and resolutions.
+While there are no current requirements, the platform should support infrastructure migrations if necessary, such as moving to cloud-based solutions for enhanced scalability and flexibility.
