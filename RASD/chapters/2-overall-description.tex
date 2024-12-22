@@ -2,7 +2,7 @@ This chapter provides a detailed description of the whole problem, offering a de
 It also covers key aspects such as product and user characteristics, as well as the underlying assumptions and constraints shaping the context.
 
 \section{Product Perspective}
-This section employs scenarios to illustrate the system's role, supported by class and state diagrams that define its structure and dynamic behavior.
+This section employs scenarios to illustrate the platform's role, supported by class and state diagrams that define its structure and dynamic behavior.
 These tools collectively establish a clear understanding of how the product integrates into its environment and addresses the identified problem.
 
 \subsection{Scenarios}
@@ -24,7 +24,7 @@ He also has the option to add information such as his CV and personal preference
 These preferences may include availability, expected salary and benefits.
 
 TechVille University, where Ben is currently enrolled, recognizes the importance of staying involved in students’ professional development to ensure they gain valuable experience and meet academic standards.
-To facilitate this, TechVille University signs up on S\&C by selecting "Sign Up as a University" and providing its details.
+To facilitate this, TechVille University signs up on S\&C by selecting "Sign Up as a University" and providing its name and email.
 By linking Ben’s profile to the university through his institutional email, the platform allows TechVille University to automatically monitor Ben’s internships, ensuring alignment with educational goals and providing support throughout his professional journey.
 
 \subsubsection*{S\sco. Internship Posting and Candidate Matching}
@@ -52,7 +52,7 @@ After a successful interview, the company finalizes the outcome of the selection
 
 \subsubsection*{S\sco. Internship Monitoring}
 Throughout Ben's internship, AlgoSphere will use S\&C to provide detailed progress reports or other comments, with notifications keeping Ben and his university informed of these updates in real time.
-In turn, if Ben will encounter an issue during his time at the company, such as unclear expectations from AlgoSphere, he will comment a complaint visible to both AlgoSphere and TechVille University.
+In turn, if Ben will encounter an issue during his time at AlgoSphere, such as unclear expectations from the company, he will comment a complaint visible to both AlgoSphere and TechVille University.
 
 \subsubsection*{S\sco. Feedback Forms}
 At key stages of the matchmaking, selection and internship processes, Ben and AlgoSphere will be asked to provide feedback on the quality of the service offered by S\&C.
@@ -74,10 +74,10 @@ The two state diagrams below aim to clarify potential misunderstandings about th
 \subsubsection{Recommendations}
 Recommendations are initiated when a company posts an internship position or a university student uploads their CV or personal preferences.
 S\&C then checks for potential matches between available internship positions and student profiles.
-Upon finding a match, the platform notifies the student about the internship and the company about the student.
+Upon finding a match, the platform notifies the student about the position and the company about the student.
 Each party can choose to accept or reject the recommendation.
 If either rejects it, the system resumes the search for another match.
-However, if both accept, the system finalizes the match and informs both the student and the company accordingly.
+However, if both accept, the system finalizes the match and notifies both the student and the company accordingly.
 
 \begin{figure}
     \centering
@@ -90,7 +90,7 @@ The selection process begins when a match is made between a university student a
 This happens either through mutual acceptance of a recommendation or when a student applies for an internship and the company accepts his application.
 Once this connection is made, the system notifies both parties about the match.
 
-From there, the company can choose to either upload a questionnaire for the student or schedule an interview.
+From there, the company can choose to either add a questionnaire for the student or schedule an interview.
 If a questionnaire is provided, the student must complete it within the deadline or the system notes their failure to do so.
 If an interview is scheduled, the student can accept or decline it.
 After reviewing the student’s completed questionnaire or evaluating the interview, the company decides whether to continue by sending another questionnaire or scheduling further interviews, or to conclude the process, notifying the student of the final outcome.
@@ -118,13 +118,13 @@ After logging in, users can log out from their session and must log in again to 
 
 \subsubsection*{F\fc. Internship Posting and Searching}
 Companies post internships by specifying their tasks, application domain, project scope and terms.
-In turn, students write keywords in the search bar to find internships.
+In turn, students write keywords in the search bar to find positions.
 
 \subsubsection*{F\fc. Internship Application}
 Students apply for internships and notifications are sent to companies, which can in turn review candidates’ profiles and start the selection process.
 
 \subsubsection*{F\fc. Recommendations}
-Students are recommended internships from suitable companies, while companies are recommended students based on skills and preferences.
+Students are recommended internship positions from suitable companies, while companies are recommended students based on skills and preferences.
 Both students and companies must accept a recommendation to start the selection process.
 
 \subsubsection*{F\fc. Selection Process}
@@ -147,7 +147,7 @@ A student can sign up by providing his name, surname and valid institutional ema
 They can also upload a CV and specify personal preferences, such as availability and desired benefits.
 
 \subsubsection{Companies}
-Companies are the users posting internships and they are typically represented by the human resources department acting on behalf of the organization.
+Companies are the users hosting internships and they are typically represented by the human resources department acting on behalf of the organization.
 Signing up requires the company's name, a valid email address and its field of expertise.
 
 \subsubsection{Universities}
@@ -165,7 +165,7 @@ The table below outlines the domain assumptions of Students\&Companies:
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline \hline
     DA\dac & USs have a valid institutional email. \\ \hline
-    DA\dac & COs have a valid business email. \\ \hline
+    DA\dac & COs have a valid email. \\ \hline
     DA\dac & UNs have a valid institutional email. \\ \hline
     DA\dac & USs have a working device with a reliable internet connection. \\ \hline
     DA\dac & COs have a working device with a reliable internet connection. \\ \hline
@@ -182,8 +182,8 @@ The following table lists the constraints of S\&C:
 \begin{longtable}{|c|p{12.5cm}|}
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline \hline
-    C\cc & S\&C cannot prevent a CO from posting an IN. \\ \hline
-    C\cc & S\&C cannot prevent a US from applying to an IN. \\ \hline
+    C\cc & S\&C cannot prevent a CO from posting a PO. \\ \hline
+    C\cc & S\&C cannot prevent a US from applying for a PO. \\ \hline
     C\cc & S\&C cannot prevent a UN from monitoring its US. \\ \hline
     C\cc & S\&C cannot declare a match if neither the CO evaluated positively the application of a US nor a recommendation was accepted by both. \\ \hline
     C\cc & S\&C cannot start a selection process before a match. \\ \hline

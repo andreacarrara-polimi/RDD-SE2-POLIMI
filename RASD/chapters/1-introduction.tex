@@ -5,7 +5,7 @@ In this context, Students\&Companies comes to help by connecting university stud
 
 \section{Purpose}
 Students\&Companies is designed to connect university students seeking internships with companies offering them.
-The platform enables students to proactively search through a wide range of internship opportunities and it also provides personalized recommendations using advanced mechanisms such as statistical analysis.
+The platform enables students to proactively search through a wide range of internship positions and it also provides personalized recommendations using advanced mechanisms such as statistical analysis.
 Similarly, companies receive suggestions for students who stand out as strong candidates.
 
 Students can enhance their profiles by adding CVs and specifying job preferences, ensuring their applications are tailored and relevant.
@@ -27,16 +27,14 @@ By analyzing the previous description of the product and by clustering its featu
 \setcounter{g}{1}
 \newcommand{\gc}{\theg\stepcounter{g}}
 \renewcommand{\arraystretch}{1.5}
-\begin{longtable}{|c|p{12.5cm}|}
+\begin{longtable}{|c|p{10.5cm}|}
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
-    G\gc & S\&C helps match university students and internships based on students' profiles and internships' descriptions. \\ \hline
-    G\gc & S\&C allows students to search for internships. \\ \hline
-    G\gc & S\&C recommends internships to students and students to companies. \\ \hline
-    G\gc & S\&C establishes a contact between matched students and companies. \\ \hline
+    G\gc & S\&C allows USs to search and apply for POs. \\ \hline
+    G\gc & S\&C recommends POs to USs and USs to COs. \\ \hline
     G\gc & S\&C provides support for the selection process. \\ \hline
-    G\gc & S\&C allows students, companies and universities monitor the matchmaking process, the selection process and the internship's progress. \\ \hline
-    G\gc & S\&C collects feedback to improve recommendations. \\ \hline
+    G\gc & S\&C allows USs, COs and UNs monitor INs. \\ \hline
+    G\gc & S\&C collects feedback from USs and COs. \\ \hline
 \caption{Goals}
 \end{longtable}
 
@@ -66,7 +64,7 @@ The machine does not observe the following world phenomena:
 \end{longtable}
 
 \subsection{Shared Phenomena}
-The following are phenomena involving both the world and the machine, categorized by their controller and observer:
+The following are phenomena involving both the world and the machine, categorized by their controller and observer.
 
 \subsubsection{Controller: World - Observer: Machine}
 \newcounter{sp}
@@ -82,20 +80,18 @@ The following are phenomena involving both the world and the machine, categorize
     SP\spc & A US logs out. \\ \hline
     SP\spc & A US adds his CV. \\ \hline
     SP\spc & A US updates his CV. \\ \hline
-    SP\spc & A US adds preferences on INs. \\ \hline
-    SP\spc & A US updates preferences on INs. \\ \hline
-    SP\spc & A US searches for an IN. \\ \hline
-    SP\spc & A US views an IN. \\ \hline
+    SP\spc & A US adds preferences on POs. \\ \hline
+    SP\spc & A US updates preferences on POs. \\ \hline
+    SP\spc & A US searches for a PO. \\ \hline
+    SP\spc & A US views a PO. \\ \hline
     SP\spc & A US views a CO. \\ \hline
-    SP\spc & A US applies for an IN. \\ \hline
+    SP\spc & A US applies for a PO. \\ \hline
     SP\spc & A US withdraws an application. \\ \hline
-    SP\spc & A US views a recommended IN. \\ \hline
-    SP\spc & A US accepts a recommended IN. \\ \hline
-    SP\spc & A US declines a recommended IN. \\ \hline
+    SP\spc & A US accepts a recommended PO. \\ \hline
+    SP\spc & A US declines a recommended PO. \\ \hline
     SP\spc & A US fills out a feedback form. \\ \hline
     SP\spc & A US views the status of a selection process. \\ \hline
     SP\spc & A US updates the status of a selection process. \\ \hline
-    SP\spc & A US views a questionnaire for a selection process. \\ \hline
     SP\spc & A US fills out a questionnaire for a selection process. \\ \hline
     SP\spc & A US accepts a scheduled interview for a selection process. \\ \hline
     SP\spc & A US declines a scheduled interview for a selection process. \\ \hline
@@ -110,11 +106,11 @@ The following are phenomena involving both the world and the machine, categorize
     SP\spc & A CO logs in S\&C. \\ \hline
     SP\spc & A CO logs out. \\ \hline
     SP\spc & A CO updates its profile. \\ \hline
-    SP\spc & A CO posts an IN. \\ \hline
-    SP\spc & A CO removes an IN. \\ \hline
-    SP\spc & A CO adds the description of an IN. \\ \hline
-    SP\spc & A CO updates the description of an IN. \\ \hline
-    SP\spc & A CO views a recommended US. \\ \hline
+    SP\spc & A CO posts a PO. \\ \hline
+    SP\spc & A CO removes a PO. \\ \hline
+    SP\spc & A CO adds the description of a PO. \\ \hline
+    SP\spc & A CO updates the description of a PO. \\ \hline
+    SP\spc & A CO views a US. \\ \hline
     SP\spc & A CO accepts a recommended US. \\ \hline
     SP\spc & A CO declines a recommended US. \\ \hline
     SP\spc & A CO fills out a feedback form. \\ \hline
@@ -148,13 +144,12 @@ The following are phenomena involving both the world and the machine, categorize
 \begin{longtable}{|c|p{10.5cm}|}
     \hline \rowcolor{polimiblue!40}
     \textbf{ID} & \textbf{Description} \\ \hline
-    SP\spc & S\&C notifies a US of a recommended IN. \\ \hline
+    SP\spc & S\&C notifies a US of a recommended PO. \\ \hline
     SP\spc & S\&C notifies a CO of a recommended US. \\ \hline
     SP\spc & S\&C notifies a US of a match with a CO. \\ \hline
     SP\spc & S\&C notifies a CO of a match with a US. \\ \hline
     SP\spc & S\&C notifies a US of an update on the status of a selection process. \\ \hline
     SP\spc & S\&C notifies a CO of an update on the status of a selection process. \\ \hline
-    SP\spc & S\&C notifies a UN of an update on the status of a selection process. \\ \hline
     SP\spc & S\&C notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
     SP\spc & S\&C notifies a CO if a US fills out a questionnaire for a selection process. \\ \hline
     SP\spc & S\&C notifies a US if a CO schedules an interview for a selection process. \\ \hline
@@ -179,12 +174,14 @@ Below are listed definitions, acronyms and abbreviations used throughout the doc
     \textbf{ID} & \textbf{Description} \\ \hline
     S\&C & Students\&Companies \\ \hline
     US & University student \\ \hline
-    IN & Internship \\ \hline
+    IN & Ongoing internship job \\ \hline
+    PO & Posted internship position \\ \hline
     CO & Company \\ \hline
     UN & University \\ \hline
+    EP & Email provider \\ \hline
     CV & Curriculum vitae \\ \hline
     Match & A US and a CO declare interest in each other \\ \hline
-    Contact & Selection process and internship monitoring \\ \hline
+    Contact & Selection process and internship progress \\ \hline
     G\texttt{n} & Goal number \texttt{n} \\ \hline
     WP\texttt{n} & World phenomenon number \texttt{n} \\ \hline
     SP\texttt{n} & Shared phenomenon number \texttt{n} \\ \hline

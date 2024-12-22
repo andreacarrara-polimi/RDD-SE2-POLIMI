@@ -9,7 +9,7 @@ S\&C will feature a modern, accessible and responsive web interface designed to 
 A mobile-friendly version will ensure accessibility across devices, boosting user engagement.
 
 \subsubsection{Wireframe}
-To illustrate the platform’s design, an exemplary wireframe follows to offer a simplified visual representation of the key interface from the point of view of a university student.
+To illustrate the platform’s design, an exemplary wireframe follows to offer a simplified visual representation of the home page from the point of view of a university student.
 
 \begin{figure}
     \centering
@@ -20,6 +20,10 @@ To illustrate the platform’s design, an exemplary wireframe follows to offer a
 \subsection{Hardware Interfaces}
 The platform is designed to be hardware-agnostic, supporting all standard internet-enabled devices, including desktops, laptops, smartphones and tablets.
 While S\&C ensures compatibility with smaller devices, such as smartphones, features requiring detailed input, for example uploading documents or adding questionnaires, are better suited to a desktop or laptop environment for optimal user experience.
+
+\subsection{Software Interfaces}
+S\&C requires an email provider interface to send confirmation emails to users during the registration process.
+Additionally, the platform will send notifications to users through the email provider, ensuring timely updates as needed.
 
 \subsection{Communication Interfaces}
 The platform will rely on the HTTPS protocol to ensure secure data transmission, protecting user information during interactions.
@@ -46,20 +50,18 @@ The table below presents detailed functional requirements.
     R\rc & S\&C allows USs to log out. \\ \hline
     R\rc & S\&C allows USs to add their CV. \\ \hline
     R\rc & S\&C allows USs to update their CV. \\ \hline
-    R\rc & S\&C allows USs to add preferences on INs. \\ \hline
-    R\rc & S\&C allows USs to update preferences on INs. \\ \hline
-    R\rc & S\&C allows USs to search for an IN. \\ \hline
-    R\rc & S\&C allows USs to view an IN. \\ \hline
+    R\rc & S\&C allows USs to add preferences on POs. \\ \hline
+    R\rc & S\&C allows USs to update preferences on POs. \\ \hline
+    R\rc & S\&C allows USs to search for a PO. \\ \hline
+    R\rc & S\&C allows USs to view a PO. \\ \hline
     R\rc & S\&C allows USs to view a CO. \\ \hline
-    R\rc & S\&C allows USs to apply for an IN. \\ \hline
+    R\rc & S\&C allows USs to apply for a PO. \\ \hline
     R\rc & S\&C allows USs to withdraw an application. \\ \hline
-    R\rc & S\&C allows USs to view a recommended IN. \\ \hline
-    R\rc & S\&C allows USs to accept a recommended IN. \\ \hline
-    R\rc & S\&C allows USs to decline a recommended IN. \\ \hline
+    R\rc & S\&C allows USs to accept a recommended PO. \\ \hline
+    R\rc & S\&C allows USs to decline a recommended PO. \\ \hline
     R\rc & S\&C allows USs to fill out a feedback form. \\ \hline
     R\rc & S\&C allows USs to view the status of a selection process. \\ \hline
     R\rc & S\&C allows USs to update the status of a selection process. \\ \hline
-    R\rc & S\&C allows USs to view a questionnaire for a selection process. \\ \hline
     R\rc & S\&C allows USs to fill out a questionnaire for a selection process. \\ \hline
     R\rc & S\&C allows USs to accept a scheduled interview for a selection process. \\ \hline
     R\rc & S\&C allows USs to decline a scheduled interview for a selection process. \\ \hline
@@ -74,11 +76,11 @@ The table below presents detailed functional requirements.
     R\rc & S\&C allows COs to log in. \\ \hline
     R\rc & S\&C allows COs to log out. \\ \hline
     R\rc & S\&C allows COs to update their profile. \\ \hline
-    R\rc & S\&C allows COs to post an IN. \\ \hline
-    R\rc & S\&C allows COs to remove an IN. \\ \hline
-    R\rc & S\&C allows COs to add the description of an IN. \\ \hline
-    R\rc & S\&C allows COs to update the description of an IN. \\ \hline
-    R\rc & S\&C allows COs to view a recommended US. \\ \hline
+    R\rc & S\&C allows COs to post a PO. \\ \hline
+    R\rc & S\&C allows COs to remove a PO. \\ \hline
+    R\rc & S\&C allows COs to add the description of a PO. \\ \hline
+    R\rc & S\&C allows COs to update the description of a PO. \\ \hline
+    R\rc & S\&C allows COs to view a US. \\ \hline
     R\rc & S\&C allows COs to accept a recommended US. \\ \hline
     R\rc & S\&C allows COs to decline a recommended US. \\ \hline
     R\rc & S\&C allows COs to fill out a feedback form. \\ \hline
@@ -105,13 +107,12 @@ The table below presents detailed functional requirements.
     R\rc & S\&C allows UNs to comment an IN. \\ \hline
     R\rc & S\&C allows UNs to view a comment. \\ \hline
     
-    R\rc & S\&C notifies a US of a recommended IN. \\ \hline
+    R\rc & S\&C notifies a US of a recommended PO. \\ \hline
     R\rc & S\&C notifies a CO of a recommended US. \\ \hline
     R\rc & S\&C notifies a US of a match with a CO. \\ \hline
     R\rc & S\&C notifies a CO of a match with a US. \\ \hline
     R\rc & S\&C notifies a US of an update on the status of a selection process. \\ \hline
     R\rc & S\&C notifies a CO of an update on the status of a selection process. \\ \hline
-    R\rc & S\&C notifies a UN of an update on the status of a selection process. \\ \hline
     R\rc & S\&C notifies a US if a CO adds a questionnaire for a selection process. \\ \hline
     R\rc & S\&C notifies a CO if a US fills out a questionnaire for a selection process. \\ \hline
     R\rc & S\&C notifies a US if a CO schedules an interview for a selection process. \\ \hline
@@ -136,81 +137,88 @@ The following table presents the traceability matrix, demonstrating the alignmen
 \renewcommand{\arraystretch}{1.5}
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
     \hline \rowcolor{polimiblue!40}
-    \textbf{Requirement} & \textbf{G1} & \textbf{G2} & \textbf{G3} & \textbf{G4} & \textbf{G5} & \textbf{G6} & \textbf{G7} \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-    R\mc & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    \textbf{Requirement} & \textbf{G1} & \textbf{G2} & \textbf{G3} & \textbf{G4} & \textbf{G5} \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \xmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \xmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \xmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \xmark & \cmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \xmark & \cmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline    
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \cmark & \xmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
+    R\mc & \xmark & \xmark & \xmark & \cmark & \xmark \\ \hline
 \caption{Traceability matrix}
 \end{longtable}
 
@@ -226,7 +234,7 @@ To ensure a seamless experience, S\&C must support at least 20\% of active users
 This guarantees stability and reliability during critical periods, such as application deadlines.
 
 \subsubsection{Data Storage}
-The platform must maintain records of both student profiles and company offerings.
+The platform must maintain records of both student profiles and company postings.
 Historical data such as past internships, feedback scores and selection outcomes should be preserved for analytics and future reference.
 In general, no data should be deleted without explicit consent, ensuring transparency and trust.
 
@@ -277,6 +285,6 @@ Maintenance windows must be scheduled during off-peak hours, typically at night,
 Detailed documentation and automated testing must support maintenance and future development.
 
 \subsection{Portability}
-S\&C must be accessible from all major web browsers, on both desktop and mobile devices.
+The platform must be accessible from all major web browsers, on both desktop and mobile devices.
 The design must be responsive, ensuring usability across various screen sizes and resolutions.
 While there are no current requirements, the platform should support infrastructure migrations if necessary, such as moving to cloud-based solutions for enhanced scalability and flexibility.

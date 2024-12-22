@@ -6,7 +6,7 @@
 \RequirePackage[
     a4paper,
     includehead,headheight=.6cm,
-    inner=3cm,outer=2cm,top=2.5cm,bottom=2.5cm
+    inner=2.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm
 ]{geometry}
 
 \RequirePackage[bf,font=onehalfspacing]{caption}
@@ -95,3 +95,28 @@
     \fancyhead[LE,RO]\thepage
     \vspace{-1cm}
 }
+
+\newenvironment{usecase}[7]{
+    \begin{longtable}{|l|p{10.5cm}|}
+        \hline \rowcolor{polimiblue!40}
+        \multicolumn{2}{|c|}{\textbf{#1}} \\ \hline
+        \textbf{Actors} & #2 \\ \hline
+        \textbf{Entry Condition} & #3 \\ \hline
+        \textbf{Event Flow} &
+            \begin{minipage}[t]{\linewidth}
+                \vspace{10pt}
+                \vspace{-\baselineskip}
+                #4
+                \vspace{10pt}
+            \end{minipage} \\ \hline
+        \textbf{Exit Condition} & #5 \\ \hline
+        \textbf{Exceptions} &
+            \begin{minipage}[t]{\linewidth}
+                \vspace{10pt}
+                \vspace{-\baselineskip}
+                #6
+                \vspace{10pt}
+            \end{minipage} \\ \hline
+    \caption{#7}
+    \end{longtable}
+}{}

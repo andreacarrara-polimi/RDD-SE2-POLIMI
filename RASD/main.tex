@@ -1,8 +1,10 @@
 \documentclass{template/class}
 
 \usepackage[T1]{fontenc}
-\usepackage{parskip}
 
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{listings}
 \usepackage{titlesec}
 \titlespacing{\section}{0pt}{3.3ex}{2ex}
 \titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
@@ -32,8 +34,53 @@
 \usepackage{fix-cm}
 \usepackage{algorithm}
 
-\input{template/config}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
 
+\input{template/config}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\lstdefinelanguage{Alloy}{
+	morekeywords={
+		module, open, as,
+		private, abstract, sig, extends, in,
+		lone, some, one, disj,
+		fact, pred, fun, assert,
+		run, check,
+		for, but, exactly,
+		this, not, implies, else, let,
+		not, no, set, all, sum,
+		iff, or, Int, and,
+		none, univ, iden
+	},
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[l]{--},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]{"},
+	%literate={->}{$\rightarrow$}1
+	% replacing characters can cause problems when copying from PDF to editor
+}[keywords,comments,strings]
 \begin{document}
 
 \frontmatter
@@ -48,7 +95,6 @@
 \tableofcontents
 
 \mainmatter
-
 \setcounter{page}{1}
 
 \chapter{Introduction}
@@ -61,6 +107,8 @@
 \input{chapters/3-specific-requirements/3-specific-requirements}
 
 \chapter{Formal Analysis}
+\input{chapters/4-formal-analysis}
+
 \chapter{Workload}
 \input{chapters/5-workload}
 
