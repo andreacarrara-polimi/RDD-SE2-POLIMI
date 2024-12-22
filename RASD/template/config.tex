@@ -40,4 +40,41 @@
 
 \captionsetup[table]{labelfont={color=polimiblue}}
 \captionsetup[figure]{labelfont={color=polimiblue}}
-\captionsetup[algorithm]{labelfont={color=polimiblue}}
+
+\definecolor{mauve}{rgb}{.58,0,.82}
+\definecolor{dkgreen}{rgb}{0,.6,0}
+
+\lstset{
+    language=Bash,
+    frame=tb,
+    aboveskip=3mm,
+    belowskip=3mm,
+    basicstyle={\small\ttfamily},
+    columns=flexible,
+    numbers=none,
+    showstringspaces=false,
+    keywordstyle=\color{blue},
+    stringstyle=\color{mauve},
+    commentstyle=\color{dkgreen},
+    tabsize=3,
+    breaklines=true,
+    breakatwhitespace=true
+}
+
+\lstdefinelanguage{Alloy}{
+	morekeywords={
+		module, open, as,
+		private, abstract, sig, extends, in,
+		lone, some, one, disj,
+		fact, pred, fun, assert,
+		run, check,
+		for, but, exactly, all, sum, set,
+		this, not, no, implies, else, let, iff, or, and, Int,
+		none, univ, iden
+	},
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[l]{--},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]{"},
+}[keywords,comments,strings]
