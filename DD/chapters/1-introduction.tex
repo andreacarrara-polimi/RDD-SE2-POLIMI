@@ -1,5 +1,61 @@
+This chapter provides essential background information about the design document, including its purpose, scope and organizational structure.
+It also introduces key terminology and references needed for understanding the technical content that follows.
+
 \section{Purpose}
+The purpose of the following document is to present a detailed design description of Students\&Companies.
+It provides developers with implementation guidelines while serving as a technical agreement between customers and contractors.
+The document transforms the requirements and specifications from the requirements analysis and specification document \cite{carraracurrodossi2024} into concrete architectural decisions, describing the system's components and their interactions.
+It outlines the design patterns, technical interfaces and deployment strategies that will guide the development team in building a robust platform that fulfills stakeholder needs.
+Additionally, it establishes a clear roadmap for implementation and testing phases, ensuring that the final system aligns with both technical requirements and business objectives.
+
 \section{Scope}
+Students\&Companies is a platform designed to bridge the gap between academic education and practical workplace experience.
+The system facilitates the internship matching process by enabling students to create detailed profiles with CVs and preferences, while companies can post comprehensive internship opportunities including project details, required skills and terms.
+The platform features personalized recommendations through statistical analysis, manages the entire selection process from interviews to final outcome and provides tools for monitoring ongoing internships.
+Additionally, universities can oversee their students' experiences, ensuring quality and addressing any concerns that arise during the internships.
+For a comprehensive overview of the system's requirements and functionalities, please refer to the requirements analysis and specification document \cite{carraracurrodossi2024}.
+
 \section{Glossary}
+This table contains the key definitions, acronyms and abbreviations used in the document.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|c|p{8.5cm}|}
+    \hline \rowcolor{polimiblue!40}
+    \textbf{ID} & \textbf{Description} \\ \hline
+    S\&C & Students\&Companies \\ \hline
+    US & University student \\ \hline
+    IN & Internship job \\ \hline
+    PO & Internship position \\ \hline
+    CO & Company \\ \hline
+    UN & University \\ \hline
+    EP & Email provider \\ \hline
+    CV & Curriculum vitae \\ \hline
+    Match & A US and a CO declare interest in each other \\ \hline
+    Contact & Selection process and internship progress \\ \hline
+\caption{Glossary}
+\end{longtable}
+
 \section{Reference Documents}
+The document follows Professor Di Nitto's project assignment structure \cite{dinitto2024}.
+
 \section{Document Structure}
+This document describes the design specification for Students\&Companies, following an architecture-centric approach that progresses from system-wide design decisions to specific implementation details.
+The document is organized into seven chapters, each providing increasingly detailed technical information needed for system implementation.
+
+\subsubsection{Introduction}
+The first chapter establishes the foundation of the design document through purpose and scope definitions, provides a comprehensive glossary, lists reference documents and explains the document's organization.
+
+\subsubsection{Architectural Design}
+The second chapter presents the system's architecture through multiple views: an overview of components and their interactions, detailed component descriptions, deployment specifications, runtime behavior illustrations, component interfaces and the rationale behind architectural styles and patterns.
+
+\subsubsection{User Interface Design}
+The third chapter details the user interface through mockups and interaction flows, covering each user category's specific interface requirements and presenting key screens and navigation patterns.
+
+\subsubsection{Requirements Traceability}
+The fourth chapter establishes clear links between the requirements from the requirements analysis and specification document and their corresponding design elements, demonstrating how architectural decisions satisfy functional and non-functional requirements.
+
+\subsubsection{Implementation, Integration and Test Plan}
+The fifth chapter provides a comprehensive roadmap for system realization, detailing the implementation order of components, their integration strategy and the testing methodology to ensure system quality.
+
+\subsubsection{Effort Spent}
+The sixth chapter quantifies each group member's time investment in developing the design document.
