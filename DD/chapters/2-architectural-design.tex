@@ -74,3 +74,23 @@ This architectural choice lets developers add new features without modifying exi
 The pattern particularly shines in notifications and real-time updates, providing a clean separation between event producers and consumers.
 
 \section{Other Design Decisions}
+While architectural patterns provide the system's foundation, many other critical design decisions shape its implementation.
+This section outlines these choices, focusing on practical aspects that developers must consider when maintaining or extending the system.
+
+\subsubsection{Deployment Approach}
+The deployment strategy embraces horizontal scaling, running multiple application server instances rather than scaling up individual servers.
+This approach requires developers to write stateless code that works across instances, but provides significant benefits: the system continues functioning even if some instances fail, resource allocation becomes more flexible as administrators can add or remove instances based on demand and load balancing becomes straightforward since any instance can handle any request.
+
+\subsubsection{Security Implementation}
+Security permeates every aspect of the design through multiple complementary layers.
+All client-server communication uses HTTPS encryption, protecting data in transit.
+Sensitive user information receives additional encryption in the database.
+Session management relies on secure, time-limited authentication tokens rather than storing session data server-side.
+These decisions guide security-related development work, from implementing proper token handling to ensuring sensitive data never appears in logs.
+
+\subsubsection{Data Management}
+Data management emphasizes both integrity and performance.
+The database implements transaction management to maintain consistency even during concurrent operations.
+Constraint enforcement at the database level catches data validity issues early.
+Performance optimization through strategic indexing and caching improves response times.
+These choices influence how developers interact with data, as they must properly manage transactions, respect constraints and consider query performance during development.
