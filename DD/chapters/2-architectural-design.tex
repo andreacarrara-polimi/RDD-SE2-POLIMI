@@ -44,4 +44,33 @@ When a user interacts with the WA, their request flows through the WS to one of 
 \section{Runtime View}
 \section{Component Interfaces}
 \section{Architectural Styles and Patterns}
+This section examines the architectural styles adopted in Students\&Companies, explaining their general principles and how they guide implementation decisions.
+Understanding these foundational choices is crucial for developers working on the system, as they influence everything from component interaction to code organization.
+
+\subsubsection{Client-Server Architecture}
+The system's foundation rests on a client-server architecture, which separates systems into service requesters, called clients, and service providers, called servers.
+This separation enables the user interface to evolve independently from data processing and storage, while centralizing resource management on the server side.
+Developers can thus focus on their specific domain, either crafting responsive user experiences or implementing robust server-side logic.
+
+Modern applications refine this pattern through tiers, logical groupings of related functionality.
+A three-tier architecture divides the application into three distinct layers: a presentation tier that handles the user interface, a business logic tier that processes application rules and a data tier that manages storage.
+This separation gives developers clear boundaries for their work.
+Interface developers can update the presentation tier without considering database queries.
+Application developers can enhance business logic without touching the user interface.
+Database administrators can optimize storage without impacting other tiers.
+Each team works independently, reducing development bottlenecks and simplifying maintenance.
+
+\subsubsection{REST Architecture}
+REST (Representational State Transfer) guides how these tiers communicate over the web.
+Originally conceived for document transfer, REST has evolved into a comprehensive style for data exchange.
+Its core principle of statelessness means that servers maintain no information about past requests.
+In turn, each client request must contain all necessary context.
+This architectural choice significantly impacts development: backend developers need not manage complex session states, system administrators benefit from straightforward load balancing since any server can handle any request and cache developers can optimize performance by focusing solely on request parameters rather than server state.
+
+\subsubsection{Event-Driven Architecture}
+The system also employs an event-driven architecture, organizing certain components around event production and consumption rather than direct coupling.
+When a company posts a new internship position, for example, the system generates an event rather than directly notifying students.
+This architectural choice lets developers add new features without modifying existing code, as they simply subscribe new components to relevant events.
+The pattern particularly shines in notifications and real-time updates, providing a clean separation between event producers and consumers.
+
 \section{Other Design Decisions}
