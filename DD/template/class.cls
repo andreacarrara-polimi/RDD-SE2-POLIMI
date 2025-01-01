@@ -1,8 +1,7 @@
-\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{template/class}[PoliMi template]
-\ProcessOptions\relax
 
 \LoadClass[12pt, twoside]{book}
+
 \RequirePackage[
     a4paper,
     includehead,headheight=.6cm,

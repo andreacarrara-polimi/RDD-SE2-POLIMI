@@ -7,28 +7,28 @@ The chapter concludes with a discussion of chosen architectural styles, patterns
 \section{Overview}
 Students\&Companies requires an architecture that can efficiently handle the complex interactions between students, companies and universities while ensuring system scalability and data security.
 The platform adopts a three-tier client-server architecture, separating presentation, application logic and data management into distinct layers.
-This section provides an overview of the application of this architecture to the problem at hand, while a more general discussion of styles and patterns belongs in later sections.
+This section provides an overview of the application of this architecture to the problem at hand, while a more general discussion of the architectural style belongs in later sections.
 
 \subsubsection{Presentation Tier}
-At the client tier, the web app serves as the user interface, allowing students, companies and universities to access S\&C through their browsers.
-The app is designed to be responsive, ensuring accessibility across various devices while maintaining a consistent user experience.
+At the presentation tier, the web app serves as the user interface, allowing S\&C to be accessed by users through their browsers.
+The app is responsive, ensuring accessibility across various devices while maintaining a consistent user experience.
 
 \subsubsection{Application Tier}
-The middle tier consists of three server components.
+The application tier consists of three server components.
 
 The web server handles incoming client requests, managing user sessions and providing load balancing capabilities to distribute traffic effectively across multiple instances of the application server.
-The AS contains the core business logic, processing user requests to coordinate the entire internship lifecycle from application to completion.
+The application server contains the core business logic, processing user requests to coordinate the entire internship lifecycle from application to completion.
 
-The mail server manages the email workflow, determining when to send notifications for registration confirmations, new matches, selection updates or internship comments.
-For actual email delivery, the MS integrates with an external email provider that handles the delivery infrastructure, ensuring reliable communication reaches users' inboxes.
+The mail server manages the email workflow, determining when to send notifications for registration confirmations, selection updates or internship comments.
+For actual email delivery, the mail server integrates with an external email provider that handles the delivery infrastructure, ensuring reliable communication.
 
 \subsubsection{Data Tier}
 The data tier employs a DBMS server to store and manage all system data.
 This includes user profiles, internship positions, ongoing matches, selection processes and internship records.
-The DS provides structured data storage with built-in mechanisms for maintaining data integrity through transaction management and constraint enforcement, optimizing query performance through indexing and caching, and implementing access controls and encryption for sensitive user data.
+The DBMS server provides structured data storage with mechanisms for maintaining integrity through transaction management and constraint enforcement, optimizing query performance through indexing and caching, and implementing access controls and encryption for sensitive user data.
 
 Overall, this architecture enables efficient data flow while maintaining scalability and security.
-When a user interacts with the WA, their request flows through the WS to one of the AS instances, which processes it using data from the DS and triggers notifications through the MS when necessary.
+When a user interacts with the web app, their request flows through the web server to one of the application server instances, which processes it leveraging the data from the DBMS server and triggers notifications through the mail server when necessary.
 
 \begin{figure}[h]
     \centering
@@ -38,12 +38,12 @@ When a user interacts with the WA, their request flows through the WS to one of 
 
 \section{Component View}
 This section illustrates the logical organization of Students\&Companies by breaking down the system into its major software modules and mapping their relationships.
-Using a series of increasingly detailed UML diagrams, the component view first presents a high-level diagram showing the main system elements and their key interactions.
-It then dives into individual components, examining their internal structures, responsibilities and interfaces, with particular attention to how they collaborate to implement the platform's core functionality.
+Using a series of increasingly detailed UML diagrams, the component view first presents a high-level view showing the system elements and their interactions.
+It then dives into individual components, examining their low-level structures, responsibilities and interfaces, with particular attention to how they collaborate to implement the platform's functionality.
 
-\subsection{High-Level Diagram}
+\subsection{High-Level View}
 The high-level diagram below shows the components of Students\&Companies and their interactions.
-The system exposes six distinct interfaces to the Web App, each corresponding to a manager responsible for a specific domain of functionality.
+The system exposes six distinct interfaces to the web app, each corresponding to a specific domain of functionality that will be further discussed in the next section.
 
 \begin{figure}[h]
     \centering
@@ -51,42 +51,116 @@ The system exposes six distinct interfaces to the Web App, each corresponding to
     \caption{High-level component view}
 \end{figure}
 
+\subsection{Low-Level View}
+The low-level view below builds upon the high-level diagram above by providing a detailed representation of the internal architecture of the application server.
+The codebase is structured according to the model-view-controller pattern.
+In this architecture, the model acts as the core data structure of the system, representing and managing the content of the database.
+In turn, managers act as controllers, bridging the model and the external interfaces, which serve as the entry points for users, ensuring a clean separation of concerns that makes the system modular, scalable and maintainable.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{images/component-view/low-level.png}
+    \caption{Low-level component view}
+\end{figure}
+
+Each manager is organized into multiple submanagers, which encapsulate specific functionalities within its domain.
+These submanagers allow the managers to remain focused on their broader responsibilities while delegating finer tasks.
+The following subsections delve into each manager, describing its role and breaking down its submanagers.
+
 \subsubsection{User Manager}
-The User Interface links to the User Manager, which is responsible for registration, authentication and profile management.
-When users sign up, the User Manager coordinates with the Mail Server API to send confirmation emails and stores encrypted credentials through the DBMS Server API.
-It also enables users to update their profiles, including uploading CVs, specifying preferences and managing account settings.
+The user interface serves as the bridge between users and the user manager, channeling requests related to account creation, authentication and management.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=11cm]{images/managers/user.png}
+    \caption{User manager}
+\end{figure}
+
+The user signup submanager handles user onboarding by validating fields and enforcing rules like password length.
+It securely integrates new users into the system while delegating confirmation emails to the notification manager.
+
+The user login submanager supports user logins, validating credentials and issuing tokens for secure session management.
+It also ensures expired tokens are revoked.
+
+The user management submanager supports users in updating their profiles, including editing preferences and uploading CVs, validating and storing changes.
+Additionally, it provides an option for account deletion.
 
 \subsubsection{Position Manager}
-The Position Interface interacts with the Position Manager, enabling companies to post internship positions and students to search for them.
-Companies use this interface to specify position details such as tasks, application domains, required skills, terms and additional benefits, all securely stored through the DBMS Server API.
-Students can search for positions using keywords or by applying filters such as domain or location, with the manager retrieving these records from the DBMS Server API.
+The position interface acts as the portal for managing internship postings, funneling requests from both companies and students to the position manager.
+This manager ensures that opportunities are validated, maintained and accessible to all relevant users.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=11cm]{images/managers/position.png}
+    \caption{Position manager}
+\end{figure}
+
+The position posting submanager allows companies to post new positions, validating details such as required skills and terms.
+
+The position search submanager empowers students to search for opportunities through keywords.
+It ranks and prioritizes results, highlighting the most relevant options.
+
+The position management submanager supports companies in modifying existing position postings, ensuring all changes are logged, including updates in their status.
 
 \subsubsection{Recommendation Manager}
-The Recommendation Interface connects to the Recommendation Manager, which powers the platform's matching and recommendation capabilities.
-Beyond simple keyword searches, this manager leverages statistical analysis to compare students' profiles with position descriptions, generating recommendations for both students and companies.
-These recommendations are stored and retrieved through the DBMS Server API.
-To facilitate communication, the Recommendation Manager uses the Mail Server API to notify students and companies about new recommendations, ensuring proactive and timely engagement with suitable matches.
+The recommendation interface fuels the platform’s personalized experience by connecting users with tailored opportunities.
+The recommendation manager transforms system data into actionable suggestions, enhancing engagement.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=12cm]{images/managers/recommendation.png}
+    \caption{Recommendation manager}
+\end{figure}
+
+The recommendation match submanager applies statistical analysis to generate recommendations by comparing user profiles and position descriptions. It also ensures users are informed about new recommendations by working with the notification manager.
+
+The recommendation feedback submanager tracks feedback forms to refine future suggestions, improving relevance over time.
 
 \subsubsection{Selection Manager}
-The Selection Interface links to the Selection Manager, which coordinates the selection workflow between companies and students.
-This manager handles the creation and management of structured questionnaires submitted by companies to evaluate students, storing these forms and their responses through the DBMS Server API, and it manages the scheduling of interviews.
-Throughout the selection process, this manager tracks the status of applications, logging and updating their progression in the DBMS Server.
-Any changes in selection status, such as invitations for interviews or feedback from companies, are communicated to relevant parties using the Mail Server API to ensure everyone remains informed and up to date.
+The selection interface connects university students and companies through the selection process, channeling application and interview workflows to the selection manager.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=11cm]{images/managers/selection.png}
+    \caption{Selection manager}
+\end{figure}
+
+The selection application submanager oversees the lifecycle of applications, from initial submission to final outcome.
+It makes sure that both students and companies are informed throughout the workflow by integrating with the notification manager.
+
+The selection interview submanager coordinates interviews by validating availability and resolving conflicts, ensuring schedules are efficiently managed.
+
+The selection questionnaire submanager supports companies in evaluating candidates by managing the distribution and storage of questionnaires.
 
 \subsubsection{Internship Manager}
-The Internship Interface connects to the Internship Manager, which oversees all active internships.
-This manager allows students, companies and universities to monitor progress, share updates, submit reports and raise concerns through a collaborative interface.
-Progress reports, feedback logs and other internship data are stored and retrieved using the DBMS Server API.
-When an issue or concern is raised, the manager notifies the relevant parties, including universities, through the Mail Server API, ensuring swift communication.
+The internship interface facilitates collaboration among students, companies and universities, channeling related workflows to the internship manager.
+This manager monitors ongoing internships, ensuring transparency.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=11cm]{images/managers/internship.png}
+    \caption{Internship manager}
+\end{figure}
+
+The internship progress submanager records status updates, providing all stakeholders with insights into internship progress.
+Additionally, it collaborates with the notification manager to send update emails.
+
+The internship comment submanager coordinates the posting of comments when progress is reported or a concern is raised.
 
 \subsubsection{Notification Manager}
-The Notification Interface is responsible for handling asynchronous communication from the Notification Manager to users.
-This manager ensures the delivery of updates, including notifications about new matches identified by the Recommendation Manager, changes in the selection process from the Selection Manager or updates on the internship progress through the Internship Manager.
-Notifications are prepared by other managers and delivered to users through the Notification Manager, which uses the Mail Server API for communication.
-For tracking and auditing purposes, this manager also logs all notifications into the DBMS using the DBMS Server API, ensuring a record of all communications for reference when needed.
+The notification interface connects other managers to the notification manager, which acts as the centralized hub for delivering all emails.
+By consolidating communication, it ensures consistency and reliability across the system.
 
-\subsection{Low-Level Diagram}
-\subsection{Managers}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=11cm]{images/managers/notification.png}
+    \caption{Notification manager}
+\end{figure}
+
+The notification formatting submanager prepares emails by structuring data provided by other managers, ensuring clarity for the recipient.
+
+The notification delivery submanager communicates with the mail server API to send notifications, tracking delivery and retrying failed attempts to maintain reliability.
+
 \section{Deployment View}
 \section{Runtime View}
 \section{Component Interfaces}
@@ -96,13 +170,12 @@ Understanding these foundational patterns is crucial for developers working on t
 
 \subsubsection{Client-Server Architecture}
 The system's foundation rests on a client-server architecture, which separates systems into service requesters, called clients, and service providers, called servers.
-This separation enables the user interface to evolve independently from data processing and storage, while centralizing resource management on the server side.
-Developers can thus focus on their specific domain, either crafting responsive user experiences or implementing robust server-side logic.
+This separation enables the user interface to evolve independently from data processing and storage, while centralizing resource management on the server.
+Developers can thus focus on their domain, either crafting responsive user experiences or implementing robust business logic.
 
-Modern applications refine this pattern through tiers, logical groupings of related functionality.
+Modern applications refine this pattern through tiers, which are logical groupings of related functionality.
 A three-tier architecture divides the application into three distinct layers: a presentation tier that handles the user interface, an application tier that processes business logic and a data tier that manages storage.
-This separation gives developers clear boundaries for their work: interface developers can update the presentation tier without considering database queries, application developers can enhance business logic without touching the user interface and database administrators can optimize storage without impacting other tiers.
-Each team works independently, reducing development bottlenecks and simplifying maintenance.
+This separation gives developers clear boundaries for their work and lets teams works independently, reducing development bottlenecks and simplifying maintenance.
 
 \subsubsection{REST Architecture}
 REST (Representational State Transfer) guides how these tiers communicate over the web.
@@ -111,11 +184,11 @@ Its core principle of statelessness means that servers maintain no information a
 Instead, each client request must contain all necessary context.
 This architectural choice significantly impacts development: backend developers need not manage complex session states, system administrators benefit from straightforward load balancing since any server can handle any request and cache developers can optimize performance by focusing solely on request parameters rather than server state.
 
-\subsubsection{Event-Driven Architecture}
-The system also employs an event-driven architecture, organizing certain components around event production and consumption rather than direct coupling.
-When a company posts a new internship position, for example, the system generates an event rather than directly notifying students.
-This architectural choice lets developers add new features without modifying existing code, as they simply subscribe new components to relevant events.
-The pattern particularly shines in notifications and real-time updates, providing a clean separation between event producers and consumers.
+\subsubsection{MVC Pattern}
+The Model-View-Controller (MVC) pattern organizes software into three interconnected components, each with distinct responsibilities.
+The model represents the core data structure, encapsulating the database, while the view handles user interaction and presentation.
+Controllers act as intermediaries, processing user requests to run business logic and coordinate workflows.
+This separation of concerns enhances scalability, modularity and maintainability, allowing developers to focus on specific aspects of the system without impacting others, ultimately fostering efficient collaboration among teams.
 
 \section{Other Design Decisions}
 While architectural styles and patterns provide the system's foundation, many other critical design decisions shape its implementation.
@@ -126,15 +199,7 @@ The deployment strategy embraces horizontal scaling, running multiple applicatio
 This approach requires developers to write stateless code that works across instances, but provides significant benefits: the system continues functioning even if some instances fail, resource allocation becomes more flexible as administrators can add or remove instances based on demand and load balancing becomes straightforward since any instance can handle any request.
 
 \subsubsection{Security Implementation}
-Security permeates every aspect of the design through multiple complementary layers.
-All client-server communication uses HTTPS encryption, protecting data in transit.
-Sensitive user information receives additional encryption in the database.
-Session management relies on secure, time-limited authentication tokens rather than storing session data server-side.
-These decisions guide security-related development work, from implementing proper token handling to ensuring sensitive data never appears in logs.
+Security permeates every aspect of the design through multiple complementary layers: all client-server communication uses HTTPS encryption to protect data in transit, sensitive information receives additional encryption in the database and session management relies on time-limited tokens rather than storing session data server-side.
 
 \subsubsection{Data Management}
-Data management emphasizes both integrity and performance.
-The database implements transaction management to maintain consistency even during concurrent operations.
-Constraint enforcement at the database level catches data validity issues early.
-Performance optimization through strategic indexing and caching improves response times.
-These choices influence how developers interact with data, as they must properly manage transactions, respect constraints and consider query performance during development.
+Data management emphasizes both integrity and performance: the database implements transaction management to maintain consistency even during concurrent operations, constraint enforcement catches validity issues early and performance optimization through strategic indexing and caching improves response times.
