@@ -162,6 +162,33 @@ The notification formatting submanager prepares emails by structuring data provi
 The notification delivery submanager communicates with the mail server API to send notifications, tracking delivery and retrying failed attempts to maintain reliability.
 
 \section{Deployment View}
+This section provides a detailed representation of how the software components are physically deployed on hardware nodes, together with their interactions.
+It outlines the infrastructure, focusing on the communication protocols, security measures and data management strategies employed in the system.
+The deployment is designed to align with the three-tier architecture defined in the overview:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/deployment-view.png}
+    \caption{Deployment view}
+\end{figure}
+
+A firewall is deployed between the browser and the web server to protect the internal infrastructure.
+It acts as the first line of defense by filtering incoming traffic and allowing only HTTPS requests on designated ports.
+This ensures that exclusively legitimate traffic reaches the web server, mitigating risks of unauthorized access or malicious attacks.
+
+The connection between the browser and the web server, and subsequently between the web server and the application server, uses HTTPS.
+This protocol encrypts all transmitted data, ensuring confidentiality and integrity for securing sensitive operations such as user authentication.
+The application server then communicates with the DBMS server using the TCP/IP protocol, providing reliable and ordered data exchange.
+This is suitable for database queries and responses, ensuring accurate transactions between the application and the database.
+Lastly, the application server interacts with the mail server to send emails using SMTP.
+This ensures efficient email delivery while separating email-related tasks from core application processes.
+
+A relational database management system such as PostgreSQL is used for structured data storage.
+This aligns with the need for a well-defined schema and ACID compliance.
+On ther other hand, files such as uploaded CVs are stored locally on the DBMS server’s file system.
+Rather than storing the binary data in the database itself, the file paths are saved as references in it.
+This approach separates structured data from unstructured data, optimizing database performance and simplifying file management.
+
 \section{Runtime View}
 \section{Component Interfaces}
 \section{Architectural Styles and Patterns}
