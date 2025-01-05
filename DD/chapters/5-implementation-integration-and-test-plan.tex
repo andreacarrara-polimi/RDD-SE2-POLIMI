@@ -3,12 +3,21 @@ The chosen approach follows a bottom-up strategy.
 It begins with developing and testing foundational elements before integrating the rest of the system.
 This gradual process focuses on the independent development of basic modules, which are tested in isolation before being integrated into the larger system.
 This independence eliminates the need to consider the entire system upfront, making it easier and faster to address issues and apply changes.
-A key factor of this method is the usage of drivers, short tests that simulate the inputs and interactions essential for checking individual modules.
+A key factor of this method is the use of drivers, which are tests that simulate the inputs essential for validating individual modules.
 
+\section{Test Plan}
+Following the bottom-up strategy, a layered testing plan is employed to ensure system reliability.
+Unit tests use drivers to simulate inputs for individual submanagers, verifying their functionality in isolation.
+As modules are progressively integrated, integration tests verify the interactions between components, such as database queries, ensuring that combined functionalities work as expected.
+Once a manager is fully integrated, functional tests are performed to guarantee the alignment with the functionalities, goals and constraints outlined in the requirements analysis and specification document \cite{carraracurrodossi2024}.
+To assess the system's ability to handle real-world demands, load testing evaluates the platform's performance under normal and peak traffic conditions, while performance testing measures responsiveness, ensuring the system meets the required standards for speed.
+
+\section{Implementation and Integration}
 The plan begins with the development and testing of base components, specifically the foundational submanagers within each manager.
 Once these base submanagers are implemented and tested, the remaining ones for the same manager are integrated. 
 To ensure clarity, when all submanagers of a manager are integrated, they are represented in the diagrams through their respective manager component.
 
+\newpage
 The first step is to implement and test the model.
 
 \begin{figure}[h]
@@ -17,7 +26,6 @@ The first step is to implement and test the model.
     \caption{Implementation step 1}
 \end{figure}
 
-\newpage
 The development proceeds to step two with the user signup and login submanagers.
 
 \begin{figure}[h]
@@ -89,7 +97,6 @@ The development proceeds to step nine with the application submanagers.
     \caption{Implementation step 9}
 \end{figure}
 
-\newpage
 Step ten applies the same pattern to the notification submanagers.
 
 \begin{figure}[h]
