@@ -106,7 +106,7 @@ The position management submanager supports companies in modifying existing posi
 The recommendation interface fuels the platform’s personalized experience by connecting users with tailored opportunities.
 The recommendation manager transforms system data into actionable suggestions, enhancing engagement.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=12cm]{images/managers/recommendation.png}
     \caption{Recommendation manager}
@@ -164,9 +164,9 @@ The notification delivery submanager communicates with the mail server API to se
 \section{Deployment View}
 This section provides a detailed representation of how the software components are physically deployed on hardware nodes, together with their interactions.
 It outlines the infrastructure, focusing on the communication protocols, security measures and data management strategies employed in the system.
-The deployment is designed to align with the three-tier architecture defined in the overview:
+The deployment view below is designed to align with the three-tier architecture defined in the overview.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=16cm]{images/deployment-view.png}
     \caption{Deployment view}
@@ -181,16 +181,307 @@ This protocol encrypts all transmitted data, ensuring confidentiality and integr
 The application server then communicates with the DBMS server using the TCP/IP protocol, providing reliable and ordered data exchange.
 This is suitable for database queries and responses, ensuring accurate transactions between the application and the database.
 Lastly, the application server interacts with the mail server to send emails using SMTP.
-This ensures efficient email delivery while separating email-related tasks from core application processes.
+This ensures efficient email delivery while separating email-related tasks from core ones.
 
-A relational database management system such as PostgreSQL is used for structured data storage.
-This aligns with the need for a well-defined schema and ACID compliance.
-On ther other hand, files such as uploaded CVs are stored locally on the DBMS server’s file system.
-Rather than storing the binary data in the database itself, the file paths are saved as references in it.
-This approach separates structured data from unstructured data, optimizing database performance and simplifying file management.
+A relational database management system like PostgreSQL is used for structured data storage, providing ACID compliance on a well-defined schema.
+As they represent unstructured data, files such as uploaded CVs are stored locally on the DBMS server’s file system.
+Rather than storing the binary data in the database itself, the file paths are saved as references in it instead.
+This approach thus separates structured from unstructured data, optimizing database performance and simplifying file management.
 
 \section{Runtime View}
+The runtime view captures the dynamic behavior of the system by detailing how its components interact to perform specific operations.
+Using sequence diagrams, this section illustrates the communication pathways and timing relationships among components, offering insights into the system's execution flow.
+These runtime perspectives not only guide implementation but also serve as a reference for testing and troubleshooting.
+
+\newpage
+\subsection{User}
+\subsubsection{User Logs Out}
+The user is logged in and on the home page.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/user-logs-out.png}
+    \caption{User logs out sequence diagram}
+\end{figure}
+
+\newpage
+\subsection{Student}
+\subsubsection{Student Signs Up}
+The student is not signed up.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=14cm]{images/sequence-diagrams/student-signs-up.png}
+    \caption{Student signs up sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Student Logs In}
+The student is signed up.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/student-logs-in.png}
+    \caption{Student logs in sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Student Accepts Recommendation}
+The student is logged in, has uploaded a CV, entered preferences and ticked the "Keep Me Updated" field.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/student-accepts-recommendation.png}
+    \caption{Student accepts recommendation sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Student Accepts Interview}
+The student is logged in, has received a notification on a scheduled interview and he is on the home page.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/student-accepts-interview.png}
+    \caption{Student accepts interview sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Student Comments Internship}
+The student is logged in, doing an internship and he is on the home page.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/student-comments-internship.png}
+    \caption{Student comments internship sequence diagram}
+\end{figure}
+
+\newpage
+\subsection{Company}
+\subsubsection{Company Signs Up}
+The company is not signed up. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=14cm]{images/sequence-diagrams/company-signs-up.png}
+    \caption{Company signs up sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Company Logs In}
+The company is signed up.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/company-logs-in.png}
+    \caption{Company logs in sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Company Accepts Recommendation}
+The company is logged in, has posted a position and has ticked the "Keep Me Updated" field.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/company-accepts-recommendation.png}
+    \caption{Company accepts recommendation sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Company Schedules Interview}
+The company is logged in, has posted a position and it is on the home page.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/company-schedules-interview.png}
+    \caption{Company schedules interview sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{Company Comments Internship}
+The company is logged in, hosting an internship and it is on the home page.
+
+\begin{figure}[h!] 
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/company-comments-internship.png}
+    \caption{Company comments internship sequence diagram}
+\end{figure}
+
+\newpage
+\subsection{University}
+\subsubsection{University Signs Up}
+The university is not signed up.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=14cm]{images/sequence-diagrams/university-signs-up.png}
+    \caption{University signs up sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{University Logs In}
+The university is signed up. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/university-logs-in.png}
+    \caption{University logs in sequence diagram}
+\end{figure}
+
+\newpage
+\subsubsection{University Comments Internship}
+The university is logged in and on the home page.
+
+\begin{figure}[h!] 
+    \centering
+    \includegraphics[width=16cm]{images/sequence-diagrams/university-comments-internship.png}
+    \caption{University comments internship sequence diagram}
+\end{figure}
+
+\newpage
 \section{Component Interfaces}
+This section lists the component interfaces that define the methods provided by various managers within the system to interact with other components.
+Each manager encapsulates a specific set of functionalities and communicates through standardized interfaces to ensure modularity.
+For methods requiring database access, there is a corresponding method in the model interface to handle related operations. 
+For instance, if the user manager includes the \texttt{handleUserSignup} interface to manage user signup, then the model will provide the method \texttt{performUserSignup} to validate and store the data in the database.
+This separation ensures a clean architecture by dividing user-facing logic and data-handling responsibilities. 
+Note that once a user logs into Students\&Companies, their email is stored in the session.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{14.5cm}|}
+    \hline
+    \cellcolor{custompurple}\textbf{User Interface} \\ \hline
+    \texttt{handleStudentSignup(String name, String surname, String email, String password, String confirmPassword, boolean keepMeUpdated, String preferences, String cv)} \\ \hline
+    \texttt{handleCompanySignup(String name, String email, String field, String password, String confirmPassword, boolean keepMeUpdated)} \\ \hline
+    \texttt{handleUniversitySignup(String name, String email, String password, String confirmPassword, boolean keepMeUpdated)} \\ \hline
+    \texttt{handleDeleteProfile()} \\ \hline
+    \texttt{handleLogin(String email, String password)} \\ \hline
+    \texttt{handleLogout()} \\ \hline
+    \texttt{handleUpdateStudentProfile(String name, String lastname, String email, String password, String confirmPassword, String preferences, String cv)} \\ \hline
+    \texttt{handleUpdateCompanyProfile(String name, String email, String field, String password, String confirmPassword)} \\ \hline
+    \texttt{handleUpdateUniversityProfile(String name, String email, String password, String confirmPassword)} \\ \hline
+    \texttt{openStudentHomePage()} \\ \hline
+    \texttt{openCompanyHomePage()} \\ \hline
+    \texttt{openUniversityHomePage()} \\ \hline
+    \texttt{openMyProfilePage()} \\ \hline
+\caption{User interface}
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{14.5cm}|}
+    \hline
+    \cellcolor{customblue}\textbf{Position Interface} \\ \hline
+    \texttt{handlePostPosition(String name, String domain, String project, String tasks, String terms)} \\ \hline
+    \texttt{handleDeletePosition(int positionId)} \\ \hline
+    \texttt{handleUpdatePosition(int positionId, String domain, String project, String tasks, String terms)} \\ \hline
+    \texttt{handleSearchPosition(String keyword)} \\ \hline
+    \texttt{openMyPositionsPage()} \\ \hline
+    \texttt{openPositionPage(int positionId)} \\ \hline
+    \texttt{openStudentPage(String email)} \\ \hline
+    \texttt{openCompanyPage(String email)} \\ \hline
+\caption{Position interface}
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{14.5cm}|}
+    \hline
+    \cellcolor{customgreen}\textbf{Recommendation Interface} \\ \hline
+    \texttt{handleAcceptStudentRecommendation(int recommendationId, boolean accepted)} \\ \hline
+    \texttt{handleAcceptCompanyRecommendation(int recommendationId, boolean accepted)} \\ \hline
+    \texttt{handleFillOutFeedbackForm(List<String> fields)} \\ \hline
+\caption{Recommendation interface}
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{14.5cm}|}
+    \hline
+    \cellcolor{customyellow}\textbf{Selection Interface} \\ \hline
+    \texttt{handleApplication(int positionId)} \\ \hline
+    \texttt{handleWithdrawApplication(int applicationId)} \\ \hline
+    \texttt{handleUpdateSelectionStatus(int selectionId, String status)} \\ \hline
+    \texttt{handleScheduleInterview(int selectionId, Date date, String mode)} \\ \hline
+    \texttt{handleAcceptInterview(int interviewId, boolean accepted)} \\ \hline
+    \texttt{handleAddQuestionnaire(int selectionId, List<String> fields)} \\ \hline
+    \texttt{handleFillOutQuestionnaire(int questionnaireId, List<String> fields)} \\ \hline
+    \texttt{openMyApplicationsPage()} \\ \hline
+    \texttt{openApplicationPage(int appplicationId)} \\ \hline
+\caption{Selection interface}
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{14.5cm}|}
+    \hline
+    \cellcolor{customorange}\textbf{Internship Interface} \\ \hline
+    \texttt{handleUpdateInternshipStatus(int internshipId, String status)} \\ \hline
+    \texttt{handleSendComment(int internshipId, String comment)} \\ \hline
+    \texttt{openMyInternshipsPage()} \\ \hline
+    \texttt{openInternshipPage(int internshipId)} \\ \hline
+\caption{Internship interface}
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{14.5cm}|}
+    \hline
+    \cellcolor{customred}\textbf{Notification Interface} \\ \hline
+    \texttt{handleConfirmationNotification(String email)} \\ \hline
+    \texttt{handleStudentApplicationNotification(String studentEmail, int applicationId)} \\ \hline
+    \texttt{handleCompanyApplicationNotification(String companyEmail, int applicationId)} \\ \hline
+    \texttt{handleRecommendationNotification(String studentEmail, String companyEmail, int recommendationId)} \\ \hline
+    \texttt{handleMatchNotification(String studentEmail, String companyEmail, int recommendationId)} \\ \hline
+    \texttt{handleSelectionStatusNotification(String studentEmail, String companyEmail, int selectionId)} \\ \hline
+    \texttt{handleScheduledInterviewNotification(String studentEmail, int interviewId)} \\ \hline
+    \texttt{handleAcceptedInterviewNotification(String companyEmail, int interviewId, boolean accepted)} \\ \hline
+    \texttt{handleAddedQuestionnaireNotification(String studentEmail, int questionnaireId)} \\ \hline
+    \texttt{handleFilledOutQuestionnaireNotification(String companyEmail, int questionnaireId)} \\ \hline
+    \texttt{handleInternshipStatusNotification(String studentEmail, String companyEmail, String universityEmail, int internshipId, String status)} \\ \hline
+    \texttt{handleInternshipCommentNotification(String studentEmail, String companyEmail, String universityEmail, int internshipId, String authorEmail, String comment)} \\ \hline
+\caption{Notification interface}
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{14.5cm}|}
+    \hline
+    \cellcolor{customgrey}\textbf{Model Interface} \\ \hline
+    \texttt{performStudentSignup(String name, String surname, String email, String password, boolean keepMeUpdated, String preferences, String cv)} \\ \hline
+    \texttt{performCompanySignup(String name, String email, String field, String password, boolean keepMeUpdated)} \\ \hline
+    \texttt{performUniversitySignup(String name, String email, String password, boolean keepMeUpdated)} \\ \hline
+    \texttt{performDeleteProfile(String email)} \\ \hline
+    \texttt{performLogin(String email, String password)} \\ \hline
+    \texttt{performUpdateStudentProfile(String name, String lastname, String email, String password, String preference, String cv)} \\ \hline
+    \texttt{performUpdateCompanyProfile(String name, String email, String field, String password)} \\ \hline
+    \texttt{performUpdateUniversityProfile(String name, String email, String password)} \\ \hline
+    \texttt{getRecommendedPositions(String studentEmail)} \\ \hline
+    \texttt{getRecommendedStudents(String companyEmail)} \\ \hline
+    \texttt{getMonitoredStudents(String universityEmail)} \\ \hline
+    \texttt{getProfile(String email)} \\ \hline
+
+    \texttt{performPostPosition(String companyEmail, String name, String domain, String project, String tasks, String terms)} \\ \hline
+    \texttt{performDeletePosition(String companyEmail, int positionId)} \\ \hline
+    \texttt{performUpdatePosition(int positionId, String name, String domain, String project, String tasks, String terms)} \\ \hline
+    \texttt{performSearchPosition(String keyword)} \\ \hline
+    \texttt{getPositions(String companyEmail)} \\ \hline
+    \texttt{getPosition(String email, int positionId)} \\ \hline
+
+    \texttt{performAcceptStudentRecommendation(String studentEmail, int recommendationId, boolean accepted)} \\ \hline
+    \texttt{performAcceptCompanyRecommendation(String companyEmail, int recommendationId, boolean accepted)} \\ \hline
+    \texttt{performFillOutFeedbackForm(String email, List<String> fields)} \\ \hline
+    
+    \texttt{performApplication(String studentEmail, int positionId)} \\ \hline
+    \texttt{performWithdrawApplication(String studentEmail, int applicationId)} \\ \hline
+    \texttt{performUpdateSelectionStatus(String email, int selectionId, String status)} \\ \hline
+    \texttt{performScheduleInterview(String email, int selectionId, String description, Date date, String mode)} \\ \hline
+    \texttt{performAcceptInterview(String email, int interviewId, boolean accepted)} \\ \hline
+    \texttt{performAddQuestionnaire(String companyEmail,int selectionId, List<String> fields)} \\ \hline
+    \texttt{performFillOutQuestionnaire(String studentEmail, int questionnaireId, List<String> fields)} \\ \hline
+    \texttt{getApplications(String studentEmail)} \\ \hline
+    \texttt{getApplication(String studentEmail, int applicationId)} \\ \hline
+    
+    \texttt{performUpdateInternshipStatus(String email, int internshipId, String status)} \\ \hline
+    \texttt{performSendComment(String email, int internshipId, String comment)} \\ \hline
+    \texttt{getInternships(String email)} \\ \hline
+    \texttt{getInternship(String email, int internshipId)} \\ \hline
+\caption{Model interface}
+\end{longtable}
+
 \section{Architectural Styles and Patterns}
 This section examines the architectural styles adopted in Students\&Companies, explaining their general principles and how they guide implementation decisions.
 Understanding these foundational patterns is crucial for developers working on the system, as they influence everything from component interaction to code organization.
