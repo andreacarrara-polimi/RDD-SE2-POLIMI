@@ -134,7 +134,7 @@ sig Feedback {
   user: one User
 }
 
--- FACTS 
+-- FACTS
 
 -- All emails are unique
 fact EmailsAreUnique {
@@ -154,7 +154,7 @@ fact UniversityNamesAreUnique {
     u1.name = u2.name
 }
 
--- Students, companies, and universities cannot share the same name
+-- Students companies and universities cannot share the same name
 fact EntityNamesAreDistinct {
   all s: Student, c: Company |
     s.name != c.name
@@ -215,13 +215,13 @@ fact StudentApplicationsAreConsistent {
       a.student = s iff a in s.applications
 }
 
---If an application for a position is accepted that student must be in the set of the accepted ones for that position
+-- If an application for a position is accepted, that student must be in the set of the accepted ones for that position
 fact AcceptedApplicationsMatchAcceptedSets {
   all a: Application |
     (a.status = ApplicationAccepted) iff (a.student in a.position.acceptedStudents)
 }
 
---If an application for a position is rejected the student must be in the set of the rejected ones for that position
+-- If an application for a position is rejected, the student must be in the set of the rejected ones for that position
 fact RejectedApplicationsMatchRejectedSets {
   all a: Application |
     (a.status = ApplicationRejected) iff (a.student in a.position.rejectedStudents)
@@ -381,7 +381,7 @@ fact SingleInternshipPerPosition {
     p1 != p2 iff p1.internship != p2.internship
 }
 
--- No two internships are identical in student, company, or selection
+-- No two internships are identical in student, company or selection
 fact InternshipsAreUnique {
   all disj i1, i2: Internship |
     i1.student != i2.student
@@ -421,7 +421,7 @@ fact StudentsCanOnlyCommentOnTheirOwnInternships {
       c.internship in c.user.internships
 }
 
--- Companies can only comment on internships they provide
+-- Companies can only comment on internships they host
 fact CompanyCommentsOnProvidedInternships {
   all c: Comment |
     c.user in Company implies
@@ -459,8 +459,7 @@ fact StudentHaveOnlyTheirFeedback {
     s.feedbacks = {f: Feedback | f.user = s}
 }
 
-
--- ASSERTIONS --
+-- ASSERTIONS
 
 assert NoDuplicateEmails {
   all u1, u2: User |
@@ -536,47 +535,26 @@ assert UniqueOngoingInternships {
 }
 check UniqueOngoingInternships for 5
 
+-- PREDICATES
 
---PRED
-
---Base world: 2 students, 1 company, 1 position. Both students apply, one through recommendation. Only one students obtains the internship.
 pred BaseWorld {
-	#Company =1
-	#Student= 2
-	#Position = 1
-	#Application =2
-	#Selection =1
-	#Recommendation=1
-	#Internship=1
+  #Student = 2
+  #Company = 1
+  #Position = 1
+  #Recommendation = 1
+  #Application = 2
+  #Selection = 1
+  #Internship = 1
 }
-
 run BaseWorld for 4
 
---Second world: 2 students, 1 company, 1 position. Both students apply, one through recommendation. They are both accepted for the selection process, but only one obtains the internship.
 pred SecondWorld {
-	#Company =1
-	#Student= 2
-	#Position = 1
-	#Application =2
-	#Selection =2
-	#Recommendation=1
-	#Internship=1
+  #Student = 2
+  #Company = 1
+  #Position = 1
+  #Recommendation = 1
+  #Application = 2
+  #Selection = 2
+  #Internship = 1
 }
-
 run SecondWorld for 4
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

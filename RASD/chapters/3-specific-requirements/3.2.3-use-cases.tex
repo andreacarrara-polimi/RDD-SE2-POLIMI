@@ -5,11 +5,11 @@ The tables outline entry conditions, event flow, exit conditions and exceptions,
 \setcounter{uc}{1}
 
 \subsubsection{User Use Cases}
-The following use case diagram illustrates the key actions a generic user can perform.
+The following use cases diagram illustrates the key actions a generic user can perform.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8cm]{images/use-case-diagrams/user.png}
+    \includegraphics[width=8cm]{images/use-cases-diagrams/user.png}
     \caption{User use cases diagram}
 \end{figure}
 
@@ -46,7 +46,6 @@ The following use case diagram illustrates the key actions a generic user can pe
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. User Logs Out}
     {User}
@@ -71,7 +70,6 @@ The following use case diagram illustrates the key actions a generic user can pe
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. User Deletes Profile}
     {User, EP}
@@ -99,11 +97,11 @@ The following use case diagram illustrates the key actions a generic user can pe
 
 \clearpage
 \subsubsection{Student Use Cases}
-The following use case diagram outlines the main interactions a student can have.
+The following use cases diagram outlines the main interactions a student can have.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8cm]{images/use-case-diagrams/student.png}
+    \includegraphics[width=8cm]{images/use-cases-diagrams/student.png}
     \caption{Student use cases diagram}
 \end{figure}
 
@@ -117,7 +115,7 @@ The following use case diagram outlines the main interactions a student can have
         \item S\&C displays the landing page.
         \item The US clicks the "Sign Up as a Student" button.
         \item S\&C displays the signup page.
-        \item The US enters their name, surname, institutional email address, password, and confirms the password.
+        \item The US enters his name, surname, institutional email address, password and confirms the password.
         \item The US can upload a CV and enter preferences.
         \item The US can tick the "Keep Me Updated" field.
         \item The US clicks the "Sign Up" button.
@@ -149,16 +147,18 @@ The following use case diagram outlines the main interactions a student can have
 \clearpage
 \begin{usecase}
     {UC\theuc. Student Updates Profile}
-    {US}
+    {US, EP}
     {The US is logged in and S\&C displays the home page.}
     {\begin{enumerate}[leftmargin=*]
         \item The US clicks the "My Profile" button.
         \item S\&C displays the profile page.
         \item The US clicks the "Update Profile" button.
         \item S\&C displays the profile editor.
-        \item The US updates the desired fields.
+        \item The US edits the desired fields.
         \item The US clicks the "Save Profile" button.
         \item S\&C validates the fields.
+        \item S\&C sends a confirmation email to the US via the EP.
+        \item The US clicks the confirmation link in the email.
         \item S\&C displays the profile page.
     \end{enumerate}}
     {The profile is updated and S\&C displays the profile page.}
@@ -298,7 +298,7 @@ The following use case diagram outlines the main interactions a student can have
         \item S\&C displays the applications page.
         \item The US clicks the application name.
         \item S\&C displays the application page.
-        \item The US clicks the "Withdraw" button.
+        \item The US clicks the "Withdraw Application" button.
         \item S\&C displays the "My Applications" page.
     \end{enumerate}}
     {The application is withdrawn and S\&C displays the "My Applications" page.}
@@ -411,7 +411,6 @@ The following use case diagram outlines the main interactions a student can have
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. Student Accepts Interview}
     {US, CO, EP}
@@ -477,11 +476,11 @@ The following use case diagram outlines the main interactions a student can have
 
 \clearpage
 \subsubsection{Company Use Cases}
-The use case diagram below demonstrates the primary operations a company can perform.
+The use cases diagram below illustrates the primary operations a company can perform.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8cm]{images/use-case-diagrams/company.png}
+    \includegraphics[width=8cm]{images/use-cases-diagrams/company.png}
     \caption{Company use cases diagram}
 \end{figure}
 
@@ -495,7 +494,7 @@ The use case diagram below demonstrates the primary operations a company can per
         \item S\&C displays the landing page.
         \item The CO clicks the "Sign Up as a Company" button.
         \item S\&C displays the signup page.
-        \item The CO enters their name, email address, field, password, and confirms the password.
+        \item The CO enters its name, email address, field, password, and confirms the password.
         \item The CO can tick the "Keep Me Updated" field.
         \item The CO clicks the "Sign Up" button.
         \item S\&C validates the fields.
@@ -523,19 +522,20 @@ The use case diagram below demonstrates the primary operations a company can per
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. Company Updates Profile}
-    {CO}
+    {CO, EP}
     {The CO is logged in and S\&C displays the home page.}
     {\begin{enumerate}[leftmargin=*]
         \item The CO clicks the "My Profile" button.
         \item S\&C displays the profile page.
         \item The CO clicks the "Update Profile" button.
         \item S\&C displays the profile editor.
-        \item The CO updates the desired fields.
+        \item The CO edits the desired fields.
         \item The CO clicks the "Save Profile" button.
         \item S\&C validates the fields.
+        \item S\&C sends a confirmation email to the CO via the EP.
+        \item The CO clicks the confirmation link in the email.
         \item S\&C displays the profile page.
     \end{enumerate}}
     {The profile is updated and S\&C displays the profile page.}
@@ -558,7 +558,6 @@ The use case diagram below demonstrates the primary operations a company can per
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. Company Posts Position}
     {CO}
@@ -588,11 +587,10 @@ The use case diagram below demonstrates the primary operations a company can per
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. Company Removes Position}
     {CO}
-    {The CO is logged in, has posted the PO, and S\&C displays the home page.}
+    {The CO is logged in, has posted the PO and S\&C displays the home page.}
     {\begin{enumerate}[leftmargin=*]
         \item The CO clicks the "My Positions" button.
         \item S\&C displays the POs page.
@@ -640,11 +638,10 @@ The use case diagram below demonstrates the primary operations a company can per
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. Company Accepts Recommendation}
     {CO, US, EP}
-    {The CO is logged in and has ticked the "Keep Me Updated" field.}
+    {The CO is logged in, has posted the PO and has ticked the "Keep Me Updated" field.}
     {\begin{enumerate}[leftmargin=*]
         \item S\&C sends a notification email to the CO via the EP.
         \item The CO clicks the "View Student" link on the email.
@@ -658,8 +655,8 @@ The use case diagram below demonstrates the primary operations a company can per
     {The recommendation is accepted and S\&C displays the PO page.}
     {\begin{itemize}[leftmargin=*, label=\tiny\textbullet]
         \item The recommendation has already been resolved.
+        \item The PO has been removed.
         \item The US has been deleted.
-        \item The PO has been deleted.
     \end{itemize}
     In all cases, S\&C displays the home page and a descriptive error message.}
     {Use case \theuc}
@@ -703,7 +700,6 @@ The use case diagram below demonstrates the primary operations a company can per
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. Company Adds Questionnaire}
     {CO, US, EP}
@@ -774,14 +770,13 @@ The use case diagram below demonstrates the primary operations a company can per
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. Company Comments Internship}
     {CO, US, UN, EP}
     {The CO is logged in, hosting an IN and S\&C displays the home page.}
     {\begin{enumerate}[leftmargin=*]
         \item The CO clicks the "My Internships" button.
-        \item S\&C displays the internships page.
+        \item S\&C displays the INs page.
         \item The CO clicks the IN name.
         \item S\&C displays the IN page.
         \item The CO clicks the "Write a Comment" button.
@@ -811,11 +806,11 @@ The use case diagram below demonstrates the primary operations a company can per
 
 \clearpage
 \subsubsection{University Use Cases}
-The following use case diagram depicts the main activities a university can carry out.
+The following use cases diagram depicts the main activities a university can carry out.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8cm]{images/use-case-diagrams/university.png}
+    \includegraphics[width=8cm]{images/use-cases-diagrams/university.png}
     \caption{University use cases diagram}
 \end{figure}
 
@@ -828,7 +823,7 @@ The following use case diagram depicts the main activities a university can carr
         \item S\&C displays the landing page.
         \item The UN clicks the "Sign Up as a University" button.
         \item S\&C displays the signup page.
-        \item The UN enters their name, institutional email address, password and confirms the password.
+        \item The UN enters its name, institutional email address, password and confirms the password.
         \item The UN can tick the "Keep Me Updated" field.
         \item The UN clicks the "Sign Up" button.
         \item S\&C validates the fields.
@@ -857,19 +852,20 @@ The following use case diagram depicts the main activities a university can carr
 \stepcounter{uc}
 
 \clearpage
-
 \begin{usecase}
     {UC\theuc. University Updates Profile}
-    {UN}
+    {UN, EP}
     {The UN is logged in and S\&C displays the home page.}
     {\begin{enumerate}[leftmargin=*]
         \item The UN clicks the "My Profile" button.
         \item S\&C displays the profile page.
         \item The UN clicks the "Update Profile" button.
         \item S\&C displays the profile editor.
-        \item The UN updates the desired fields.
+        \item The UN edits the desired fields.
         \item The UN clicks the "Save Profile" button.
         \item S\&C validates the fields.
+        \item S\&C sends a confirmation email to the UN via the EP.
+        \item The UN clicks the confirmation link in the email.
         \item S\&C displays the profile page.
     \end{enumerate}}
     {The profile is updated and S\&C displays the profile page.}
@@ -886,7 +882,7 @@ The following use case diagram depicts the main activities a university can carr
 
 \begin{figure}
     \centering
-    \includegraphics[width=12cm]{images/sequence-diagrams/university-updates-profile.png}
+    \includegraphics[width=13cm]{images/sequence-diagrams/university-updates-profile.png}
     \caption{UC\theuc\ sequence diagram}
 \end{figure}
 

@@ -1,5 +1,5 @@
 This chapter provides a detailed architectural design of Students\&Companies, starting with a high-level overview of the system's design choices and their rationale.
-It then explores the component view, illustrating major system modules and their interactions using various UML diagrams.
+It then explores the low-level component view, illustrating major system modules and their interactions using various diagrams.
 A deployment view follows, showing how software components distribute across hardware nodes.
 Runtime views are then presented through sequence diagrams depicting key system operations.
 The chapter concludes with a discussion of chosen architectural styles, patterns and other significant design decisions.
@@ -19,7 +19,7 @@ The application tier consists of three server components.
 The web server handles incoming client requests, managing user sessions and providing load balancing capabilities to distribute traffic effectively across multiple instances of the application server.
 The application server contains the core business logic, processing user requests to coordinate the entire internship lifecycle from application to completion.
 
-The mail server manages the email workflow, determining when to send notifications for registration confirmations, selection updates or internship comments.
+The mail server manages the email workflow, determining when to send notifications for signup confirmations, selection outcomes or internship comments.
 For actual email delivery, the mail server integrates with an external email provider that handles the delivery infrastructure, ensuring reliable communication.
 
 \subsubsection{Data Tier}
@@ -38,12 +38,12 @@ When a user interacts with the web app, their request flows through the web serv
 
 \section{Component View}
 This section illustrates the logical organization of Students\&Companies by breaking down the system into its major software modules and mapping their relationships.
-Using a series of increasingly detailed UML diagrams, the component view first presents a high-level view showing the system elements and their interactions.
+Using a series of increasingly detailed diagrams, the component view first presents a high-level view showing the system elements and their interactions.
 It then dives into individual components, examining their low-level structures, responsibilities and interfaces, with particular attention to how they collaborate to implement the platform's functionality.
 
 \subsection{High-Level View}
 The high-level diagram below shows the components of Students\&Companies and their interactions.
-The system exposes six distinct interfaces to the web app, each corresponding to a specific domain of functionality that will be further discussed in the next section.
+The application server exposes six interfaces to the web app, each corresponding to a domain of functionality that will be further discussed in the next section.
 
 \begin{figure}[h]
     \centering
@@ -80,7 +80,7 @@ The user signup submanager handles user onboarding by validating fields and enfo
 It securely integrates new users into the system while delegating confirmation emails to the notification manager.
 
 The user login submanager supports user logins, validating credentials and issuing tokens for secure session management.
-It also ensures expired tokens are revoked.
+It also ensures that expired tokens are revoked.
 
 The user management submanager supports users in updating their profiles, including editing preferences and uploading CVs, validating and storing changes.
 Additionally, it provides an option for account deletion.
@@ -103,7 +103,7 @@ It ranks and prioritizes results, highlighting the most relevant options.
 The position management submanager supports companies in modifying existing position postings, ensuring all changes are logged, including updates in their status.
 
 \subsubsection{Recommendation Manager}
-The recommendation interface fuels the platform’s personalized experience by connecting users with tailored opportunities.
+The recommendation interface fuels the platform’s personalized experience by connecting users with tailored matches.
 The recommendation manager transforms system data into actionable suggestions, enhancing engagement.
 
 \begin{figure}[ht]
@@ -112,7 +112,8 @@ The recommendation manager transforms system data into actionable suggestions, e
     \caption{Recommendation manager}
 \end{figure}
 
-The recommendation match submanager applies statistical analysis to generate recommendations by comparing user profiles and position descriptions. It also ensures users are informed about new recommendations by working with the notification manager.
+The recommendation match submanager applies statistical analysis to generate recommendations by comparing user profiles and position descriptions.
+It also ensures users are informed about new recommendations by working with the notification manager.
 
 The recommendation feedback submanager tracks feedback forms to refine future suggestions, improving relevance over time.
 
@@ -148,7 +149,7 @@ Additionally, it collaborates with the notification manager to send update email
 The internship comment submanager coordinates the posting of comments when progress is reported or a concern is raised.
 
 \subsubsection{Notification Manager}
-The notification interface connects other managers to the notification manager, which acts as the centralized hub for delivering all emails.
+The notification interface connects other managers to the notification manager, which acts as the centralized hub for preparing and sending all emails.
 By consolidating communication, it ensures consistency and reliability across the system.
 
 \begin{figure}[h]
@@ -176,7 +177,7 @@ A firewall is deployed between the browser and the web server to protect the int
 It acts as the first line of defense by filtering incoming traffic and allowing only HTTPS requests on designated ports.
 This ensures that exclusively legitimate traffic reaches the web server, mitigating risks of unauthorized access or malicious attacks.
 
-The connection between the browser and the web server, and subsequently between the web server and the application server, uses HTTPS.
+The connection between the firewall and the web server, and subsequently between the web server and the application server, uses HTTPS.
 This protocol encrypts all transmitted data, ensuring confidentiality and integrity for securing sensitive operations such as user authentication.
 The application server then communicates with the DBMS server using the TCP/IP protocol, providing reliable and ordered data exchange.
 This is suitable for database queries and responses, ensuring accurate transactions between the application and the database.
@@ -193,7 +194,7 @@ The runtime view captures the dynamic behavior of the system by detailing how it
 Using sequence diagrams, this section illustrates the communication pathways and timing relationships among components, offering insights into the system's execution flow.
 These runtime perspectives not only guide implementation but also serve as a reference for testing and troubleshooting.
 
-\newpage
+\clearpage
 \subsection{User}
 \subsubsection{User Logs Out}
 The user is logged in and on the home page.
@@ -204,7 +205,7 @@ The user is logged in and on the home page.
     \caption{User logs out sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsection{Student}
 \subsubsection{Student Signs Up}
 The student is not signed up.
@@ -215,7 +216,7 @@ The student is not signed up.
     \caption{Student signs up sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Student Logs In}
 The student is signed up.
 
@@ -225,7 +226,7 @@ The student is signed up.
     \caption{Student logs in sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Student Accepts Recommendation}
 The student is logged in, has uploaded a CV, entered preferences and ticked the "Keep Me Updated" field.
 
@@ -235,7 +236,7 @@ The student is logged in, has uploaded a CV, entered preferences and ticked the 
     \caption{Student accepts recommendation sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Student Accepts Interview}
 The student is logged in, has received a notification on a scheduled interview and he is on the home page.
 
@@ -245,7 +246,7 @@ The student is logged in, has received a notification on a scheduled interview a
     \caption{Student accepts interview sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Student Comments Internship}
 The student is logged in, doing an internship and he is on the home page.
 
@@ -255,7 +256,7 @@ The student is logged in, doing an internship and he is on the home page.
     \caption{Student comments internship sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsection{Company}
 \subsubsection{Company Signs Up}
 The company is not signed up. 
@@ -266,7 +267,7 @@ The company is not signed up.
     \caption{Company signs up sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Company Logs In}
 The company is signed up.
 
@@ -276,7 +277,7 @@ The company is signed up.
     \caption{Company logs in sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Company Accepts Recommendation}
 The company is logged in, has posted a position and has ticked the "Keep Me Updated" field.
 
@@ -286,17 +287,17 @@ The company is logged in, has posted a position and has ticked the "Keep Me Upda
     \caption{Company accepts recommendation sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Company Schedules Interview}
 The company is logged in, has posted a position and it is on the home page.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=16cm]{images/sequence-diagrams/company-schedules-interview.png}
+    \includegraphics[width=14cm]{images/sequence-diagrams/company-schedules-interview.png}
     \caption{Company schedules interview sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{Company Comments Internship}
 The company is logged in, hosting an internship and it is on the home page.
 
@@ -306,7 +307,7 @@ The company is logged in, hosting an internship and it is on the home page.
     \caption{Company comments internship sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsection{University}
 \subsubsection{University Signs Up}
 The university is not signed up.
@@ -317,7 +318,7 @@ The university is not signed up.
     \caption{University signs up sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{University Logs In}
 The university is signed up. 
 
@@ -327,7 +328,7 @@ The university is signed up.
     \caption{University logs in sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \subsubsection{University Comments Internship}
 The university is logged in and on the home page.
 
@@ -337,12 +338,12 @@ The university is logged in and on the home page.
     \caption{University comments internship sequence diagram}
 \end{figure}
 
-\newpage
+\clearpage
 \section{Component Interfaces}
-This section lists the component interfaces that define the methods provided by various managers within the system to interact with other components.
+This section lists the component interfaces that define the methods provided by managers within the system to interact with other components.
 Each manager encapsulates a specific set of functionalities and communicates through standardized interfaces to ensure modularity.
 For methods requiring database access, there is a corresponding method in the model interface to handle related operations. 
-For instance, if the user manager includes the \texttt{handleUserSignup} interface to manage user signup, then the model will provide the method \texttt{performUserSignup} to validate and store the data in the database.
+For instance, if the user manager includes the method \texttt{handleUserSignup} to manage user signup, then the model will provide the method \texttt{performUserSignup} to validate and store the data in the database.
 This separation ensures a clean architecture by dividing user-facing logic and data-handling responsibilities. 
 Note that once a user logs into Students\&Companies, their email is stored in the session.
 
@@ -376,8 +377,8 @@ Note that once a user logs into Students\&Companies, their email is stored in th
     \texttt{handleSearchPosition(String keyword)} \\ \hline
     \texttt{openMyPositionsPage()} \\ \hline
     \texttt{openPositionPage(int positionId)} \\ \hline
-    \texttt{openStudentPage(String email)} \\ \hline
-    \texttt{openCompanyPage(String email)} \\ \hline
+    \texttt{openStudentPage(String studentEmail)} \\ \hline
+    \texttt{openCompanyPage(String companyEmail)} \\ \hline
 \caption{Position interface}
 \end{longtable}
 
@@ -455,30 +456,30 @@ Note that once a user logs into Students\&Companies, their email is stored in th
     \texttt{getProfile(String email)} \\ \hline
 
     \texttt{performPostPosition(String companyEmail, String name, String domain, String project, String tasks, String terms)} \\ \hline
-    \texttt{performDeletePosition(String companyEmail, int positionId)} \\ \hline
+    \texttt{performDeletePosition(int positionId)} \\ \hline
     \texttt{performUpdatePosition(int positionId, String name, String domain, String project, String tasks, String terms)} \\ \hline
     \texttt{performSearchPosition(String keyword)} \\ \hline
     \texttt{getPositions(String companyEmail)} \\ \hline
-    \texttt{getPosition(String email, int positionId)} \\ \hline
+    \texttt{getPosition(positionId)} \\ \hline
 
-    \texttt{performAcceptStudentRecommendation(String studentEmail, int recommendationId, boolean accepted)} \\ \hline
-    \texttt{performAcceptCompanyRecommendation(String companyEmail, int recommendationId, boolean accepted)} \\ \hline
+    \texttt{performAcceptStudentRecommendation(int recommendationId, boolean accepted)} \\ \hline
+    \texttt{performAcceptCompanyRecommendation(int recommendationId, boolean accepted)} \\ \hline
     \texttt{performFillOutFeedbackForm(String email, List<String> fields)} \\ \hline
     
     \texttt{performApplication(String studentEmail, int positionId)} \\ \hline
-    \texttt{performWithdrawApplication(String studentEmail, int applicationId)} \\ \hline
+    \texttt{performWithdrawApplication(int applicationId)} \\ \hline
     \texttt{performUpdateSelectionStatus(String email, int selectionId, String status)} \\ \hline
-    \texttt{performScheduleInterview(String email, int selectionId, String description, Date date, String mode)} \\ \hline
-    \texttt{performAcceptInterview(String email, int interviewId, boolean accepted)} \\ \hline
-    \texttt{performAddQuestionnaire(String companyEmail,int selectionId, List<String> fields)} \\ \hline
-    \texttt{performFillOutQuestionnaire(String studentEmail, int questionnaireId, List<String> fields)} \\ \hline
+    \texttt{performScheduleInterview(int selectionId, String description, Date date, String mode)} \\ \hline
+    \texttt{performAcceptInterview(int interviewId, boolean accepted)} \\ \hline
+    \texttt{performAddQuestionnaire(int selectionId, List<String> fields)} \\ \hline
+    \texttt{performFillOutQuestionnaire(int questionnaireId, List<String> fields)} \\ \hline
     \texttt{getApplications(String studentEmail)} \\ \hline
-    \texttt{getApplication(String studentEmail, int applicationId)} \\ \hline
+    \texttt{getApplication(int applicationId)} \\ \hline
     
     \texttt{performUpdateInternshipStatus(String email, int internshipId, String status)} \\ \hline
     \texttt{performSendComment(String email, int internshipId, String comment)} \\ \hline
     \texttt{getInternships(String email)} \\ \hline
-    \texttt{getInternship(String email, int internshipId)} \\ \hline
+    \texttt{getInternship(int internshipId)} \\ \hline
 \caption{Model interface}
 \end{longtable}
 
@@ -487,7 +488,7 @@ This section examines the architectural styles adopted in Students\&Companies, e
 Understanding these foundational patterns is crucial for developers working on the system, as they influence everything from component interaction to code organization.
 
 \subsubsection{Client-Server Architecture}
-The system's foundation rests on a client-server architecture, which separates systems into service requesters, called clients, and service providers, called servers.
+The system's foundation rests on a client-server architecture, which separates components into service requesters, called clients, and service providers, called servers.
 This separation enables the user interface to evolve independently from data processing and storage, while centralizing resource management on the server.
 Developers can thus focus on their domain, either crafting responsive user experiences or implementing robust business logic.
 
@@ -500,7 +501,7 @@ REST (Representational State Transfer) guides how these tiers communicate over t
 Originally conceived for document transfer, REST has evolved into a comprehensive style for data exchange.
 Its core principle of statelessness means that servers maintain no information about past requests.
 Instead, each client request must contain all necessary context.
-This architectural choice significantly impacts development: backend developers need not manage complex session states, system administrators benefit from straightforward load balancing since any server can handle any request and cache developers can optimize performance by focusing solely on request parameters rather than server state.
+This architectural choice significantly impacts development: backend developers do not need to manage session states, system administrators benefit from straightforward load balancing since any server can handle any request and cache developers can optimize performance by focusing on request parameters rather than server state.
 
 \subsubsection{MVC Pattern}
 The Model-View-Controller (MVC) pattern organizes software into three interconnected components, each with distinct responsibilities.
@@ -517,7 +518,7 @@ The deployment strategy embraces horizontal scaling, running multiple applicatio
 This approach requires developers to write stateless code that works across instances, but provides significant benefits: the system continues functioning even if some instances fail, resource allocation becomes more flexible as administrators can add or remove instances based on demand and load balancing becomes straightforward since any instance can handle any request.
 
 \subsubsection{Security Implementation}
-Security permeates every aspect of the design through multiple complementary layers: all client-server communication uses HTTPS encryption to protect data in transit, sensitive information receives additional encryption in the database and session management relies on time-limited tokens rather than storing session data server-side.
+Security permeates every aspect of the design through multiple complementary layers: all client-server communication uses HTTPS encryption to protect data in transit, sensitive information receives additional encryption in the database and session management relies on time-limited tokens rather than storing session data on the server.
 
 \subsubsection{Data Management}
 Data management emphasizes both integrity and performance: the database implements transaction management to maintain consistency even during concurrent operations, constraint enforcement catches validity issues early and performance optimization through strategic indexing and caching improves response times.

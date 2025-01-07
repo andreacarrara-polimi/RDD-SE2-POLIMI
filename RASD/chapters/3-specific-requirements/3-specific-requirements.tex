@@ -6,7 +6,7 @@ The following interfaces are designed to prioritize accessibility, accommodating
 
 \subsection{User Interfaces}
 S\&C will feature a modern, accessible and responsive web interface designed to meet the needs of students, companies and universities.
-A mobile-friendly version will ensure accessibility across devices, boosting user engagement.
+A mobile-friendly version will ensure compatibility across devices, boosting user engagement.
 
 \subsubsection{Wireframe}
 To illustrate the platform’s design, an exemplary wireframe follows to offer a simplified visual representation of the home page from the point of view of a university student.
@@ -19,7 +19,7 @@ To illustrate the platform’s design, an exemplary wireframe follows to offer a
 
 \subsection{Hardware Interfaces}
 The platform is designed to be hardware-agnostic, supporting all standard internet-enabled devices, including desktops, laptops, smartphones and tablets.
-While S\&C ensures compatibility with smaller devices, such as smartphones, features requiring detailed input, for example uploading documents or adding questionnaires, are better suited to a desktop or laptop environment for optimal user experience.
+While S\&C ensures compatibility with smaller devices, such as smartphones, features requiring detailed input, for example uploading CVs or adding questionnaires, are better suited to a desktop or laptop environment for optimal user experience.
 
 \subsection{Software Interfaces}
 S\&C requires an email provider interface to send confirmation emails to users during the registration process.
@@ -28,11 +28,10 @@ Additionally, the platform will send notifications to users through the email pr
 \subsection{Communication Interfaces}
 The platform will rely on the HTTPS protocol to ensure secure data transmission, protecting user information during interactions.
 SMTP will handle email notifications, ensuring timely delivery of updates.
-Additionally, the system will integrate with WebSocket to enable live notifications.
 
 \section{Functional Requirements}
 This section lists the detailed functional requirements of Students\&Companies, mapped directly to the overarching goals for clarity and traceability.
-Additionally, use cases are provided to illustrate specific scenarios, ensuring the requirements are grounded in real-world user needs.
+Additionally, use cases are provided to illustrate specific features, ensuring the requirements are grounded in real-world user needs.
 
 \subsection{Requirements}
 The table below presents detailed functional requirements.
@@ -251,12 +250,12 @@ This section outlines the compliance requirements and the constraints that defin
 \subsection{Standard Compliance}
 Before using S\&C, all users must explicitly accept the platform's privacy policy.
 The platform must comply fully with GDPR regulations, ensuring transparency in how data is collected, stored and processed.
-This includes providing users with tools to manage their personal data, such as viewing, editing or deleting their information.
-Secure handling is particularly important for documents like CVs, which may contain highly sensitive personal information.
+This includes providing users with tools to manage their personal data, such as viewing, updating or deleting their information.
+Secure handling is particularly important for CVs, which may contain sensitive personal information.
 
 \subsection{Hardware Limitations}
 Users are required to access the platform via devices equipped with stable internet connections and modern web browsers, namely Chrome, Safari and Edge.
-While desktops provide the best user experience for uploading documents and adding questionnaires, the platform must also ensure functionality on mobile devices.
+While desktops provide the best user experience for uploading CVs and adding questionnaires, the platform must also ensure functionality on mobile devices.
 Additionally, the platform must account for varying device capabilities, including lower bandwidth environments, by employing lightweight designs and caching where appropriate.
 
 \section{Software System Attributes}
@@ -265,12 +264,12 @@ This section describes the essential software qualities that the Students\&Compa
 \subsection{Reliability}
 The platform must be fault tolerant, capable of preventing error propagation and ensuring continuous usability.
 Mechanisms such as database replication, automated failover and regular backups must be in place to maintain reliability.
-Critical tasks like applications, postings and updates must remain operational even during system failures, with immediate recovery protocols.
+Critical tasks like postings, applications and updates must remain operational even during system failures, with immediate recovery protocols.
 
 \subsection{Availability}
 S\&C must achieve a minimum availability rate of 99.9\%, limiting downtime to approximately 8.76 hours per year.
 Maintenance should be minimized and scheduled during low-traffic periods, such as nighttime, to prevent disruptions.
-Special care must be taken to ensure platform availability during peak usage periods, such as application deadlines or high-profile internship postings.
+Special care must be taken to ensure platform availability during peak usage periods, such as high-profile internship postings or application deadlines.
 
 \subsection{Security}
 The platform must implement robust access control, ensuring authentication to verify user identities and authorization to confirm permissions for specific actions.
