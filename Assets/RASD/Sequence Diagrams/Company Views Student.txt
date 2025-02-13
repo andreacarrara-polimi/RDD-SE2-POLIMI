@@ -1,0 +1,12 @@
+actor CO
+activate CO
+activate S&C
+
+CO -> S&C:ClickStudentName
+
+alt Student has not been deleted
+S&C --> CO: DisplayStudentPage
+
+else Student has been deleted
+S&C --> CO: DisplayErrorMessage("Student has been deleted")
+end alt

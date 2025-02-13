@@ -1,0 +1,78 @@
+actor University
+activate University
+
+activate Web App
+University -> Web App: navigateLandingPage
+activate Web Server
+Web App -> Web Server: openLandingPage
+Web Server --> Web App: returnLandingPage
+deactivate Web Server
+Web App --> University: displayLandingPage
+
+University -> Web App: clickSignUpUniversityButton
+activate Web Server
+Web App -> Web Server: openSignUpUniversityPage
+Web Server --> Web App: returnSignUpUniversityPage
+deactivate Web Server
+Web App --> University: displaySignUpUniversityPage
+
+University -> Web App: clickSignUpButton(fields)
+activate Web Server
+Web App -> Web Server: handleUniversitySignup(fields)
+activate User Manager
+Web Server -> User Manager: handleUniversitySignup(fields)
+
+alt Email is invalid
+User Manager --> Web Server: returnErrorMessage("Email is invalid")
+Web Server --> Web App: returnErrorMessage("Email is invalid")
+Web App --> University: displayErrorMessage("Email is invalid")
+
+else Password is short
+User Manager --> Web Server: returnErrorMessage("Password is short")
+Web Server --> Web App: returnErrorMessage("Password is short")
+Web App --> University: displayErrorMessage("Password is short")
+
+else Passwords do not match
+User Manager --> Web Server: returnErrorMessage("Passwords do not match")
+Web Server --> Web App: returnErrorMessage("Passwords do not match")
+Web App --> University: displayErrorMessage("Passwords do not match")
+end alt
+
+alt Fields are valid
+activate Notification Manager
+User Manager -> Notification Manager: handleConfirmationNotification
+activate Mail Server
+Notification Manager -> Mail Server: requestEmail
+Mail Server --> Notification Manager: returnSuccess
+deactivate Mail Server
+Notification Manager --> User Manager: returnSuccess
+deactivate Notification Manager
+activate Model
+User Manager -> Model: performUniversitySignup(fields)
+activate DBMS Server
+Model -> DBMS Server: storeProfile
+DBMS Server --> Model: returnSuccess
+deactivate DBMS Server
+Model --> User Manager: returnSuccess
+User Manager -> Model: getMonitoredStudents
+Model --> User Manager: returnMonitoredStudents
+User Manager --> Web Server: returnUniversityHomePage
+Web Server --> Web App: returnUniversityHomePage
+Web App --> University: displayUniversityHomePage
+
+else Email is already linked
+Model --> User Manager: returnErrorMessage("Email is already linked")
+User Manager --> Web Server: returnErrorMessage("Email is already linked")
+Web Server --> Web App: returnErrorMessage("Email is already linked")
+Web App --> University: displayErrorMessage("Email is already linked")
+
+else Another field is invalid
+Model --> User Manager: returnErrorMessage("Another field is invalid")
+deactivate Model
+User Manager --> Web Server: returnErrorMessage("Another field is invalid")
+deactivate User Manager
+Web Server --> Web App: returnErrorMessage("Another field is invalid")
+deactivate Web Server
+Web App --> University: displayErrorMessage("Another field is invalid")
+deactivate Web App
+end alt

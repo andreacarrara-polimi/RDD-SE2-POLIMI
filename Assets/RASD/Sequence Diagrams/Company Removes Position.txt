@@ -1,0 +1,10 @@
+actor CO
+activate CO
+activate S&C
+
+CO -> S&C: ClickMyPositionsButton
+S&C --> CO: DisplayPositionsPage
+CO -> S&C: ClickPositionName
+S&C --> CO: DisplayPositionPage
+CO -> S&C: ClickRemovePositionButton
+S&C --> CO: DisplayMyPositionsPage

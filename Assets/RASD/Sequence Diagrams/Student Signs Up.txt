@@ -1,0 +1,35 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: NavigateLandingPage
+S&C --> US: DisplayLandingPage
+US -> S&C: ClickSignUpStudentButton
+S&C --> US: DisplaySignupPage
+US -> S&C: ClickSignUpButton(fields)
+S&C -> S&C: ValidateFields(fields)
+
+alt Fields are valid
+activate EP
+S&C -> EP: RequestConfirmationEmail
+EP --> US: SendConfirmationEmail
+US -> EP: ClickConfirmationLink
+EP --> S&C: ConfirmSignUp
+deactivate EP
+S&C --> US: DisplayLoginPage
+
+else Email is invalid
+S&C --> US: DisplayErrorMessage("Email is invalid")
+
+else Email is already linked
+S&C --> US: DisplayErrorMessage("Email is already linked")
+
+else Password is short
+S&C --> US: DisplayErrorMessage("Password is short")
+
+else Passwords do no match
+S&C --> US: DisplayErrorMessage("Passwords do not match")
+
+else Another field is invalid
+S&C --> US: DisplayErrorMessage("Another field is invalid")
+end alt

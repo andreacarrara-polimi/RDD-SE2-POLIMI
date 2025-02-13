@@ -1,0 +1,12 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: ClickCompanyName
+
+alt Company has not been deleted
+S&C --> US: DisplayCompanyPage
+
+else Company has been deleted
+S&C --> US: DisplayErrorMessage("Company has been deleted")
+end alt

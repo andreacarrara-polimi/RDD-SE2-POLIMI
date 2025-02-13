@@ -1,0 +1,10 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: ClickMyApplicationsButton
+S&C --> US: DisplayApplicationsPage
+US -> S&C: ClickApplicationName
+S&C --> US: DisplayApplicationPage
+US -> S&C: ClickWithdrawApplicationButton
+S&C --> US: DisplayApplicationsPage

@@ -1,0 +1,15 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: ClickPositionName
+
+alt Position is valid
+S&C --> US: DisplayPositionPage
+
+else Position has been removed
+S&C --> US: DisplayErrorMessage("Position has been removed")
+
+else Company has been deleted
+S&C --> US: DisplayErrorMessage("Company has been deleted")
+end alt

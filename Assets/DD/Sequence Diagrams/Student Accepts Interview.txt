@@ -1,0 +1,70 @@
+actor Student
+activate Student
+
+activate Web App
+Student -> Web App: clickMyApplicationsButton
+activate Web Server
+Web App -> Web Server: openMyApplicationsPage
+activate Selection Manager
+Web Server -> Selection Manager: openMyApplicationsPage
+activate Model
+Selection Manager -> Model: getApplications
+activate DBMS Server
+Model -> DBMS Server: queryApplications
+DBMS Server --> Model: returnApplications
+deactivate DBMS Server
+Model --> Selection Manager: returnApplications
+deactivate Model
+Selection Manager --> Web Server: returnMyApplicationsPage
+deactivate Selection Manager
+Web Server --> Web App: returnMyApplicationsPage
+deactivate Web Server
+Web App --> Student: displayMyApplicationsPage
+
+Student -> Web App: clickApplicationName
+activate Web Server
+Web App -> Web Server: openApplicationPage
+activate Selection Manager
+Web Server -> Selection Manager: openApplicationPage
+activate Model
+Selection Manager -> Model: getApplication
+activate DBMS Server
+Model -> DBMS Server: queryApplication
+DBMS Server --> Model: returnApplication
+deactivate DBMS Server
+Model --> Selection Manager: returnApplication
+deactivate Model
+Selection Manager --> Web Server: returnApplicationPage
+deactivate Selection Manager
+Web Server --> Web App: returnApplicationPage
+deactivate Web Server
+Web App --> Student: displayApplicationPage
+
+Student -> Web App: clickAcceptButton
+activate Web Server
+Web App -> Web Server: handleAcceptInterview(accepted)
+activate Selection Manager
+Web Server -> Selection Manager: handleAcceptInterview(accepted)
+activate Model
+Selection Manager -> Model: performAcceptInterview(accepted)
+activate DBMS Server
+Model -> DBMS Server: storeAcceptInterview(accepted)
+DBMS Server --> Model: returnSuccess
+deactivate DBMS Server
+Model --> Selection Manager: returnSuccess
+deactivate Model
+Selection Manager --> Web Server: returnSuccess
+Web Server --> Web App: returnSuccess
+deactivate Web Server
+Web App --> Student: returnSuccess
+deactivate Web App
+
+activate Notification Manager
+Selection Manager -> Notification Manager: handleAcceptedInterviewNotification(accepted)
+activate Mail Server
+Notification Manager -> Mail Server: requestEmail
+Mail Server --> Notification Manager: returnSuccess
+deactivate Mail Server
+Notification Manager --> Selection Manager: returnSuccess
+deactivate Notification Manager
+deactivate Selection Manager

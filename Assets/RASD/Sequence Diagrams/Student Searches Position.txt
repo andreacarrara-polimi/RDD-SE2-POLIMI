@@ -1,0 +1,13 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: ClickSearchButton(keyword)
+S&C -> S&C: ComputeResults(keyword)
+
+alt Some results are computed
+S&C --> US: DisplayResultsPage
+
+else No results are computed
+S&C --> US: DisplayErrorMessage("No results are computed")
+end alt

@@ -1,0 +1,26 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: ClickMyApplicationsButton
+S&C --> US: DisplayApplicationsPage
+US -> S&C: ClickApplicationName
+S&C --> US: DisplayApplicationPage
+US -> S&C: ClickViewQuestionnaireButton
+S&C --> US: DisplayQuestionnaire
+US -> S&C: ClickSubmitButton(fields)
+S&C -> S&C: ValidateFields(fields)
+
+alt Fields are valid
+S&C --> US: DisplayPositionPage
+activate EP
+S&C -> EP: RequestNotificationEmail
+actor CO
+activate CO
+EP --> CO: SendNotificationEmail
+deactivate CO
+deactivate EP
+
+else A field is invalid
+S&C --> US: DisplayErrorMessage("A field is invalid")
+end alt

@@ -1,0 +1,20 @@
+actor User
+activate User
+activate S&C
+
+User -> S&C: NavigateLandingPage
+S&C --> User: DisplayLandingPage
+User -> S&C: ClickLogInButton
+S&C --> User: DisplayLoginPage
+User -> S&C: ClickLogInButton(credentials)
+S&C -> S&C: ValidateCredentials(credentials)
+
+alt Credentials are valid
+S&C --> User: DisplayHomePage
+
+else Email is invalid
+S&C --> User: DisplayErrorMessage("Email is invalid")
+
+else Password is wrong
+S&C --> User: DisplayErrorMessage("Password is wrong")
+end alt

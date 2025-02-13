@@ -1,0 +1,78 @@
+actor University
+activate University
+
+activate Web App
+University -> Web App: clickStudentName
+activate Web Server
+Web App -> Web Server: openStudentPage
+activate Position Manager
+participant Internship Manager
+Web Server -> Position Manager: openStudentPage
+activate Model
+Position Manager -> Model: getStudent
+activate DBMS Server
+Model -> DBMS Server: queryStudent
+DBMS Server --> Model: returnStudent
+deactivate DBMS Server
+Model --> Position Manager: returnStudent
+deactivate Model
+Position Manager --> Web Server: returnStudentPage
+deactivate Position Manager
+Web Server --> Web App: returnUniversityStudentPage
+deactivate Web Server
+Web App --> University: displayUniversityStudentPage
+
+University -> Web App: clickInternshipName
+activate Web Server
+Web App -> Web Server: openInternshipPage
+activate Internship Manager
+Web Server -> Internship Manager: openInternshipPage
+activate Model
+Internship Manager -> Model: getInternship
+activate DBMS Server
+Model -> DBMS Server: queryInternship
+DBMS Server --> Model: returnInternship
+deactivate DBMS Server
+Model --> Internship Manager: returnInternship
+deactivate Model
+Internship Manager --> Web Server: returnInternshipPage
+deactivate Internship Manager
+Web Server --> Web App: returnInternshipPage
+deactivate Web Server
+Web App --> University: displayInternshipPage
+
+University -> Web App: clickSendCommentButton(fields)
+activate Web Server
+Web App -> Web Server: handleSendComment(fields)
+activate Internship Manager
+Web Server -> Internship Manager: handleSendComment(fields)
+
+alt Fields are valid
+activate Model
+Internship Manager -> Model: performSendComment(fields)
+activate DBMS Server
+Model -> DBMS Server: storeComment
+DBMS Server --> Model: returnSuccess
+deactivate DBMS Server
+Model --> Internship Manager: returnSuccess
+deactivate Model
+activate Notification Manager
+Internship Manager -> Notification Manager: handleInternshipCommentNotification(fields)
+activate Mail Server
+Notification Manager -> Mail Server: requestEmail
+Mail Server --> Notification Manager: returnSuccess
+deactivate Mail Server
+Notification Manager --> Internship Manager: returnSuccess
+deactivate Notification Manager
+Internship Manager --> Web Server: returnSuccess
+Web Server --> Web App: returnSuccess
+Web App --> University: returnSuccess
+
+else A field is invalid
+Internship Manager --> Web Server: returnErrorMessage("A field is invalid")
+deactivate Internship Manager
+Web Server --> Web App: returnErrorMessage("A field is invalid")
+deactivate Web Server
+Web App --> University: displayErrorMessage("A field is invalid")
+deactivate Web App
+end alt

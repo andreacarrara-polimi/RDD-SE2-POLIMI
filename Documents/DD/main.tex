@@ -1,0 +1,75 @@
+\documentclass{template/class}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{parskip}
+
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{3.3ex}{2ex}
+\titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
+\titlespacing{\subsubsection}{0pt}{3.3ex}{1ex}
+\usepackage{fancyhdr}
+\fancyhf{}
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black
+]{hyperref}
+
+\usepackage{biblatex}
+\bibliography{bibliography}
+
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{transparent}
+\usepackage{eso-pic}
+
+\usepackage{colortbl}
+\usepackage{longtable}
+
+\usepackage{fix-cm}
+
+\input{template/config}
+
+\begin{document}
+
+\frontmatter
+
+\puttitle{
+    title=Students\&Companies,
+    subtitle=Design Document,
+    authors=Andrea Carrara\\and Federica Currò Dossi,
+    date={January 7, 2025}
+}
+
+\tableofcontents
+
+\mainmatter
+\setcounter{page}{1}
+
+\chapter{Introduction}
+\input{chapters/1-introduction}
+
+\chapter{Architectural Design}
+\input{chapters/2-architectural-design}
+
+\chapter{User Interface Design}
+\input{chapters/3-user-interface-design}
+
+\chapter{Requirements Traceability}
+\input{chapters/4-requirements-traceability}
+
+\chapter{Implementation, Integration and Test Plan}
+\input{chapters/5-implementation-integration-and-test-plan}
+
+\chapter{Workload}
+\input{chapters/6-workload}
+
+\printbibliography
+
+\listoffigures
+
+\listoftables
+
+\end{document}

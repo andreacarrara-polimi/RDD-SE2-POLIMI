@@ -1,0 +1,39 @@
+actor CO
+activate CO
+activate S&C
+
+activate EP
+S&C -> EP: RequestNotificationEmail
+EP --> CO: SendNotificationEmail
+deactivate EP
+CO -> S&C: ClickViewStudentLink
+
+alt Student is valid
+S&C --> CO: DisplayStudentPage
+CO -> S&C: ClickAcceptButton
+S&C --> CO: DisplayPositionPage
+S&C -> S&C: CheckMatch
+
+opt Match is identified
+activate EP
+S&C -> EP: RequestNotificationEmail
+EP --> CO: SendNotificationEmail
+actor US
+activate US
+EP --> US: SendNotificationEmail
+deactivate US
+deactivate EP
+end opt
+
+else Recommendation has already been resolved
+S&C --> CO: DisplayHomePage
+S&C --> CO: DisplayErrorMessage("Recommendation has already been resolved")
+
+else Position has been removed
+S&C --> CO: DisplayHomePage
+S&C --> CO: DisplayErrorMessage("Position has been removed")
+
+else Student has been deleted
+S&C --> CO: DisplayHomePage
+S&C --> CO: DisplayErrorMessage("Student has been deleted")
+end alt

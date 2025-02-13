@@ -1,0 +1,35 @@
+actor User
+activate User
+
+activate Web App
+User -> Web App: clickMyProfileButton
+activate Web Server
+Web App -> Web Server: openMyProfilePage
+activate User Manager
+Web Server -> User Manager: openMyProfilePage
+activate Model
+User Manager -> Model: getProfile
+
+activate DBMS Server
+Model -> DBMS Server: queryProfile
+DBMS Server --> Model: returnProfile
+deactivate DBMS Server
+Model --> User Manager: returnProfile
+deactivate Model
+User Manager --> Web Server: returnMyProfilePage
+deactivate User Manager
+Web Server --> Web App: returnMyProfilePage
+deactivate Web Server
+Web App --> User: displayMyProfilePage
+
+User -> Web App: clickLogOutButton
+activate Web Server
+Web App -> Web Server: handleLogout
+activate User Manager
+Web Server -> User Manager: handleLogout
+User Manager --> Web Server: returnLandingPage
+deactivate User Manager
+Web Server --> Web App: returnLandingPage
+deactivate Web Server
+Web App --> User: displayLandingPage
+deactivate Web App

@@ -1,0 +1,31 @@
+actor UN
+activate UN
+activate S&C
+
+UN -> S&C: ClickStudentName
+S&C --> UN: DisplayStudentPage
+UN -> S&C: ClickInternshipName
+S&C --> UN: DisplayInternshipPage
+UN -> S&C: ClickWriteCommentButton
+S&C --> UN: DisplayWriteCommentForm
+UN -> S&C: ClickSubmitButton(fields)
+S&C -> S&C: ValidateFields(fields)
+
+alt Fields are valid
+S&C --> UN: DisplayInternshipPage
+activate EP
+S&C -> EP: RequestNotificationEmail
+actor US
+activate US
+EP --> US: SendEmailNotification
+deactivate US
+actor CO
+activate CO
+EP --> CO: SendNotificationEmail
+deactivate CO
+deactivate EP
+
+
+else A field is invalid
+S&C --> UN: DisplayErrorMessage("A field is invalid")
+end alt

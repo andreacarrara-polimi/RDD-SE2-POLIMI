@@ -1,0 +1,117 @@
+actor Company
+participant Web App
+participant Web Server
+participant Position Manager
+participant Recommendation Manager
+participant Notification Manager
+participant Model
+participant DBMS Server
+participant Mail Server
+participant Email Provider
+actor Student
+
+activate Recommendation Manager
+activate Notification Manager
+Recommendation Manager -> Notification Manager: handleRecommendationNotification
+activate Mail Server
+Notification Manager -> Mail Server: requesEmail
+activate Email Provider
+Mail Server -> Email Provider: sendEmail
+activate Company
+Email Provider --> Company: email
+deactivate Company
+Email Provider --> Mail Server: returnSuccess
+deactivate Email Provider
+Mail Server --> Notification Manager: returnSuccess
+deactivate Mail Server
+Notification Manager --> Recommendation Manager: returnSucess
+deactivate Notification Manager
+deactivate Recommendation Manager
+
+activate Company
+activate Web App
+Company -> Web App: clickViewStudentLink
+activate Web Server
+Web App -> Web Server: openStudentPage
+activate Position Manager
+Web Server -> Position Manager: openStudentPage
+activate Model
+Position Manager -> Model: getProfile
+activate DBMS Server
+Model -> DBMS Server: queryProfile
+DBMS Server --> Model: returnProfile
+deactivate DBMS Server
+
+alt Position has been removed
+Model --> Position Manager: returnErrorMessage("Position has been removed")
+Position Manager --> Web Server: returnErrorMessage("Position has been removed")
+Web Server --> Web App: returnErrorMessage("Position has been removed")
+Web App --> Company: returnErrorMessage("Position has been removed")
+
+else Student has been deleted
+Model --> Position Manager: returnErrorMessage("Student has been deleted")
+Position Manager --> Web Server: returnErrorMessage("Student has been deleted")
+Web Server --> Web App: returnErrorMessage("Student has been deleted")
+Web App --> Company: returnErrorMessage("Student has been deleted")
+
+else Position is valid
+Model --> Position Manager: returnProfile
+deactivate Model
+Position Manager --> Web Server: returnStudentPage
+deactivate Position Manager
+Web Server --> Web App: returnStudentPage
+deactivate Web Server
+Web App --> Company: returnStudentPage
+
+activate Web Server
+Company -> Web App: clickAcceptButton
+Web App -> Web Server: handleAcceptCompanyRecommendation(accepted)
+activate Recommendation Manager
+Web Server -> Recommendation Manager: handleAcceptCompanyRecommendation(accepted)
+activate Model
+Recommendation Manager -> Model: performAcceptCompanyRecommendation(accepted)
+activate DBMS Server
+Model -> DBMS Server: storeAcceptCompanyRecommendation(accepted)
+
+alt Recommendation has already been processed
+DBMS Server --> Model: returnError
+Model --> Recommendation Manager: returnErrorMessage("Recommendation has already been processed")
+Recommendation Manager --> Web Server: returnErrorMessage("Recommendation has already been processed")
+Web Server --> Web App: returnErrorMessage("Recommendation has already been processed")
+Web App --> Company: displayErrorMessage("Recommendation has already been processed")
+
+else Recommendation is valid
+DBMS Server --> Model: returnSuccess
+deactivate DBMS Server
+Model --> Recommendation Manager: returnSuccess
+deactivate Model
+Recommendation Manager --> Web Server: returnSuccess
+Web Server --> Web App: returnSuccess
+deactivate Web Server
+Web App --> Company: returnSuccess
+deactivate Web App
+deactivate Company
+
+opt Match is identified
+activate Notification Manager
+Recommendation Manager -> Notification Manager: handleMatchNotification
+activate Mail Server
+Notification Manager -> Mail Server: requestNotificationEmail
+activate Email Provider
+Mail Server -> Email Provider: sendEmail
+activate Company
+Email Provider --> Company: email
+deactivate Company
+activate Student
+Email Provider --> Student: email
+deactivate Student
+Email Provider --> Mail Server: returnSuccess
+deactivate Email Provider
+Mail Server --> Notification Manager: returnSuccess
+deactivate Mail Server
+Notification Manager --> Recommendation Manager: returnSuccess
+deactivate Notification Manager
+deactivate Recommendation Manager
+end opt
+end alt
+end alt

@@ -1,0 +1,37 @@
+actor UN
+activate UN
+activate S&C
+
+UN -> S&C: ClickMyProfileButton
+S&C --> UN: DisplayProfilePage
+UN -> S&C: ClickUpdateProfileButton
+S&C --> UN: DisplayProfileEditor
+UN -> S&C: ClickSaveProfileButton(fields)
+S&C -> S&C: ValidateFields(fields)
+
+alt Fields are valid
+opt Email is updated
+activate EP
+S&C -> EP: RequestConfirmationEmail
+EP --> UN: SendConfirmationEmail
+UN -> EP: ClickConfirmationLink
+EP --> S&C: ConfirmUpdateProfile
+deactivate EP
+end opt
+S&C --> UN: DisplayProfilePage
+
+else Email is invalid
+S&C --> UN: DisplayErrorMessage("Email is invalid")
+
+else Email is already linked
+S&C --> UN: DisplayErrorMessage("Email is already linked")
+
+else Password is short
+S&C --> UN: DisplayErrorMessage("Password is short")
+
+else Passwords do no match
+S&C --> UN: DisplayErrorMessage("Passwords do no match")
+
+else Another field is invalid
+S&C --> UN: DisplayErrorMessage("Another field is invalid")
+end alt

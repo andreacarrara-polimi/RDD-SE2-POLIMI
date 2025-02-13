@@ -1,0 +1,54 @@
+actor Company
+activate Company
+
+activate Web App
+Company -> Web App: navigateLandingPage
+activate Web Server
+Web App -> Web Server: openLandingPage
+Web Server --> Web App: returnLandingPage
+deactivate Web Server
+Web App --> Company: displayLandingPage
+
+Company -> Web App: clickLogInButton
+activate Web Server
+Web App -> Web Server: openLoginPage
+Web Server --> Web App: returnLoginPage
+deactivate Web Server
+Web App --> Company: displayLoginPage
+
+Company -> Web App: clickLogInButton(credentials)
+activate Web Server
+Web App -> Web Server: handleLogin(credentials)
+activate User Manager
+Web Server -> User Manager: handleLogin(credentials)
+activate Model
+User Manager -> Model: performLogin(credentials)
+activate DBMS Server
+Model -> DBMS Server: queryCredentials
+DBMS Server --> Model: returnCredentials
+deactivate DBMS Server
+
+alt Credentials are valid
+Model --> User Manager: returnSuccess
+User Manager -> Model: getRecommendedStudents
+Model --> User Manager: returnRecommendedStudents
+User Manager --> Web Server: returnCompanyHomePage
+Web Server --> Web App: returnCompanyHomePage
+Web App --> Company: displayCompanyHomePage
+
+else Email is invalid
+Model --> User Manager: returnErrorMessage("Email is invalid")
+User Manager --> Web Server: returnErrorMessage("Email is invalid")
+Web Server --> Web App: returnErrorMessage("Email is invalid")
+Web App --> Company: displayErrorMessage("Email is invalid")
+
+else Password is wrong
+Model --> User Manager: returnErrorMessage("Password is wrong")
+deactivate Model
+User Manager --> Web Server: returnErrorMessage("Password is wrong")
+deactivate User Manager
+Web Server --> Web App: returnErrorMessage("Password is wrong")
+deactivate Web Server
+Web App --> Company: displayErrorMessage("Password is wrong")
+deactivate Web App
+end alt

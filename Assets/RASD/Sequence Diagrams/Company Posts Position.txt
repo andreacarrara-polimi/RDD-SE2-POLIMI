@@ -1,0 +1,15 @@
+actor CO
+activate CO
+activate S&C
+
+CO -> S&C: ClickPostPosition
+S&C --> CO: DisplayPositionPostingPage
+CO -> S&C: ClickPostButton(fields)
+S&C -> S&C: ValidateFields(fields)
+
+alt Fields are valid
+S&C --> CO: DisplayHomePage
+
+else A field is invalid
+S&C --> CO: DisplayErrorMessage("A field is invalid")
+end alt

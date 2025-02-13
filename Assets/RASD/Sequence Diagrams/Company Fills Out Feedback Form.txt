@@ -1,0 +1,15 @@
+actor CO
+activate CO
+activate S&C
+
+CO -> S&C: ClickGiveFeedbackButton
+S&C --> CO: DisplayFeedbackForm
+CO -> S&C: ClickSubmitButton(fields)
+S&C -> S&C: ValidateFieds(fields)
+
+alt Fields are valid
+S&C --> CO: DisplayHomePage
+
+else A field is invalid
+S&C --> CO: DisplayErrorMessage("A field is invalid")
+end alt

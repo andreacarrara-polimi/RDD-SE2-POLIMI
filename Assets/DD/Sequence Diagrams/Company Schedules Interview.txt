@@ -1,0 +1,98 @@
+actor Company
+activate Company
+
+activate Web App
+Company -> Web App: clickMyPositionsButton
+activate Web Server
+Web App -> Web Server: openMyPositionsPage
+activate Position Manager
+participant Selection Manager
+Web Server -> Position Manager: openMyPositionsPage
+activate Model
+Position Manager -> Model: getPositions
+activate DBMS Server
+Model -> DBMS Server: queryPositions
+DBMS Server --> Model: returnPositions
+deactivate DBMS Server
+Model --> Position Manager: returnPositions
+deactivate Model
+Position Manager --> Web Server: returnMyPositionsPage
+deactivate Position Manager
+Web Server --> Web App: returnMyPositionsPage
+deactivate Web Server
+Web App --> Company: displayMyPositionsPage
+
+Company -> Web App: clickPositionName
+activate Web Server
+Web App -> Web Server: openPositionPage
+activate Position Manager
+Web Server -> Position Manager: openPositionPage
+activate Model
+Position Manager -> Model: getPosition
+activate DBMS Server
+Model -> DBMS Server: queryPosition
+DBMS Server --> Model: returnPosition
+deactivate DBMS Server
+Model --> Position Manager: returnPosition
+deactivate Model
+Position Manager --> Web Server: returnPositionPage
+deactivate Position Manager
+Web Server --> Web App: returnPositionPage
+deactivate Web Server
+Web App --> Company: displayPositionPage
+
+Company -> Web App: clickStudentName
+activate Web Server
+Web App -> Web Server: openStudentPage
+activate Position Manager
+Web Server -> Position Manager: openStudentPage
+activate Model
+Position Manager -> Model: getProfile
+activate DBMS Server
+Model -> DBMS Server: queryProfile
+DBMS Server --> Model: returnProfile
+deactivate DBMS Server
+Model --> Position Manager: returnProfile
+deactivate Model
+Position Manager --> Web Server: returnStudentPage
+deactivate Position Manager
+Web Server --> Web App: returnStudentPage
+deactivate Web Server
+Web App --> Company: displayStudentPage
+
+Company -> Web App: clickScheduleInterviewButton(fields)
+activate Web Server
+Web App -> Web Server: handleScheduleInterview(fields)
+activate Selection Manager
+Web Server -> Selection Manager: handleScheduleInterview(fields)
+activate Model
+
+alt A field is invalid
+Selection Manager --> Web Server: returnErrorMessage("A field is invalid")
+Web Server --> Web App: returnErrorMessage("A field is invalid")
+Web App --> Company: displayErrorMessage("A field is invalid")
+
+else Fields are valid
+Selection Manager -> Model: performScheduleInterview(fields)
+activate DBMS Server
+Model -> DBMS Server: storeScheduleInterview(fields)
+DBMS Server --> Model: returnSuccess
+deactivate DBMS Server
+Model --> Selection Manager: returnSuccess
+deactivate Model
+Selection Manager --> Web Server: returnSuccess
+Web Server --> Web App: returnSuccess
+deactivate Web Server
+Web App --> Company: returnSuccess
+deactivate Web App
+
+activate Notification Manager
+Selection Manager -> Notification Manager: handleScheduledInterviewNotification(fields)
+activate Mail Server
+Notification Manager -> Mail Server: requestEmail
+Mail Server --> Notification Manager: returnSuccess
+deactivate Mail Server
+Notification Manager --> Selection Manager: returnSuccess
+deactivate Notification Manager
+deactivate Selection Manager
+end alt

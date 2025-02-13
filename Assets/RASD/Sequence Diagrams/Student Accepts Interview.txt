@@ -1,0 +1,20 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: ClickMyApplicationsButton
+S&C --> US: DisplayApplicationsPage
+US -> S&C: ClickApplicationName
+S&C --> US: DisplayApplicationPage
+US -> S&C: ClickViewInterviewButton
+S&C --> US: DisplayInterviewPage
+US -> S&C: ClickAcceptButton
+S&C --> US: DisplayApplicationPage
+
+activate EP
+S&C -> EP: RequestNotificationEmail
+actor CO
+activate CO
+EP --> CO: SendNotificationEmail
+deactivate CO
+deactivate EP

@@ -1,0 +1,14 @@
+actor User
+activate User
+activate S&C
+
+User -> S&C: ClickMyProfileButton
+S&C --> User: DisplayProfilePage
+User -> S&C: ClickDeleteProfileButton
+activate EP
+S&C -> EP: RequestConfirmationEmail
+EP --> User: SendConfirmationEmail
+User -> EP: ClickConfirmationLink
+EP --> S&C: ConfirmDeleteProfile
+deactivate EP
+S&C --> User: DisplayLandingPage

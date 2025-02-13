@@ -1,0 +1,26 @@
+actor US
+activate US
+activate S&C
+
+US -> S&C: ClickApplyButton
+
+alt Position is valid
+S&C --> US: DisplayApplicationPage
+activate EP
+S&C -> EP: RequestConfirmationEmail
+EP --> US: SendConfirmationEmail
+S&C -> EP: RequestNotificationEmail
+activate CO
+EP --> CO: SendNotificationEmail
+deactivate EP
+deactivate CO
+
+else Student has already applied
+S&C --> US: DisplayErrorMessage("Student has already applied")
+
+else Position has been removed
+S&C --> US: DisplayErrorMessage("Position has been removed")
+
+else Company has been deleted
+S&C --> US: DisplayErrorMessage("Company has been deleted")
+end alt
