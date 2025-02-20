@@ -5,6 +5,8 @@ Coupled with the following README, it serves as a guide on how to efficiently re
 
 ## Content
 
+We have included our assignment for reference.
+
 ### Documents
 
 The "Documents" folder contains deliverables and their source code.
