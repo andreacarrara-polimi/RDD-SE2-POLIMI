@@ -16,7 +16,7 @@ For example, it includes a predefined table for use cases.
 
 The "Assets" folder stores the raw files for diagrams, including sequence diagrams.
 You can open the diagrams on [draw.io](https://www.draw.io) and the sequence diagrams on [sequencediagrams.org](https://www.sequencediagrams.org).
-This keeps everything organized and easy to update.
+This keeps everything easy to update.
 
 ### Presentation
 
@@ -29,10 +29,10 @@ We made a few mistakes that are worth pointing out so you can avoid them:
 
 * We used some abbreviations before they had been defined in the glossary. To avoid confusion, briefly explain each of them when first introduced.
 * We labeled BPMN diagrams as state diagrams. Both are fine, but make sure to label them correctly.
-* In the sequence diagrams, we incorrectly used dashed lines for both responses and asynchronous messages, namely emails.
+* In the sequence diagrams, we used dashed lines for both responses and asynchronous messages, namely emails.
 Instead, asynchronous messages have a distinct notation, but we don’t recall the correct one and found conflicting information online.
 Sorry.
-* In the last implementation step, the notification manager was shown as depending on the other managers, when it’s actually the other way around.
+* In the last implementation step, the notification manager was depicted as depending on the other managers, when it’s actually the other way around.
 
 Unexpectedly, no comments were made about the formal analysis, even though we anticipated criticism for not including a dynamic behavior model. Still, be cautious about this in your work.
 
