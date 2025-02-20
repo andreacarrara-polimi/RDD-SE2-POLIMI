@@ -1,7 +1,7 @@
 # Requirements and Design Documents for Software Engineering 2 at Polytechnic of Milan
 
 This repository contains the Requirements Analysis and Specification Document (RASD) and the Design Document (DD) for the Software Engineering 2 course at Polytechnic of Milan.
-Coupled with this README, it serves as a guide on how to efficiently replicate our work for future assignments without losing your mind or strangling your teammates.
+Coupled with the following README, it serves as a guide on how to efficiently replicate our work for future assignments without losing your mind or strangling your teammates.
 
 ## Content
 
@@ -15,7 +15,7 @@ For example, it includes a predefined table for use cases.
 ### Assets
 
 The "Assets" folder stores the raw files for diagrams, including sequence diagrams.
-You can open the diagrams on [draw.io](draw.io) and the sequence diagrams on [sequencediagrams.org](sequencediagrams.org).
+You can open the diagrams on [draw.io](https://www.draw.io) and the sequence diagrams on [sequencediagrams.org](https://www.sequencediagrams.org).
 This keeps everything organized and easy to update.
 
 ### Presentation
@@ -42,6 +42,6 @@ During the  discussion, each issue was addressed.
 For example, the professor noted missing cardinalities in the class diagram.
 We explained that only cardinalities from A to B were specified because A stores the reference to B in the code of the model.
 She accepted the explanation.
-Other times, she correctly identified the aforementioned mistakes and we agreed with her while explaining our reasoning.
-This secured us a full mark despite our mistakes.
+Other times, she correctly identified flaws and we agreed with her while explaining our reasoning.
+This secured us a full mark despite the aforementioned mistakes.
 While this was with Professor Di Nitto, we suspect a similar approach would work with other professors.
