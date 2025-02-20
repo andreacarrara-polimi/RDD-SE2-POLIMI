@@ -29,7 +29,7 @@ It’s not perfect, but it gets the job done.
 
 We made a few mistakes that are worth pointing out so you can avoid them:
 
-* We used some abbreviations before they had been defined in the glossary. To avoid confusion, briefly explain each of them when first introduced.
+* We used some abbreviations before they had been defined in the glossary. To avoid confusion, briefly explain them when first introduced.
 * We labeled BPMN diagrams as state diagrams. Both are fine, but make sure to label them correctly.
 * In the sequence diagrams, we used dashed lines for both responses and asynchronous messages, namely emails.
 Instead, asynchronous messages have a distinct notation, but we don’t recall the correct one and found conflicting information online.
