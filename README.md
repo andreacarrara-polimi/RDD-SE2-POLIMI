@@ -1,7 +1,7 @@
 # Requirements and Design Documents for Software Engineering 2 at Polytechnic of Milan
 
 This repository contains the Requirements Analysis and Specification Document (RASD) and the Design Document (DD) for the Software Engineering 2 course at Polytechnic of Milan.
-Coupled with the following README, it serves as a guide on how to efficiently replicate our work for future assignments without losing your mind or strangling your teammates.
+Coupled with the following README, it serves as a guide on how to replicate our work for future assignments without losing your mind or strangling your teammates.
 
 ## Content
 
@@ -22,21 +22,21 @@ This keeps everything easy to update.
 
 ### Presentation
 
-The "Presentation" folder contains the slides used for the presentation, created with [Beamer](https://it.overleaf.com/learn/latex/Beamer). We used [this template](https://github.com/pcafrica/beamerthemepolimi), which you can  import into Overleaf using [this port](https://it.overleaf.com/latex/templates/polimi-beamertheme/rjsxsvfzkpnv).
+The "Presentation" folder contains the slides used for the presentation, created with [Beamer](https://it.overleaf.com/learn/latex/Beamer). We used [this template](https://github.com/pcafrica/beamerthemepolimi) and imported it into Overleaf using [this port](https://it.overleaf.com/latex/templates/polimi-beamertheme/rjsxsvfzkpnv).
 It’s not perfect, but it gets the job done. The corresponding script can be found [here](https://docs.google.com/document/d/1HoE_nKrcrWzH-rxPx6QuYiF-BGIjKL58nVpfPlL2Byo).
 
 ## Mistakes
 
 We made a few mistakes that are worth pointing out so you can avoid them:
 
-* We used some abbreviations before they had been defined in the glossary. To avoid confusion, briefly explain them when first introduced.
+* We used some abbreviations before they had been defined in the glossary. To avoid confusion, explain them when first introduced.
 * We labeled BPMN diagrams as state diagrams. Both are fine, but make sure to label them correctly.
 * In the sequence diagrams, we used dashed lines for both responses and asynchronous messages, namely emails.
 Instead, asynchronous messages have a distinct notation, but we don’t recall the correct one and found conflicting information online.
 Sorry.
 * In the last implementation step, the notification manager was depicted as depending on the other managers, when it’s actually the other way around.
 
-Unexpectedly, no comments were made about the formal analysis, even though we anticipated criticism for not including a dynamic behavior model. Still, be cautious about this in your work.
+Unexpectedly, no comments were made about the formal analysis, even though we anticipated criticism for not modeling the dynamic behavior of the system. Still, be cautious about this in your work.
 
 ## Discussion
 
@@ -46,4 +46,4 @@ We explained that only cardinalities from A to B were specified because A stores
 She accepted the explanation.
 Other times, she correctly identified flaws and we agreed with her while explaining our reasoning.
 This secured us a full mark despite the aforementioned mistakes.
-While this was with Professor Di Nitto, we suspect a similar approach would work with other professors.
+While this was with Professor Di Nitto, we suppose a similar approach would work with other professors.
