@@ -23,7 +23,7 @@ This keeps everything easy to update.
 ### Presentation
 
 The "Presentation" folder contains the slides used for the presentation, created with [Beamer](https://it.overleaf.com/learn/latex/Beamer). We used [this template](https://github.com/pcafrica/beamerthemepolimi) and imported it into Overleaf using [this port](https://it.overleaf.com/latex/templates/polimi-beamertheme/rjsxsvfzkpnv).
-It’s not perfect, but it gets the job done. The corresponding script can be found [here](https://docs.google.com/document/d/1HoE_nKrcrWzH-rxPx6QuYiF-BGIjKL58nVpfPlL2Byo), where each paragraph corresponds to one slide.
+It’s not perfect, but it gets the job done. The corresponding script can be found [here](https://docs.google.com/document/d/1RVW6rwd48ViAyB4GCoNGyPHEAefgPEQRiPMS8HO172c), where each paragraph corresponds to one slide.
 
 ## Mistakes
 
