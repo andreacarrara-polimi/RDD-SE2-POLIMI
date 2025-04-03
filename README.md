@@ -34,6 +34,7 @@ We made a few mistakes that are worth pointing out so you can avoid them:
 * In the sequence diagrams, we used dashed lines for both responses and asynchronous messages, namely emails.
 Instead, asynchronous messages have a distinct notation, but we don’t recall the correct one and found conflicting information online.
 Sorry.
+* In the component views, we inverted the symbols of the interfaces. The lollipop  should be  on the side offering the service and the socket on the side consuming it.
 * In the last implementation step, the notification manager was depicted as depending on the other managers, when it’s actually the other way around.
 
 Unexpectedly, no comments were made about the formal analysis, even though we anticipated criticism for not modeling the dynamic behavior of the system. Still, be cautious about this in your work.
